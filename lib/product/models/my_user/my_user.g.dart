@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'appuser.dart';
+part of 'my_user.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Appuser _$AppuserFromJson(Map<String, dynamic> json) => Appuser(
+MyUser _$MyUserFromJson(Map<String, dynamic> json) => MyUser(
       id: json['id'] as String? ?? '',
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$AppuserToJson(Appuser instance) => <String, dynamic>{
+Map<String, dynamic> _$MyUserToJson(MyUser instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
     };

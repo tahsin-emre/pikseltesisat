@@ -1,24 +1,23 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-part 'appuser.g.dart';
+part 'my_user.g.dart';
 
 @JsonSerializable()
-final class Appuser extends Equatable {
-  const Appuser({
+final class MyUser extends Equatable {
+  const MyUser({
     required this.id,
     this.name,
   });
 
-  factory Appuser.fromJson(Map<String, dynamic> json) =>
-      _$AppuserFromJson(json);
+  factory MyUser.fromJson(Map<String, dynamic> json) => _$MyUserFromJson(json);
 
-  Map<String, dynamic>? toJson() => _$AppuserToJson(this);
+  Map<String, dynamic>? toJson() => _$MyUserToJson(this);
 
-  Appuser copyWith({
+  MyUser copyWith({
     String? id,
     String? name,
   }) {
-    return Appuser(
+    return MyUser(
       id: id ?? this.id,
       name: name ?? this.name,
     );

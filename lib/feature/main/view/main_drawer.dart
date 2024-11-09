@@ -4,40 +4,35 @@ import 'package:pikseltesisat/feature/main/widgets/drawer_widgets.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
+import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
 
-final class AdminDrawer extends StatelessWidget {
-  const AdminDrawer({required this.onClose, super.key});
-  final VoidCallback onClose;
+final class MainDrawer extends StatelessWidget {
+  const MainDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
         children: [
-          AppIcons.home.toCustomIcon(size: 100),
+          AppIcons.home.toCustomIcon(size: AppSizes.maxiM),
+          const Divider(),
           DrawerTile(
             title: LocaleKeys.drawer_home.tr(),
             icon: AppIcons.home,
-            onTap: () {
-              // onClose();
-              const DashboradRoute().go(context);
-            },
+            onTap: () => const DashboardRoute().go(context),
           ),
           DrawerTile(
             title: LocaleKeys.drawer_customers.tr(),
             icon: AppIcons.customers,
-            onTap: () {
-              // onClose();
-              const CustomerListRoute().go(context);
-            },
+            onTap: () => const CustomerListRoute().go(context),
           ),
           DrawerTile(
             title: LocaleKeys.drawer_plumbers.tr(),
             icon: AppIcons.plumbers,
-            onTap: () {
-              // onClose();
-              const PlumberListRoute().go(context);
-            },
+            onTap: () => const PlumberListRoute().go(context),
           ),
+          const Divider(),
+          const DrawerLogOut(),
         ],
       ),
     );

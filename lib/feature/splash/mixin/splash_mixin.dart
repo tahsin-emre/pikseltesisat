@@ -1,22 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pikseltesisat/feature/auth/cubit/auth_cubit.dart';
+import 'package:pikseltesisat/feature/auth/cubit/auth_state.dart';
 import 'package:pikseltesisat/feature/splash/view/splash_view.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
+import 'package:pikseltesisat/product/models/my_user/my_user.dart';
+import 'package:pikseltesisat/product/utils/extensions/my_user_ext.dart';
 
 mixin SplashMixin on State<SplashView> {
+  late final _authCubit = context.read<AuthCubit>();
+  AuthState get state => _authCubit.state;
+
   @override
   void initState() {
     super.initState();
-    currentUser();
+    findCurrentUser();
   }
 
-  Future<void> currentUser() async {
-    await Future.delayed(Durations.extralong4, navigateToLogin);
+  Future<void> findCurrentUser() async {
+    await _authCubit.findCurrentUser();
+    navigate(state.user);
   }
 
-  void navigateToLogin() {
-    const LoginRoute().go(context);
+  void navigate(MyUser? user) {
+    if (user == null) return const LoginRoute().go(context);
+    if (user.isAdmin) return const DashboardRoute().go(context);
+    if (user.isPlumber) return const LoginRoute().go(context);
   }
-
-  void navigateToAdminApp() {}
-  void navigateToPlumberApp() {}
 }

@@ -1,4 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pikseltesisat/feature/auth/cubit/auth_cubit.dart';
+import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
+import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 
 final class DrawerTile extends StatelessWidget {
@@ -18,6 +23,24 @@ final class DrawerTile extends StatelessWidget {
       title: Text(title),
       leading: icon.toIcon,
       onTap: onTap,
+    );
+  }
+}
+
+final class DrawerLogOut extends StatelessWidget {
+  const DrawerLogOut({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      style: ListTileStyle.drawer,
+      title: Text(LocaleKeys.drawer_logout.tr()),
+      leading: AppIcons.logout.toIcon,
+      onTap: () async {
+        await context.read<AuthCubit>().logout();
+        // ignore: use_build_context_synchronously
+        const SplashRoute().go(context);
+      },
     );
   }
 }

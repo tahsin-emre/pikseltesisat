@@ -10,6 +10,8 @@ final class AppIcons {
   static const language = Icons.language_rounded;
   static const customers = Icons.people_alt_rounded;
   static const plumbers = Icons.plumbing_rounded;
+  static const email = Icons.email_rounded;
+  static const password = Icons.lock_rounded;
 }
 
 extension AppIconsExtension on IconData {

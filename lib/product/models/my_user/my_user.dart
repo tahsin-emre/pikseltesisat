@@ -8,7 +8,7 @@ final class MyUser extends Equatable {
     this.name,
     this.surname,
     this.createdAt,
-    this.userType,
+    this.userType = UserType.none,
   });
 
   factory MyUser.fromMap(Map<String, dynamic> map) {
@@ -22,11 +22,10 @@ final class MyUser extends Equatable {
 
   Map<String, dynamic> get toMap {
     return {
-      'id': id,
       'name': name,
       'surname': surname,
       'createdAt': createdAt,
-      'userType': userType?.index,
+      'userType': userType.index,
     };
   }
 
@@ -47,10 +46,10 @@ final class MyUser extends Equatable {
   }
 
   final String id;
+  final UserType userType;
   final String? name;
   final String? surname;
   final DateTime? createdAt;
-  final UserType? userType;
 
   @override
   List<Object?> get props => [

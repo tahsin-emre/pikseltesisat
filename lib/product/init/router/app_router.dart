@@ -6,8 +6,7 @@ final class AppRouter {
   const AppRouter._();
 
   static final rootNavigatorKey = GlobalKey<NavigatorState>();
-  static final adminShellKey = GlobalKey<NavigatorState>();
-  static final plumberShellKey = GlobalKey<NavigatorState>();
+  static final mainShellKey = GlobalKey<NavigatorState>();
 
   static GoRouter config = GoRouter(
     navigatorKey: rootNavigatorKey,

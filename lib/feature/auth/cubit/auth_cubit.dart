@@ -12,8 +12,10 @@ final class AuthCubit extends Cubit<AuthState> {
     emit(state.copyWith(user: user));
   }
 
-  Future<String?> login(
-      {required String email, required String password}) async {
+  Future<String?> login({
+    required String email,
+    required String password,
+  }) async {
     final auth = await _authService.login(email: email, password: password);
     if (auth != null) {
       return auth;

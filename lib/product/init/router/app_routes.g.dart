@@ -7,36 +7,36 @@ part of 'app_routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $adminShellRoute,
+      $mainShellRoute,
       $loginRoute,
       $splashRoute,
     ];
 
-RouteBase get $adminShellRoute => ShellRouteData.$route(
-      navigatorKey: AdminShellRoute.$navigatorKey,
-      factory: $AdminShellRouteExtension._fromState,
+RouteBase get $mainShellRoute => ShellRouteData.$route(
+      navigatorKey: MainShellRoute.$navigatorKey,
+      factory: $MainShellRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: '/admin/dashboard',
+          path: '/main/dashboard',
           parentNavigatorKey: DashboardRoute.$parentNavigatorKey,
           factory: $DashboardRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/admin/customer-list',
+          path: '/main/customer-list',
           parentNavigatorKey: CustomerListRoute.$parentNavigatorKey,
           factory: $CustomerListRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/admin/plumber-list',
+          path: '/main/plumber-list',
           parentNavigatorKey: PlumberListRoute.$parentNavigatorKey,
           factory: $PlumberListRouteExtension._fromState,
         ),
       ],
     );
 
-extension $AdminShellRouteExtension on AdminShellRoute {
-  static AdminShellRoute _fromState(GoRouterState state) =>
-      const AdminShellRoute();
+extension $MainShellRouteExtension on MainShellRoute {
+  static MainShellRoute _fromState(GoRouterState state) =>
+      const MainShellRoute();
 }
 
 extension $DashboardRouteExtension on DashboardRoute {
@@ -44,7 +44,7 @@ extension $DashboardRouteExtension on DashboardRoute {
       const DashboardRoute();
 
   String get location => GoRouteData.$location(
-        '/admin/dashboard',
+        '/main/dashboard',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -62,7 +62,7 @@ extension $CustomerListRouteExtension on CustomerListRoute {
       const CustomerListRoute();
 
   String get location => GoRouteData.$location(
-        '/admin/customer-list',
+        '/main/customer-list',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -80,7 +80,7 @@ extension $PlumberListRouteExtension on PlumberListRoute {
       const PlumberListRoute();
 
   String get location => GoRouteData.$location(
-        '/admin/plumber-list',
+        '/main/plumber-list',
       );
 
   void go(BuildContext context) => context.go(location);

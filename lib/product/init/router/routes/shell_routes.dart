@@ -2,8 +2,8 @@ part of '../app_routes.dart';
 
 final class DashboardRoute extends GoRouteData {
   const DashboardRoute();
-  static const String path = '/admin/dashboard';
-  static final $parentNavigatorKey = AppRouter.adminShellKey;
+  static const String path = '/main/dashboard';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const DashboardView());
@@ -12,8 +12,8 @@ final class DashboardRoute extends GoRouteData {
 
 final class CustomerListRoute extends GoRouteData {
   const CustomerListRoute();
-  static const String path = '/admin/customer-list';
-  static final $parentNavigatorKey = AppRouter.adminShellKey;
+  static const String path = '/main/customer-list';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const CustomerListView());
@@ -22,8 +22,8 @@ final class CustomerListRoute extends GoRouteData {
 
 final class PlumberListRoute extends GoRouteData {
   const PlumberListRoute();
-  static const String path = '/admin/plumber-list';
-  static final $parentNavigatorKey = AppRouter.adminShellKey;
+  static const String path = '/main/plumber-list';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const PlumberListView());

@@ -2,18 +2,18 @@ import 'package:equatable/equatable.dart';
 import 'package:pikseltesisat/product/models/my_user/my_user.dart';
 
 final class AuthState extends Equatable {
-  const AuthState({this.myUser});
+  const AuthState({this.user});
 
   AuthState copyWith({
-    MyUser? myUser,
+    MyUser? user,
   }) {
     return AuthState(
-      myUser: myUser ?? this.myUser,
+      user: user ?? this.user,
     );
   }
 
-  final MyUser? myUser;
+  final MyUser? user;
 
   @override
-  List<Object?> get props => [myUser];
+  List<Object?> get props => [user];
 }

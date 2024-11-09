@@ -10,10 +10,7 @@ mixin SplashMixin on State<SplashView> {
   }
 
   Future<void> currentUser() async {
-    await Future.delayed(
-      Durations.extralong4,
-      navigateToLogin,
-    );
+    await Future.delayed(Durations.extralong4, navigateToLogin);
   }
 
   void navigateToLogin() {

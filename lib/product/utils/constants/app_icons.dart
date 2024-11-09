@@ -12,6 +12,20 @@ final class AppIcons {
   static const plumbers = Icons.plumbing_rounded;
   static const email = Icons.email_rounded;
   static const password = Icons.lock_rounded;
+  static const phone = Icons.phone_rounded;
+  static const address = Icons.location_on_rounded;
+  static const search = Icons.search_rounded;
+  static const add = Icons.add_rounded;
+  static const edit = Icons.edit_rounded;
+  static const delete = Icons.delete_rounded;
+  static const save = Icons.save_rounded;
+  static const cancel = Icons.cancel_rounded;
+  static const close = Icons.close_rounded;
+  static const back = Icons.arrow_back_rounded;
+  static const forward = Icons.arrow_forward_rounded;
+  static const up = Icons.arrow_upward_rounded;
+  static const down = Icons.arrow_downward_rounded;
+  static const addPerson = Icons.person_add_rounded;
 }
 
 extension AppIconsExtension on IconData {

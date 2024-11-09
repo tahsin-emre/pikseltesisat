@@ -18,8 +18,8 @@ RouteBase get $adminShellRoute => ShellRouteData.$route(
       routes: [
         GoRouteData.$route(
           path: '/admin/dashboard',
-          parentNavigatorKey: DashboradRoute.$parentNavigatorKey,
-          factory: $DashboradRouteExtension._fromState,
+          parentNavigatorKey: DashboardRoute.$parentNavigatorKey,
+          factory: $DashboardRouteExtension._fromState,
         ),
         GoRouteData.$route(
           path: '/admin/customer-list',
@@ -39,9 +39,9 @@ extension $AdminShellRouteExtension on AdminShellRoute {
       const AdminShellRoute();
 }
 
-extension $DashboradRouteExtension on DashboradRoute {
-  static DashboradRoute _fromState(GoRouterState state) =>
-      const DashboradRoute();
+extension $DashboardRouteExtension on DashboardRoute {
+  static DashboardRoute _fromState(GoRouterState state) =>
+      const DashboardRoute();
 
   String get location => GoRouteData.$location(
         '/admin/dashboard',

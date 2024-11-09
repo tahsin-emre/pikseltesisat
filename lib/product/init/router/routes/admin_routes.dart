@@ -1,7 +1,7 @@
 part of '../app_routes.dart';
 
-final class DashboradRoute extends GoRouteData {
-  const DashboradRoute();
+final class DashboardRoute extends GoRouteData {
+  const DashboardRoute();
   static const String path = '/admin/dashboard';
   static final $parentNavigatorKey = AppRouter.adminShellKey;
   @override

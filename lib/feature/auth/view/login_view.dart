@@ -19,22 +19,25 @@ class _LoginViewState extends State<LoginView> with LoginMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(title: LocaleKeys.login_login.tr()),
-      body: Column(
-        children: [
-          _TextField(
-            label: LocaleKeys.login_email.tr(),
-            icon: AppIcons.email,
-            controller: emailController,
-            isPassword: false,
-          ),
-          _TextField(
-            label: LocaleKeys.login_password.tr(),
-            icon: AppIcons.password,
-            controller: passwordController,
-            isPassword: true,
-          ),
-          LoginButton(loadingNotifier: loadingNotifier, onTap: login),
-        ],
+      body: Form(
+        key: formKey,
+        child: Column(
+          children: [
+            _TextField(
+              label: LocaleKeys.login_email.tr(),
+              icon: AppIcons.email,
+              controller: emailController,
+              isPassword: false,
+            ),
+            _TextField(
+              label: LocaleKeys.login_password.tr(),
+              icon: AppIcons.password,
+              controller: passwordController,
+              isPassword: true,
+            ),
+            LoginButton(loadingNotifier: loadingNotifier, onTap: login),
+          ],
+        ),
       ),
     );
   }

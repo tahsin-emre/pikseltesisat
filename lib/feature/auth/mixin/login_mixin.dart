@@ -6,6 +6,7 @@ import 'package:pikseltesisat/product/init/router/app_routes.dart';
 
 mixin LoginMixin on State<LoginView> {
   late final _authCubit = context.read<AuthCubit>();
+  final formKey = GlobalKey<FormState>();
   final loadingNotifier = ValueNotifier<bool>(false);
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -17,6 +18,7 @@ mixin LoginMixin on State<LoginView> {
       password: passwordController.text,
     );
     loadingNotifier.value = false;
+
     navigateToSplash();
   }
 

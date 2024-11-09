@@ -15,7 +15,7 @@ part 'routes/plumber_routes.dart';
 
 @TypedShellRoute<AdminShellRoute>(
   routes: [
-    TypedGoRoute<DashboradRoute>(path: DashboradRoute.path),
+    TypedGoRoute<DashboardRoute>(path: DashboardRoute.path),
     TypedGoRoute<CustomerListRoute>(path: CustomerListRoute.path),
     TypedGoRoute<PlumberListRoute>(path: PlumberListRoute.path),
   ],

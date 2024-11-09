@@ -19,7 +19,7 @@ final class AdminDrawer extends StatelessWidget {
             icon: AppIcons.home,
             onTap: () {
               // onClose();
-              const DashboradRoute().go(context);
+              const DashboardRoute().go(context);
             },
           ),
           DrawerTile(

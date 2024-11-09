@@ -17,5 +17,16 @@
         "required": "Bu alan zorunludur",
         "email": "Geçerli bir e-posta adresi giriniz",
         "password": "Şifre en az 6 karakter olmalıdır"
+    },
+    "base": {
+        "save": "Kaydet",
+        "cancel": "İptal",
+        "delete": "Sil",
+        "edit": "Düzenle",
+        "add": "Ekle",
+        "search": "Ara",
+        "noData": "Veri bulunamadı",
+        "loading": "Yükleniyor...",
+        "error": "Bir hata oluştu"
     }
 }

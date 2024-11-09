@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 final class AppIcons {
   const AppIcons._();
   static const home = Icons.home_rounded;
+  static const menu = Icons.menu_rounded;
   static const settings = Icons.settings_rounded;
   static const info = Icons.info_rounded;
   static const logout = Icons.power_settings_new_rounded;

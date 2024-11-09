@@ -1,22 +1,35 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:pikseltesisat/feature/sub_features/common_widgets/base_app_bar.dart';
-import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:pikseltesisat/feature/main/view/main_drawer.dart';
+import 'package:pikseltesisat/feature/main/widgets/main_app_bar.dart';
 
 final class MainView extends StatefulWidget {
-  const MainView({super.key});
+  const MainView(this.child, {super.key});
+  final Widget child;
 
   @override
   State<MainView> createState() => _MainViewState();
 }
 
 class _MainViewState extends State<MainView> {
+  final _advancedDrawerController = AdvancedDrawerController();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: BaseAppBar(title: LocaleKeys.appName.tr()),
-      drawer: const Drawer(),
-      body: Container(),
+    return AdvancedDrawer(
+      controller: _advancedDrawerController,
+      animationCurve: Curves.easeInOut,
+      animationDuration: Durations.medium4,
+      openRatio: .5,
+      drawer: const MainDrawer(),
+      child: Scaffold(
+        appBar: MainAppBar(onTap: toggleDrawer),
+        body: Center(child: widget.child),
+      ),
     );
+  }
+
+  void toggleDrawer() {
+    _advancedDrawerController.toggleDrawer();
   }
 }

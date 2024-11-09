@@ -14,7 +14,7 @@ final class _DrawerTile extends StatelessWidget {
     return ListTile(
       style: ListTileStyle.drawer,
       title: Text(title),
-      leading: Icon(icon),
+      leading: icon.toIcon,
       onTap: onTap,
     );
   }

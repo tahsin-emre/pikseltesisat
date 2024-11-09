@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-final class BaseAppBar extends AppBar {
+class BaseAppBar extends AppBar {
   BaseAppBar({
     required String title,
+    super.leading,
     super.actions,
     super.key,
   }) : super(

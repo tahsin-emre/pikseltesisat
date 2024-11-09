@@ -13,5 +13,9 @@ abstract class  LocaleKeys {
   static const login_forgotPassword = 'login.forgotPassword';
   static const login_register = 'login.register';
   static const login = 'login';
+  static const validators_required = 'validators.required';
+  static const validators_email = 'validators.email';
+  static const validators_password = 'validators.password';
+  static const validators = 'validators';
 
 }

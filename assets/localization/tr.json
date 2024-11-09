@@ -12,5 +12,10 @@
         "password": "Şifre",
         "forgotPassword": "Şifremi Unuttum",
         "register": "Kayıt Ol"
+    },
+    "validators": {
+        "required": "Bu alan zorunludur",
+        "email": "Geçerli bir e-posta adresi giriniz",
+        "password": "Şifre en az 6 karakter olmalıdır"
     }
 }

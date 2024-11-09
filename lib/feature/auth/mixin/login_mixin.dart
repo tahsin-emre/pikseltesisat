@@ -9,10 +9,11 @@ mixin LoginMixin on State<LoginView> {
   late final _authCubit = context.read<AuthCubit>();
   final formKey = GlobalKey<FormState>();
   final loadingNotifier = ValueNotifier<bool>(false);
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final emailController = TextEditingController(text: 'telli@tahsinemre.com');
+  final passwordController = TextEditingController(text: 'password');
 
   Future<void> login() async {
+    if (!formKey.currentState!.validate()) return;
     loadingNotifier.value = true;
     final error = await _authCubit.login(
       email: emailController.text,

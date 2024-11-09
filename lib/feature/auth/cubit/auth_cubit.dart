@@ -8,14 +8,23 @@ final class AuthCubit extends Cubit<AuthState> {
   final _authService = AuthService();
 
   Future<void> findCurrentUser() async {
-    final user = await _authService.findCurrentUser();
+    final user = await _authService.getUser();
     emit(state.copyWith(user: user));
   }
 
-  Future<void> login({required String email, required String password}) async {
-    final user = await _authService.login(email: email, password: password);
+  Future<String?> login(
+      {required String email, required String password}) async {
+    final auth = await _authService.login(email: email, password: password);
+    if (auth != null) {
+      return auth;
+    }
+    final user = await _authService.getUser();
     emit(state.copyWith(user: user));
+    return null;
   }
 
-  void logout() => emit(const AuthState());
+  Future<void> logout() async {
+    await _authService.logout();
+    emit(const AuthState());
+  }
 }

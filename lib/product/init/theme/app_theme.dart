@@ -5,6 +5,12 @@ final class AppTheme {
   AppTheme._();
 
   static ThemeData get light => ThemeData.light().copyWith(
+        snackBarTheme: const SnackBarThemeData(
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: AppRadius.allS,
+          ),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             shape: const RoundedRectangleBorder(borderRadius: AppRadius.allS),

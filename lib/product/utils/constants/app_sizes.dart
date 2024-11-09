@@ -24,4 +24,13 @@ final class AppSizes {
 
   /// Value: 28.0
   static const xxl = 28.0;
+
+  /// Value: 50.0
+  static const maxiS = 50.0;
+
+  /// Value: 100.0
+  static const maxiM = 100.0;
+
+  /// Value: 150.0
+  static const maxiL = 150.0;
 }

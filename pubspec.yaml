@@ -12,7 +12,6 @@ dependencies:
   #core
   go_router: ^14.4.1
   equatable: ^2.0.5
-  json_annotation: ^4.9.0
   flutter_bloc: ^8.1.6
   easy_localization: ^3.0.7
   cloud_firestore: ^5.4.5
@@ -32,7 +31,6 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.4.13
   go_router_builder: ^2.7.1
-  json_serializable: ^6.8.0
   very_good_analysis: ^6.0.0
 
 flutter:

@@ -15,6 +15,11 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
       factory: $MainShellRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
+          path: '/main/home',
+          parentNavigatorKey: HomeRoute.$parentNavigatorKey,
+          factory: $HomeRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: '/main/customer-list',
           parentNavigatorKey: CustomerListRoute.$parentNavigatorKey,
           factory: $CustomerListRouteExtension._fromState,
@@ -30,6 +35,23 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
 extension $MainShellRouteExtension on MainShellRoute {
   static MainShellRoute _fromState(GoRouterState state) =>
       const MainShellRoute();
+}
+
+extension $HomeRouteExtension on HomeRoute {
+  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
+
+  String get location => GoRouteData.$location(
+        '/main/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $CustomerListRouteExtension on CustomerListRoute {

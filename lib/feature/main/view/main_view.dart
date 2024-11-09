@@ -18,10 +18,10 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return AdvancedDrawer(
       controller: _advancedDrawerController,
-      animationCurve: Curves.easeInOut,
+      animationCurve: Curves.easeInQuad,
       animationDuration: Durations.medium4,
       openRatio: .5,
-      drawer: const MainDrawer(),
+      drawer: MainDrawer(onClose: toggleDrawer),
       child: Scaffold(
         appBar: MainAppBar(onTap: toggleDrawer),
         body: Center(child: widget.child),

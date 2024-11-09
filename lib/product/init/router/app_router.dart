@@ -10,7 +10,7 @@ final class AppRouter {
 
   static GoRouter config = GoRouter(
     navigatorKey: rootNavigatorKey,
-    initialLocation: CustomerListRoute.path,
+    initialLocation: HomeRoute.path,
     routes: $appRoutes,
   );
 }

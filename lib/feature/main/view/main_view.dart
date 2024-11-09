@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:pikseltesisat/feature/main/view/main_drawer.dart';
+import 'package:pikseltesisat/feature/main/view/drawer_admin.dart';
 import 'package:pikseltesisat/feature/main/widgets/main_app_bar.dart';
 
 final class MainView extends StatefulWidget {
@@ -21,7 +21,7 @@ class _MainViewState extends State<MainView> {
       animationCurve: Curves.easeInQuad,
       animationDuration: Durations.medium4,
       openRatio: .5,
-      drawer: MainDrawer(onClose: toggleDrawer),
+      drawer: AdminDrawer(onClose: toggleDrawer),
       child: Scaffold(
         appBar: MainAppBar(onTap: toggleDrawer),
         body: Center(child: widget.child),

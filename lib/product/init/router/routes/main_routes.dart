@@ -1,31 +1,23 @@
 part of '../app_routes.dart';
 
-final class HomeRoute extends GoRouteData {
-  const HomeRoute();
-  static const String path = '/main/home';
-  static final $parentNavigatorKey = AppRouter.mainShellKey;
+@TypedGoRoute<LoginRoute>(path: LoginRoute.path)
+final class LoginRoute extends GoRouteData {
+  const LoginRoute();
+  static const String path = '/login';
+  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
-    return AppPage(child: const HomeView());
+    return AppPage(child: const LoginView());
   }
 }
 
-final class CustomerListRoute extends GoRouteData {
-  const CustomerListRoute();
-  static const String path = '/main/customer-list';
-  static final $parentNavigatorKey = AppRouter.mainShellKey;
+@TypedGoRoute<SplashRoute>(path: SplashRoute.path)
+final class SplashRoute extends GoRouteData {
+  const SplashRoute();
+  static const String path = '/splash';
+  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
-    return AppPage(child: const CustomerListView());
-  }
-}
-
-final class PlumberListRoute extends GoRouteData {
-  const PlumberListRoute();
-  static const String path = '/main/plumber-list';
-  static final $parentNavigatorKey = AppRouter.mainShellKey;
-  @override
-  AppPage buildPage(BuildContext context, GoRouterState state) {
-    return AppPage(child: const PlumberListView());
+    return AppPage(child: const SplashView());
   }
 }

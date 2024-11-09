@@ -1,10 +1,12 @@
-part of '../view/main_drawer.dart';
+import 'package:flutter/material.dart';
+import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 
-final class _DrawerTile extends StatelessWidget {
-  const _DrawerTile({
+final class DrawerTile extends StatelessWidget {
+  const DrawerTile({
     required this.title,
     required this.icon,
     required this.onTap,
+    super.key,
   });
   final String title;
   final IconData icon;

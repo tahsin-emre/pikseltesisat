@@ -1,13 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/feature/main/widgets/drawer_widgets.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 
-part '../widgets/main_drawer_widgets.dart';
-
-final class MainDrawer extends StatelessWidget {
-  const MainDrawer({required this.onClose, super.key});
+final class AdminDrawer extends StatelessWidget {
+  const AdminDrawer({required this.onClose, super.key});
   final VoidCallback onClose;
   @override
   Widget build(BuildContext context) {
@@ -15,15 +14,15 @@ final class MainDrawer extends StatelessWidget {
       child: Column(
         children: [
           AppIcons.home.toCustomIcon(size: 100),
-          _DrawerTile(
+          DrawerTile(
             title: LocaleKeys.drawer_home.tr(),
             icon: AppIcons.home,
             onTap: () {
               // onClose();
-              const HomeRoute().go(context);
+              const DashboradRoute().go(context);
             },
           ),
-          _DrawerTile(
+          DrawerTile(
             title: LocaleKeys.drawer_customers.tr(),
             icon: AppIcons.customers,
             onTap: () {
@@ -31,7 +30,7 @@ final class MainDrawer extends StatelessWidget {
               const CustomerListRoute().go(context);
             },
           ),
-          _DrawerTile(
+          DrawerTile(
             title: LocaleKeys.drawer_plumbers.tr(),
             icon: AppIcons.plumbers,
             onTap: () {

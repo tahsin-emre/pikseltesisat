@@ -7,41 +7,44 @@ part of 'app_routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $mainShellRoute,
+      $adminShellRoute,
+      $loginRoute,
+      $splashRoute,
     ];
 
-RouteBase get $mainShellRoute => ShellRouteData.$route(
-      navigatorKey: MainShellRoute.$navigatorKey,
-      factory: $MainShellRouteExtension._fromState,
+RouteBase get $adminShellRoute => ShellRouteData.$route(
+      navigatorKey: AdminShellRoute.$navigatorKey,
+      factory: $AdminShellRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: '/main/home',
-          parentNavigatorKey: HomeRoute.$parentNavigatorKey,
-          factory: $HomeRouteExtension._fromState,
+          path: '/admin/dashboard',
+          parentNavigatorKey: DashboradRoute.$parentNavigatorKey,
+          factory: $DashboradRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/main/customer-list',
+          path: '/admin/customer-list',
           parentNavigatorKey: CustomerListRoute.$parentNavigatorKey,
           factory: $CustomerListRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/main/plumber-list',
+          path: '/admin/plumber-list',
           parentNavigatorKey: PlumberListRoute.$parentNavigatorKey,
           factory: $PlumberListRouteExtension._fromState,
         ),
       ],
     );
 
-extension $MainShellRouteExtension on MainShellRoute {
-  static MainShellRoute _fromState(GoRouterState state) =>
-      const MainShellRoute();
+extension $AdminShellRouteExtension on AdminShellRoute {
+  static AdminShellRoute _fromState(GoRouterState state) =>
+      const AdminShellRoute();
 }
 
-extension $HomeRouteExtension on HomeRoute {
-  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
+extension $DashboradRouteExtension on DashboradRoute {
+  static DashboradRoute _fromState(GoRouterState state) =>
+      const DashboradRoute();
 
   String get location => GoRouteData.$location(
-        '/main/home',
+        '/admin/dashboard',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -59,7 +62,7 @@ extension $CustomerListRouteExtension on CustomerListRoute {
       const CustomerListRoute();
 
   String get location => GoRouteData.$location(
-        '/main/customer-list',
+        '/admin/customer-list',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -77,7 +80,53 @@ extension $PlumberListRouteExtension on PlumberListRoute {
       const PlumberListRoute();
 
   String get location => GoRouteData.$location(
-        '/main/plumber-list',
+        '/admin/plumber-list',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $loginRoute => GoRouteData.$route(
+      path: '/login',
+      parentNavigatorKey: LoginRoute.$parentNavigatorKey,
+      factory: $LoginRouteExtension._fromState,
+    );
+
+extension $LoginRouteExtension on LoginRoute {
+  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
+
+  String get location => GoRouteData.$location(
+        '/login',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $splashRoute => GoRouteData.$route(
+      path: '/splash',
+      parentNavigatorKey: SplashRoute.$parentNavigatorKey,
+      factory: $SplashRouteExtension._fromState,
+    );
+
+extension $SplashRouteExtension on SplashRoute {
+  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
+
+  String get location => GoRouteData.$location(
+        '/splash',
       );
 
   void go(BuildContext context) => context.go(location);

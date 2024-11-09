@@ -7,5 +7,11 @@ abstract class  LocaleKeys {
   static const drawer_plumbers = 'drawer.plumbers';
   static const drawer_logout = 'drawer.logout';
   static const drawer = 'drawer';
+  static const login_login = 'login.login';
+  static const login_email = 'login.email';
+  static const login_password = 'login.password';
+  static const login_forgotPassword = 'login.forgotPassword';
+  static const login_register = 'login.register';
+  static const login = 'login';
 
 }

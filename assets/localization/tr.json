@@ -5,5 +5,12 @@
         "customers": "Müşteriler",
         "plumbers": "Tesisatçılar",
         "logout": "Çıkış"
+    },
+    "login": {
+        "login": "Giriş Yap",
+        "email": "E-posta",
+        "password": "Şifre",
+        "forgotPassword": "Şifremi Unuttum",
+        "register": "Kayıt Ol"
     }
 }

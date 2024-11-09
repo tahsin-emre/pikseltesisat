@@ -1,3 +1,9 @@
 {
-    "appName": "Piksel Tesisat"
+    "appName": "Piksel Tesisat",
+    "drawer": {
+        "home": "Ana Sayfa",
+        "customers": "Müşteriler",
+        "plumbers": "Tesisatçılar",
+        "logout": "Çıkış"
+    }
 }

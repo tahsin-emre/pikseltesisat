@@ -2,6 +2,10 @@ import 'package:pikseltesisat/product/models/my_user/my_user.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 
 final class AuthService extends BaseService {
+  factory AuthService() => _instance;
+  AuthService._();
+  static final _instance = AuthService._();
+
   Future<String?> login({
     required String email,
     required String password,

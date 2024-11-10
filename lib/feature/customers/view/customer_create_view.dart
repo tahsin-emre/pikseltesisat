@@ -16,9 +16,7 @@ class _CustomerCreateViewState extends State<CustomerCreateView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppBar(
-        title: LocaleKeys.customer_newCustomer.tr(),
-      ),
+      appBar: BaseAppBar(title: LocaleKeys.customer_newCustomer.tr()),
       body: const Center(
         child: Text('CustomerCreateView'),
       ),

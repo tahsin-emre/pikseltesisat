@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/feature/plumbers/mixin/plumber_list_mixin.dart';
+import 'package:pikseltesisat/feature/plumbers/widget/plumber_new_tile.dart';
 import 'package:pikseltesisat/feature/plumbers/widget/plumber_tile.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/loading.dart';
-import 'package:pikseltesisat/product/models/plumber/plumber.dart';
 
 final class PlumberListView extends StatefulWidget {
   const PlumberListView({super.key});
@@ -22,6 +22,7 @@ class _PlumberListViewState extends State<PlumberListView>
         final docs = snapshot.data!.docs;
         return ListView(
           children: [
+            const PlumberNewTile(),
             ...docs.map((e) => PlumberTile(plumber: e.data())),
           ],
         );

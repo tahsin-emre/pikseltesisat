@@ -12,6 +12,8 @@ List<RouteBase> get $appRoutes => [
       $splashRoute,
       $customerCreateRoute,
       $customerDetailRoute,
+      $plumberCreateRoute,
+      $plumberDetailRoute,
     ];
 
 RouteBase get $mainShellRoute => ShellRouteData.$route(
@@ -183,6 +185,62 @@ extension $CustomerDetailRouteExtension on CustomerDetailRoute {
 
   String get location => GoRouteData.$location(
         '/customer/detail',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $plumberCreateRoute => GoRouteData.$route(
+      path: '/plumber/create',
+      parentNavigatorKey: PlumberCreateRoute.$parentNavigatorKey,
+      factory: $PlumberCreateRouteExtension._fromState,
+    );
+
+extension $PlumberCreateRouteExtension on PlumberCreateRoute {
+  static PlumberCreateRoute _fromState(GoRouterState state) =>
+      PlumberCreateRoute(
+        state.extra as Plumber?,
+      );
+
+  String get location => GoRouteData.$location(
+        '/plumber/create',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $plumberDetailRoute => GoRouteData.$route(
+      path: '/plumber/detail',
+      parentNavigatorKey: PlumberDetailRoute.$parentNavigatorKey,
+      factory: $PlumberDetailRouteExtension._fromState,
+    );
+
+extension $PlumberDetailRouteExtension on PlumberDetailRoute {
+  static PlumberDetailRoute _fromState(GoRouterState state) =>
+      PlumberDetailRoute(
+        state.extra as Plumber,
+      );
+
+  String get location => GoRouteData.$location(
+        '/plumber/detail',
       );
 
   void go(BuildContext context) => context.go(location, extra: $extra);

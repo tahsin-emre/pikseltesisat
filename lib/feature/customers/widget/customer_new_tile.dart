@@ -4,7 +4,7 @@ import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 
-class CustomerNewTile extends StatelessWidget {
+final class CustomerNewTile extends StatelessWidget {
   const CustomerNewTile({super.key});
 
   @override

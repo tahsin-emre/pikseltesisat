@@ -41,5 +41,18 @@
         "deleteCustomer": "Müşteri Sil",
         "customerDetail": "Müşteri Detayı",
         "customerList": "Müşteri Listesi"
+    },
+    "plumber": {
+        "name": "Ad",
+        "surname": "Soyad",
+        "phone": "Telefon",
+        "address": "Adres",
+        "province": "İl",
+        "district": "İlçe",
+        "newPlumber": "Yeni Tesisatçı",
+        "editPlumber": "Tesisatçı Düzenle",
+        "deletePlumber": "Tesisatçı Sil",
+        "plumberDetail": "Tesisatçı Detayı",
+        "plumberList": "Tesisatçı Listesi"
     }
 }

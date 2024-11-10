@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/models/plumber/plumber.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 
@@ -8,7 +9,7 @@ final class PlumberTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {},
+      onTap: () => PlumberDetailRoute(plumber).push<void>(context),
       title: Text(plumber.name ?? ''),
       subtitle: Text(plumber.id),
       trailing: AppIcons.forward.toIcon,

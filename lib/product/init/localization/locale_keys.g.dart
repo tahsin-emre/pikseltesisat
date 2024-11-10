@@ -39,5 +39,17 @@ abstract class  LocaleKeys {
   static const customer_customerDetail = 'customer.customerDetail';
   static const customer_customerList = 'customer.customerList';
   static const customer = 'customer';
+  static const plumber_name = 'plumber.name';
+  static const plumber_surname = 'plumber.surname';
+  static const plumber_phone = 'plumber.phone';
+  static const plumber_address = 'plumber.address';
+  static const plumber_province = 'plumber.province';
+  static const plumber_district = 'plumber.district';
+  static const plumber_newPlumber = 'plumber.newPlumber';
+  static const plumber_editPlumber = 'plumber.editPlumber';
+  static const plumber_deletePlumber = 'plumber.deletePlumber';
+  static const plumber_plumberDetail = 'plumber.plumberDetail';
+  static const plumber_plumberList = 'plumber.plumberList';
+  static const plumber = 'plumber';
 
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PlumberDetailView extends StatefulWidget {
+final class PlumberDetailView extends StatefulWidget {
   const PlumberDetailView({super.key});
 
   @override

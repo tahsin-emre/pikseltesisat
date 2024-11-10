@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/plumber/plumber.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 
@@ -22,7 +24,7 @@ final class PlumberService extends BaseService {
       await _collection.add(plumber);
       return null;
     } on Exception {
-      return 'Failed to add plumber';
+      return LocaleKeys.base_error.tr();
     }
   }
 }

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/my_user/my_user.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 
@@ -14,7 +16,7 @@ final class AuthService extends BaseService {
       await auth.signInWithEmailAndPassword(email: email, password: password);
       return null;
     } on Exception catch (e) {
-      return e.toString();
+      return '${LocaleKeys.base_error.tr()} $e';
     }
   }
 

@@ -28,5 +28,18 @@
         "noData": "Veri bulunamadı",
         "loading": "Yükleniyor...",
         "error": "Bir hata oluştu"
+    },
+    "customer": {
+        "name": "Ad",
+        "surname": "Soyad",
+        "phone": "Telefon",
+        "address": "Adres",
+        "province": "İl",
+        "district": "İlçe",
+        "newCustomer": "Yeni Müşteri",
+        "editCustomer": "Müşteri Düzenle",
+        "deleteCustomer": "Müşteri Sil",
+        "customerDetail": "Müşteri Detayı",
+        "customerList": "Müşteri Listesi"
     }
 }

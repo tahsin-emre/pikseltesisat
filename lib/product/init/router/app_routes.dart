@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pikseltesisat/feature/auth/view/login_view.dart';
+import 'package:pikseltesisat/feature/customers/view/customer_create_view.dart';
+import 'package:pikseltesisat/feature/customers/view/customer_detail_view.dart';
 import 'package:pikseltesisat/feature/customers/view/customer_list_view.dart';
 import 'package:pikseltesisat/feature/dashboard/view/dashboard_view.dart';
 import 'package:pikseltesisat/feature/main/view/main_view.dart';
 import 'package:pikseltesisat/feature/plumbers/view/plumber_list_view.dart';
 import 'package:pikseltesisat/feature/splash/view/splash_view.dart';
 import 'package:pikseltesisat/product/init/router/app_router.dart';
+import 'package:pikseltesisat/product/models/customer/customer.dart';
 
 part 'app_routes.g.dart';
 part 'routes/shell_routes.dart';
 part 'routes/main_routes.dart';
+part 'routes/customer_routes.dart';
 
 @TypedShellRoute<MainShellRoute>(
   routes: [

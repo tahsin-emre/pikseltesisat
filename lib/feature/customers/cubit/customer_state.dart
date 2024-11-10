@@ -2,14 +2,24 @@ import 'package:equatable/equatable.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 
 final class CustomerState extends Equatable {
-  const CustomerState({this.customerList});
+  const CustomerState({
+    required this.customer,
+    this.isLoading = false,
+  });
 
-  CustomerState copyWith({List<Customer>? customerList}) {
-    return CustomerState(customerList: customerList ?? this.customerList);
+  CustomerState copyWith({
+    Customer? customer,
+    bool? isLoading,
+  }) {
+    return CustomerState(
+      customer: customer ?? this.customer,
+      isLoading: isLoading ?? this.isLoading,
+    );
   }
 
-  final List<Customer>? customerList;
+  final Customer customer;
+  final bool isLoading;
 
   @override
-  List<Object?> get props => [customerList];
+  List<Object?> get props => [customer, isLoading];
 }

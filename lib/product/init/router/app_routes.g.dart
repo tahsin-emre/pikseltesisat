@@ -10,6 +10,8 @@ List<RouteBase> get $appRoutes => [
       $mainShellRoute,
       $loginRoute,
       $splashRoute,
+      $customerCreateRoute,
+      $customerDetailRoute,
     ];
 
 RouteBase get $mainShellRoute => ShellRouteData.$route(
@@ -137,4 +139,60 @@ extension $SplashRouteExtension on SplashRoute {
       context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $customerCreateRoute => GoRouteData.$route(
+      path: '/customer/create',
+      parentNavigatorKey: CustomerCreateRoute.$parentNavigatorKey,
+      factory: $CustomerCreateRouteExtension._fromState,
+    );
+
+extension $CustomerCreateRouteExtension on CustomerCreateRoute {
+  static CustomerCreateRoute _fromState(GoRouterState state) =>
+      CustomerCreateRoute(
+        state.extra as Customer?,
+      );
+
+  String get location => GoRouteData.$location(
+        '/customer/create',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $customerDetailRoute => GoRouteData.$route(
+      path: '/customer/detail',
+      parentNavigatorKey: CustomerDetailRoute.$parentNavigatorKey,
+      factory: $CustomerDetailRouteExtension._fromState,
+    );
+
+extension $CustomerDetailRouteExtension on CustomerDetailRoute {
+  static CustomerDetailRoute _fromState(GoRouterState state) =>
+      CustomerDetailRoute(
+        state.extra as Customer,
+      );
+
+  String get location => GoRouteData.$location(
+        '/customer/detail',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }

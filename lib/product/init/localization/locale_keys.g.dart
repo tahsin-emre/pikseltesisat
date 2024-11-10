@@ -27,5 +27,17 @@ abstract class  LocaleKeys {
   static const base_loading = 'base.loading';
   static const base_error = 'base.error';
   static const base = 'base';
+  static const customer_name = 'customer.name';
+  static const customer_surname = 'customer.surname';
+  static const customer_phone = 'customer.phone';
+  static const customer_address = 'customer.address';
+  static const customer_province = 'customer.province';
+  static const customer_district = 'customer.district';
+  static const customer_newCustomer = 'customer.newCustomer';
+  static const customer_editCustomer = 'customer.editCustomer';
+  static const customer_deleteCustomer = 'customer.deleteCustomer';
+  static const customer_customerDetail = 'customer.customerDetail';
+  static const customer_customerList = 'customer.customerList';
+  static const customer = 'customer';
 
 }

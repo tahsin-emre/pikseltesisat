@@ -16,16 +16,31 @@ final class MainDrawer extends StatelessWidget {
         children: [
           AppIcons.home.toCustomIcon(size: AppSizes.maxiM),
           const Divider(),
+          //Dashboard
           DrawerTile(
             title: LocaleKeys.drawer_home.tr(),
             icon: AppIcons.home,
             onTap: () => const DashboardRoute().go(context),
           ),
+          //Works
+          DrawerTile(
+            title: LocaleKeys.drawer_plumbers.tr(),
+            icon: AppIcons.plumbers,
+            onTap: () => const PlumberListRoute().go(context),
+          ),
+          //Customers
           DrawerTile(
             title: LocaleKeys.drawer_customers.tr(),
             icon: AppIcons.customers,
             onTap: () => const CustomerListRoute().go(context),
           ),
+          //Plumbers
+          DrawerTile(
+            title: LocaleKeys.drawer_plumbers.tr(),
+            icon: AppIcons.plumbers,
+            onTap: () => const PlumberListRoute().go(context),
+          ),
+          //Reports
           DrawerTile(
             title: LocaleKeys.drawer_plumbers.tr(),
             icon: AppIcons.plumbers,

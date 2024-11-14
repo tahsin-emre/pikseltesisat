@@ -14,5 +14,11 @@ final class MainAppBar extends BaseAppBar {
             onPressed: onTap,
             icon: AppIcons.menu.toIcon,
           ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: AppIcons.search.toIcon,
+            ),
+          ],
         );
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:pikseltesisat/feature/main/view/main_drawer.dart';
-import 'package:pikseltesisat/feature/main/widgets/main_app_bar.dart';
+import 'package:pikseltesisat/feature/core_features/main/view/main_drawer.dart';
+import 'package:pikseltesisat/feature/core_features/main/widgets/main_app_bar.dart';
 
 final class MainView extends StatefulWidget {
   const MainView(this.child, {super.key});

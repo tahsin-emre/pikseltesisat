@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pikseltesisat/feature/auth/cubit/auth_cubit.dart';
+import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';

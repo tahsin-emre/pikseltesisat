@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pikseltesisat/feature/auth/cubit/auth_state.dart';
+import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_state.dart';
 import 'package:pikseltesisat/product/services/auth_service.dart';
 
 final class AuthCubit extends Cubit<AuthState> {

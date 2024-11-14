@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:pikseltesisat/feature/auth/mixin/login_mixin.dart';
-import 'package:pikseltesisat/feature/auth/widgets/login_button.dart';
+import 'package:pikseltesisat/feature/core_features/auth/mixin/login_mixin.dart';
+import 'package:pikseltesisat/feature/core_features/auth/widgets/login_button.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/base_app_bar.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';

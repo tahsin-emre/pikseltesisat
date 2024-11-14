@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pikseltesisat/feature/splash/mixin/splash_mixin.dart';
+import 'package:pikseltesisat/feature/core_features/splash/mixin/splash_mixin.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/loading.dart';
 
 final class SplashView extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pikseltesisat/feature/auth/cubit/auth_cubit.dart';
-import 'package:pikseltesisat/feature/auth/cubit/auth_state.dart';
-import 'package:pikseltesisat/feature/splash/view/splash_view.dart';
+import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
+import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_state.dart';
+import 'package:pikseltesisat/feature/core_features/splash/view/splash_view.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/models/my_user/my_user.dart';
 import 'package:pikseltesisat/product/utils/extensions/my_user_ext.dart';

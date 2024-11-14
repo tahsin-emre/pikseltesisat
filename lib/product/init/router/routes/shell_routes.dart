@@ -29,3 +29,13 @@ final class PlumberListRoute extends GoRouteData {
     return AppPage(child: const PlumberListView());
   }
 }
+
+final class WorkListRoute extends GoRouteData {
+  const WorkListRoute();
+  static const String path = '/main/work-list';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  @override
+  AppPage buildPage(BuildContext context, GoRouterState state) {
+    return AppPage(child: const WorkListView());
+  }
+}

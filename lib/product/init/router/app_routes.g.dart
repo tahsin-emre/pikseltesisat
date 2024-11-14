@@ -8,12 +8,14 @@ part of 'app_routes.dart';
 
 List<RouteBase> get $appRoutes => [
       $mainShellRoute,
-      $loginRoute,
-      $splashRoute,
       $customerCreateRoute,
       $customerDetailRoute,
+      $loginRoute,
+      $splashRoute,
       $plumberCreateRoute,
       $plumberDetailRoute,
+      $workCreateRoute,
+      $workDetailRoute,
     ];
 
 RouteBase get $mainShellRoute => ShellRouteData.$route(
@@ -34,6 +36,11 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
           path: '/main/plumber-list',
           parentNavigatorKey: PlumberListRoute.$parentNavigatorKey,
           factory: $PlumberListRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/main/work-list',
+          parentNavigatorKey: WorkListRoute.$parentNavigatorKey,
+          factory: $WorkListRouteExtension._fromState,
         ),
       ],
     );
@@ -97,40 +104,11 @@ extension $PlumberListRouteExtension on PlumberListRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $loginRoute => GoRouteData.$route(
-      path: '/login',
-      parentNavigatorKey: LoginRoute.$parentNavigatorKey,
-      factory: $LoginRouteExtension._fromState,
-    );
-
-extension $LoginRouteExtension on LoginRoute {
-  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
+extension $WorkListRouteExtension on WorkListRoute {
+  static WorkListRoute _fromState(GoRouterState state) => const WorkListRoute();
 
   String get location => GoRouteData.$location(
-        '/login',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $splashRoute => GoRouteData.$route(
-      path: '/splash',
-      parentNavigatorKey: SplashRoute.$parentNavigatorKey,
-      factory: $SplashRouteExtension._fromState,
-    );
-
-extension $SplashRouteExtension on SplashRoute {
-  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
-
-  String get location => GoRouteData.$location(
-        '/splash',
+        '/main/work-list',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -199,6 +177,52 @@ extension $CustomerDetailRouteExtension on CustomerDetailRoute {
       context.replace(location, extra: $extra);
 }
 
+RouteBase get $loginRoute => GoRouteData.$route(
+      path: '/login',
+      parentNavigatorKey: LoginRoute.$parentNavigatorKey,
+      factory: $LoginRouteExtension._fromState,
+    );
+
+extension $LoginRouteExtension on LoginRoute {
+  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
+
+  String get location => GoRouteData.$location(
+        '/login',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $splashRoute => GoRouteData.$route(
+      path: '/splash',
+      parentNavigatorKey: SplashRoute.$parentNavigatorKey,
+      factory: $SplashRouteExtension._fromState,
+    );
+
+extension $SplashRouteExtension on SplashRoute {
+  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
+
+  String get location => GoRouteData.$location(
+        '/splash',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 RouteBase get $plumberCreateRoute => GoRouteData.$route(
       path: '/plumber/create',
       parentNavigatorKey: PlumberCreateRoute.$parentNavigatorKey,
@@ -241,6 +265,60 @@ extension $PlumberDetailRouteExtension on PlumberDetailRoute {
 
   String get location => GoRouteData.$location(
         '/plumber/detail',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $workCreateRoute => GoRouteData.$route(
+      path: '/work/create',
+      parentNavigatorKey: WorkCreateRoute.$parentNavigatorKey,
+      factory: $WorkCreateRouteExtension._fromState,
+    );
+
+extension $WorkCreateRouteExtension on WorkCreateRoute {
+  static WorkCreateRoute _fromState(GoRouterState state) => WorkCreateRoute(
+        state.extra as Work?,
+      );
+
+  String get location => GoRouteData.$location(
+        '/work/create',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $workDetailRoute => GoRouteData.$route(
+      path: '/work/detail',
+      parentNavigatorKey: WorkDetailRoute.$parentNavigatorKey,
+      factory: $WorkDetailRouteExtension._fromState,
+    );
+
+extension $WorkDetailRouteExtension on WorkDetailRoute {
+  static WorkDetailRoute _fromState(GoRouterState state) => WorkDetailRoute(
+        state.extra as Work,
+      );
+
+  String get location => GoRouteData.$location(
+        '/work/detail',
       );
 
   void go(BuildContext context) => context.go(location, extra: $extra);

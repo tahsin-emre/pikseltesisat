@@ -11,7 +11,7 @@ final class CustomerTile extends StatelessWidget {
     return ListTile(
       onTap: () => CustomerDetailRoute(customer).push<void>(context),
       title: Text(customer.name ?? ''),
-      subtitle: Text(customer.phone ?? ''),
+      subtitle: Text(customer.id),
       trailing: AppIcons.forward.toIcon,
     );
   }

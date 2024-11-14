@@ -4,6 +4,8 @@
         "home": "Ana Sayfa",
         "customers": "Müşteriler",
         "plumbers": "Tesisatçılar",
+        "works": "İşler",
+        "reports": "Raporlar",
         "logout": "Çıkış"
     },
     "login": {

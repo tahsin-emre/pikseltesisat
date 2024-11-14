@@ -24,8 +24,8 @@ final class MainDrawer extends StatelessWidget {
           ),
           //Works
           DrawerTile(
-            title: LocaleKeys.drawer_plumbers.tr(),
-            icon: AppIcons.plumbers,
+            title: LocaleKeys.drawer_works.tr(),
+            icon: AppIcons.works,
             onTap: () => const PlumberListRoute().go(context),
           ),
           //Customers
@@ -42,8 +42,8 @@ final class MainDrawer extends StatelessWidget {
           ),
           //Reports
           DrawerTile(
-            title: LocaleKeys.drawer_plumbers.tr(),
-            icon: AppIcons.plumbers,
+            title: LocaleKeys.drawer_reports.tr(),
+            icon: AppIcons.report,
             onTap: () => const PlumberListRoute().go(context),
           ),
           const Divider(),

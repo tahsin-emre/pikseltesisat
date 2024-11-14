@@ -5,6 +5,8 @@ abstract class  LocaleKeys {
   static const drawer_home = 'drawer.home';
   static const drawer_customers = 'drawer.customers';
   static const drawer_plumbers = 'drawer.plumbers';
+  static const drawer_works = 'drawer.works';
+  static const drawer_reports = 'drawer.reports';
   static const drawer_logout = 'drawer.logout';
   static const drawer = 'drawer';
   static const login_login = 'login.login';

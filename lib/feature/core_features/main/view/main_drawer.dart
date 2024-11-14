@@ -26,7 +26,7 @@ final class MainDrawer extends StatelessWidget {
           DrawerTile(
             title: LocaleKeys.drawer_works.tr(),
             icon: AppIcons.works,
-            onTap: () => const PlumberListRoute().go(context),
+            onTap: () => const WorkListRoute().go(context),
           ),
           //Customers
           DrawerTile(
@@ -44,7 +44,7 @@ final class MainDrawer extends StatelessWidget {
           DrawerTile(
             title: LocaleKeys.drawer_reports.tr(),
             icon: AppIcons.report,
-            onTap: () => const PlumberListRoute().go(context),
+            onTap: () {},
           ),
           const Divider(),
           const DrawerLogOut(),

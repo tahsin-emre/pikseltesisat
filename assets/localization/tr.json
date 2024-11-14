@@ -42,7 +42,8 @@
         "editCustomer": "Müşteri Düzenle",
         "deleteCustomer": "Müşteri Sil",
         "customerDetail": "Müşteri Detayı",
-        "customerList": "Müşteri Listesi"
+        "customerList": "Müşteri Listesi",
+        "customerAdded": "Müşteri eklendi"
     },
     "plumber": {
         "name": "Ad",

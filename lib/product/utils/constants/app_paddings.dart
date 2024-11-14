@@ -8,10 +8,10 @@ final class AppPaddings {
   static const zero = EdgeInsets.zero;
 
   /// Value: 4.0
-  static const allXS = EdgeInsets.all(AppSizes.xxs);
+  static const allXXS = EdgeInsets.all(AppSizes.xxs);
 
   /// Value: 8.0
-  static const allXXS = EdgeInsets.all(AppSizes.xs);
+  static const allXS = EdgeInsets.all(AppSizes.xs);
 
   /// Value: 12.0
   static const allS = EdgeInsets.all(AppSizes.s);

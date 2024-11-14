@@ -4,7 +4,6 @@ final class Customer extends Equatable {
   const Customer({
     this.id = '',
     this.name,
-    this.surname,
     this.phone,
     this.address,
     this.province,
@@ -14,7 +13,6 @@ final class Customer extends Equatable {
   factory Customer.fromMap(Map<String, dynamic> map) {
     return Customer(
       name: map['name'] as String?,
-      surname: map['surname'] as String?,
       phone: map['phone'] as String?,
       address: map['address'] as String?,
       province: map['province'] as int?,
@@ -25,7 +23,6 @@ final class Customer extends Equatable {
   Map<String, dynamic> toMap() {
     return {
       'name': name,
-      'surname': surname,
       'phone': phone,
       'address': address,
       'province': province,
@@ -36,7 +33,6 @@ final class Customer extends Equatable {
   Customer copyWith({
     String? id,
     String? name,
-    String? surname,
     String? phone,
     String? address,
     int? province,
@@ -45,7 +41,6 @@ final class Customer extends Equatable {
     return Customer(
       id: id ?? this.id,
       name: name ?? this.name,
-      surname: surname ?? this.surname,
       phone: phone ?? this.phone,
       address: address ?? this.address,
       province: province ?? this.province,
@@ -55,7 +50,6 @@ final class Customer extends Equatable {
 
   final String id;
   final String? name;
-  final String? surname;
   final String? phone;
   final String? address;
   final int? province;
@@ -65,7 +59,6 @@ final class Customer extends Equatable {
   List<Object?> get props => [
         id,
         name,
-        surname,
         phone,
         address,
         province,

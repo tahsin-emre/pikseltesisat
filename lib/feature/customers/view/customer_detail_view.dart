@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/feature/customers/mixin/customer_detail_mixin.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/base_app_bar.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 
@@ -9,7 +10,8 @@ final class CustomerDetailView extends StatefulWidget {
   State<CustomerDetailView> createState() => _CustomerDetailViewState();
 }
 
-class _CustomerDetailViewState extends State<CustomerDetailView> {
+class _CustomerDetailViewState extends State<CustomerDetailView>
+    with CustomerDetailMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

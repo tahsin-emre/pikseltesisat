@@ -32,8 +32,8 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
   }
 
   Future<void> createCustomer() async {
-    // if (!formKey.currentState!.validate()) return;
-    // loadingNotifier.value = true;
+    if (!formKey.currentState!.validate()) return;
+    loadingNotifier.value = true;
     final customer = Customer(
       name: nameController.text,
       phone: phoneController.value.international,
@@ -41,14 +41,13 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
       district: district?.id,
       province: 34,
     );
-    // final response = await _customerService.addCustomer(customer);
-    // loadingNotifier.value = false;
-    // if (response != null) {
-    //   notifyUserError(response);
-    //   return;
-    // }
-    // notifyUserAndPop();
-    print(customer);
+    final response = await _customerService.addCustomer(customer);
+    loadingNotifier.value = false;
+    if (response != null) {
+      notifyUserError(response);
+      return;
+    }
+    notifyUserAndPop();
   }
 
   void notifyUserAndPop() {

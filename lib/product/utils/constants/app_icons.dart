@@ -29,6 +29,8 @@ final class AppIcons {
   static const person = Icons.person_rounded;
   static const report = Icons.file_open_rounded;
   static const works = Icons.work_history_rounded;
+  static const moreVert = Icons.more_vert_rounded;
+  static const moreHoriz = Icons.more_horiz_rounded;
 }
 
 extension AppIconsExtension on IconData {

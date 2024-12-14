@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 final class Customer extends Equatable {
@@ -10,8 +11,13 @@ final class Customer extends Equatable {
     this.district,
   });
 
-  factory Customer.fromMap(Map<String, dynamic> map) {
+  factory Customer.fromFirestore(
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? _,
+  ) {
+    final map = snapshot.data()!;
     return Customer(
+      id: snapshot.id,
       name: map['name'] as String?,
       phone: map['phone'] as String?,
       address: map['address'] as String?,
@@ -20,13 +26,13 @@ final class Customer extends Equatable {
     );
   }
 
-  Map<String, dynamic> toMap() {
+  static Map<String, dynamic> toFirestore(Customer customer, SetOptions? _) {
     return {
-      'name': name,
-      'phone': phone,
-      'address': address,
-      'province': province,
-      'district': district,
+      'name': customer.name,
+      'phone': customer.phone,
+      'address': customer.address,
+      'province': customer.province,
+      'district': customer.district,
     };
   }
 

@@ -11,9 +11,8 @@ final class PlumberService extends BaseService {
 
   late final _collection =
       db.collection(FirestoreCollections.plumbers.name).withConverter(
-            toFirestore: (plumber, options) => plumber.toMap(),
-            fromFirestore: (snapshot, options) =>
-                Plumber.fromMap(snapshot.data()!).copyWith(id: snapshot.id),
+            toFirestore: Plumber.toFirestore,
+            fromFirestore: Plumber.fromFirestore,
           );
 
   Stream<QuerySnapshot<Plumber>> get plumberListStream =>

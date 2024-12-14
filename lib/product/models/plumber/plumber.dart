@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 final class Plumber extends Equatable {
@@ -6,15 +7,20 @@ final class Plumber extends Equatable {
     this.name,
   });
 
-  factory Plumber.fromMap(Map<String, dynamic> map) {
+  factory Plumber.fromFirestore(
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? _,
+  ) {
+    final map = snapshot.data()!;
     return Plumber(
+      id: snapshot.id,
       name: map['name'] as String?,
     );
   }
 
-  Map<String, dynamic> toMap() {
+  static Map<String, dynamic> toFirestore(Plumber plumber, SetOptions? _) {
     return {
-      'name': name,
+      'name': plumber.name,
     };
   }
 

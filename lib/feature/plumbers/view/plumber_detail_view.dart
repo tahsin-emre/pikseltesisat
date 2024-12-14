@@ -16,7 +16,9 @@ class _PlumberDetailViewState extends State<PlumberDetailView> {
       appBar: BaseAppBar(title: ''),
       body: Center(
         child: Text(
-          widget.plumber.toMap().toString().replaceAll(',', '\n'),
+          Plumber.toFirestore(widget.plumber, null)
+              .toString()
+              .replaceAll(',', '\n'),
         ),
       ),
     );

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 
@@ -7,19 +6,15 @@ final class CustomerService extends BaseService {
   CustomerService._();
   static final _instance = CustomerService._();
 
-  late final _collection =
+  late final customerCollection =
       db.collection(FirestoreCollections.customers.name).withConverter(
-            toFirestore: (customer, options) => customer.toMap(),
-            fromFirestore: (snapshot, options) =>
-                Customer.fromMap(snapshot.data()!).copyWith(id: snapshot.id),
+            toFirestore: Customer.toFirestore,
+            fromFirestore: Customer.fromFirestore,
           );
-
-  Stream<QuerySnapshot<Customer>> get customerListStream =>
-      _collection.snapshots();
 
   Future<String?> addCustomer(Customer customer) async {
     try {
-      await _collection.add(customer);
+      await customerCollection.add(customer);
       return null;
     } on Exception {
       return 'Failed to add customer';

@@ -11,21 +11,26 @@ final class MyUser extends Equatable {
     this.userType = UserType.none,
   });
 
-  factory MyUser.fromMap(Map<String, dynamic> map) {
+  factory MyUser.fromFirestore(
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? _,
+  ) {
+    final map = snapshot.data()!;
     return MyUser(
+      id: snapshot.id,
       name: map['name'] as String?,
       surname: map['surname'] as String?,
       createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
-      userType: UserType.values[map['userType'] as int? ?? 0],
+      userType: UserType.values[(map['userType'] as int?) ?? 0],
     );
   }
 
-  Map<String, dynamic> get toMap {
+  static Map<String, dynamic> toFirestore(MyUser user, SetOptions? _) {
     return {
-      'name': name,
-      'surname': surname,
-      'createdAt': createdAt,
-      'userType': userType.index,
+      'name': user.name,
+      'surname': user.surname,
+      'createdAt': user.createdAt,
+      'userType': user.userType.index,
     };
   }
 

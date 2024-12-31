@@ -32,6 +32,7 @@ final class AppIcons {
   static const moreVert = Icons.more_vert_rounded;
   static const moreHoriz = Icons.more_horiz_rounded;
   static const call = Icons.call_rounded;
+  static const location = Icons.location_on_rounded;
 }
 
 extension AppIconsExtension on IconData {

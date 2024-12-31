@@ -17,6 +17,7 @@ enum FirestoreCollections {
 
 enum FirestoreFields {
   createdAt,
+  workDate,
   plumberId,
   customerId;
 }

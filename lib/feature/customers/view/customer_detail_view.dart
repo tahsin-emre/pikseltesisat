@@ -25,6 +25,8 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
         slivers: [
           BaseAppBar(title: LocaleKeys.customer_customerDetail.tr()).toSliver,
           CustomerDetailCard(widget.customer).toSliver,
+          const Divider().toSliver,
+          Text('data').toSliver,
         ],
       ),
     );

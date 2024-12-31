@@ -12,12 +12,7 @@ final class CustomerService extends BaseService {
             fromFirestore: Customer.fromFirestore,
           );
 
-  Future<String?> addCustomer(Customer customer) async {
-    try {
-      await customerCollection.add(customer);
-      return null;
-    } on Exception {
-      return 'Failed to add customer';
-    }
+  Future<void> addCustomer(Customer customer) async {
+    await customerCollection.add(customer);
   }
 }

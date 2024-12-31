@@ -7,6 +7,5 @@ import 'package:pikseltesisat/product/services/plumber_service.dart';
 mixin PlumberListMixin on State<PlumberListView> {
   final _plumberService = PlumberService();
 
-  Stream<QuerySnapshot<Plumber>> get plumberStream =>
-      _plumberService.plumberListStream;
+  Query<Plumber> get plumberQuery => _plumberService.plumberCollection;
 }

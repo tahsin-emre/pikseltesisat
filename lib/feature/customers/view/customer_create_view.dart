@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/feature/customers/mixin/customer_create_mixin.dart';
-import 'package:pikseltesisat/feature/customers/widget/district_selector.dart';
+import 'package:pikseltesisat/feature/sub_features/common_widgets/district_selector.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/base_app_bar.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/custom_phone_field.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/custom_text_field.dart';

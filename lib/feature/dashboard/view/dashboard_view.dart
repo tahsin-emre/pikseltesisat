@@ -19,6 +19,10 @@ final class DashboardView extends StatelessWidget {
           label: LocaleKeys.drawer_plumbers.tr(),
           onTap: () => const PlumberListRoute().go(context),
         ),
+        DashboardCard(
+          label: LocaleKeys.drawer_works.tr(),
+          onTap: () => const WorkListRoute().go(context),
+        ),
       ],
     );
   }

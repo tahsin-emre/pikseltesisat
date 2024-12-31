@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:pikseltesisat/feature/customers/view/customer_create_view.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
@@ -41,21 +42,14 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
       district: district?.id,
       province: 34,
     );
-    final response = await _customerService.addCustomer(customer);
+    await _customerService.addCustomer(customer);
     loadingNotifier.value = false;
-    if (response != null) {
-      notifyUserError(response);
-      return;
-    }
     notifyUserAndPop();
   }
 
   void notifyUserAndPop() {
-    context.notify(LocaleKeys.customer_customerAdded.tr());
-    Navigator.of(context).pop();
-  }
-
-  void notifyUserError(String message) {
-    context.notify(message);
+    context
+      ..notify(LocaleKeys.customer_customerAdded.tr())
+      ..pop();
   }
 }

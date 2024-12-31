@@ -6,9 +6,13 @@ final class WorkService extends BaseService {
   WorkService._();
   static final _instance = WorkService._();
 
-  late final _collection =
+  late final workCollection =
       db.collection(FirestoreCollections.works.name).withConverter(
             toFirestore: Work.toFirestore,
             fromFirestore: Work.fromFirestore,
           );
+
+  Future<void> addWork(Work work) async {
+    await workCollection.add(work);
+  }
 }

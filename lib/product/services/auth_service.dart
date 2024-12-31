@@ -8,7 +8,7 @@ final class AuthService extends BaseService {
   AuthService._();
   static final _instance = AuthService._();
 
-  late final _userCollection =
+  late final userCollection =
       db.collection(FirestoreCollections.users.name).withConverter(
             fromFirestore: MyUser.fromFirestore,
             toFirestore: MyUser.toFirestore,
@@ -33,7 +33,7 @@ final class AuthService extends BaseService {
   Future<MyUser?> getUser() async {
     final user = auth.currentUser;
     if (user == null) return null;
-    final response = await _userCollection.doc(user.uid).get();
+    final response = await userCollection.doc(user.uid).get();
     if (response.data() == null) return null;
     return response.data();
   }

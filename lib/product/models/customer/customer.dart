@@ -34,7 +34,7 @@ final class Customer extends Equatable {
       'phone': customer.phone,
       'address': customer.address,
       'province': customer.province,
-      'district': customer.district,
+      'district': customer.district?.id,
     };
   }
 

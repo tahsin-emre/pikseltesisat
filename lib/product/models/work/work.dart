@@ -26,7 +26,7 @@ final class Work extends Equatable {
       plumberId: map['plumberId'] as String?,
       createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
       workDate: (map['workDate'] as Timestamp?)?.toDate(),
-      workKind: (map['workType'] as int?)?.toWorkKind,
+      workKind: (map['workKind'] as int?)?.toWorkKind,
     );
   }
 

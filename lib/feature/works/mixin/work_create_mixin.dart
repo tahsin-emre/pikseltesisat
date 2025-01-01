@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pikseltesisat/feature/works/view/work_create_view.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/methods/toast.dart';
@@ -36,7 +37,8 @@ mixin WorkCreateMixin on State<WorkCreateView> {
     );
     try {
       await query.add(work);
-      toast(LocaleKeys.base_save.tr());
+      toast(LocaleKeys.work_workAdded.tr());
+      pop();
     } on Exception {
       toast(LocaleKeys.base_error.tr());
       return;
@@ -64,4 +66,6 @@ mixin WorkCreateMixin on State<WorkCreateView> {
     if (newDate == null) return;
     workDate = newDate;
   }
+
+  void pop() => context.pop();
 }

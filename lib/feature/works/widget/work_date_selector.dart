@@ -58,7 +58,7 @@ class _WorkDateSelectorState extends State<WorkDateSelector> {
     );
     setState(() {
       selectedDate = dateTime;
-      widget.onSelected(newDate);
+      widget.onSelected(dateTime);
     });
   }
 

@@ -1,5 +1,7 @@
 enum UserType {
   none,
   admin,
-  plumber;
+  plumber,
+  waiting,
+  ;
 }

@@ -14,6 +14,8 @@ abstract class  LocaleKeys {
   static const login_password = 'login.password';
   static const login_forgotPassword = 'login.forgotPassword';
   static const login_register = 'login.register';
+  static const login_nameSurname = 'login.nameSurname';
+  static const login_waitingForConfirmation = 'login.waitingForConfirmation';
   static const login = 'login';
   static const validators_required = 'validators.required';
   static const validators_email = 'validators.email';
@@ -29,6 +31,9 @@ abstract class  LocaleKeys {
   static const base_loading = 'base.loading';
   static const base_error = 'base.error';
   static const base_pickLater = 'base.pickLater';
+  static const base_yes = 'base.yes';
+  static const base_no = 'base.no';
+  static const base_welcome = 'base.welcome';
   static const base = 'base';
   static const customer_name = 'customer.name';
   static const customer_surname = 'customer.surname';

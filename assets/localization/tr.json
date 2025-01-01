@@ -13,7 +13,9 @@
         "email": "E-posta",
         "password": "Şifre",
         "forgotPassword": "Şifremi Unuttum",
-        "register": "Kayıt Ol"
+        "register": "Kayıt Ol",
+        "nameSurname": "Ad Soyad",
+        "waitingForConfirmation": "Hesabınız onay beklemektedir"
     },
     "validators": {
         "required": "Bu alan zorunludur",
@@ -30,7 +32,10 @@
         "noData": "Veri bulunamadı",
         "loading": "Yükleniyor...",
         "error": "Bir hata oluştu",
-        "pickLater": "Daha sonra seç"
+        "pickLater": "Daha sonra seç",
+        "yes": "Evet",
+        "no": "Hayır",
+        "welcome": "Hoşgeldin {}"
     },
     "customer": {
         "name": "Ad",

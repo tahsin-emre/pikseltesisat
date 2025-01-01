@@ -11,7 +11,9 @@ List<RouteBase> get $appRoutes => [
       $customerCreateRoute,
       $customerDetailRoute,
       $loginRoute,
+      $registerRoute,
       $splashRoute,
+      $waitingRoute,
       $plumberCreateRoute,
       $plumberDetailRoute,
       $workCreateRoute,
@@ -200,6 +202,29 @@ extension $LoginRouteExtension on LoginRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $registerRoute => GoRouteData.$route(
+      path: '/register',
+      parentNavigatorKey: RegisterRoute.$parentNavigatorKey,
+      factory: $RegisterRouteExtension._fromState,
+    );
+
+extension $RegisterRouteExtension on RegisterRoute {
+  static RegisterRoute _fromState(GoRouterState state) => const RegisterRoute();
+
+  String get location => GoRouteData.$location(
+        '/register',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 RouteBase get $splashRoute => GoRouteData.$route(
       path: '/splash',
       parentNavigatorKey: SplashRoute.$parentNavigatorKey,
@@ -211,6 +236,29 @@ extension $SplashRouteExtension on SplashRoute {
 
   String get location => GoRouteData.$location(
         '/splash',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $waitingRoute => GoRouteData.$route(
+      path: '/waiting',
+      parentNavigatorKey: WaitingRoute.$parentNavigatorKey,
+      factory: $WaitingRouteExtension._fromState,
+    );
+
+extension $WaitingRouteExtension on WaitingRoute {
+  static WaitingRoute _fromState(GoRouterState state) => const WaitingRoute();
+
+  String get location => GoRouteData.$location(
+        '/waiting',
       );
 
   void go(BuildContext context) => context.go(location);

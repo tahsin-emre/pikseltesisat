@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 
-final class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+final class AuthTextField extends StatelessWidget {
+  const AuthTextField({
     required this.label,
+    required this.icon,
     required this.controller,
+    required this.isPassword,
     this.validator,
     super.key,
   });
+
   final String label;
+  final IconData icon;
+  final bool isPassword;
   final TextEditingController controller;
   final FormFieldValidator<String>? validator;
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: AppPaddings.allXS,
+      margin: AppPaddings.allS,
       child: TextFormField(
-        controller: controller,
         validator: validator,
+        controller: controller,
+        obscureText: isPassword,
         decoration: InputDecoration(
           labelText: label,
-          border: const OutlineInputBorder(),
+          prefixIcon: icon.toIcon,
         ),
       ),
     );

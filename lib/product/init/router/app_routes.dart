@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pikseltesisat/feature/core_features/auth/view/login_view.dart';
+import 'package:pikseltesisat/feature/core_features/auth/view/register_view.dart';
+import 'package:pikseltesisat/feature/core_features/auth/view/waiting_view.dart';
 import 'package:pikseltesisat/feature/core_features/main/view/main_view.dart';
 import 'package:pikseltesisat/feature/core_features/splash/view/splash_view.dart';
 import 'package:pikseltesisat/feature/customers/view/customer_create_view.dart';

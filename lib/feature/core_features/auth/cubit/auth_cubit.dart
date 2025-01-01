@@ -16,10 +16,22 @@ final class AuthCubit extends Cubit<AuthState> {
     required String email,
     required String password,
   }) async {
-    final auth = await _authService.login(email: email, password: password);
-    if (auth != null) {
-      return auth;
-    }
+    final errorResponse = await _authService.login(email, password);
+    if (errorResponse != null) return errorResponse;
+    final user = await _authService.getUser();
+    emit(state.copyWith(user: user));
+    return null;
+  }
+
+  Future<String?> register({
+    required String email,
+    required String password,
+    required String name,
+  }) async {
+    final errorResponse = await _authService.register(email, password);
+    if (errorResponse != null) return errorResponse;
+    final userErrorResponse = await _authService.createUser(name: name);
+    if (userErrorResponse != null) return userErrorResponse;
     final user = await _authService.getUser();
     emit(state.copyWith(user: user));
     return null;

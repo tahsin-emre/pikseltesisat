@@ -48,7 +48,5 @@ class _DrawerLogOutState extends State<DrawerLogOut> {
     );
   }
 
-  void goToSplash() {
-    const SplashRoute().go(context);
-  }
+  void goToSplash() => const SplashRoute().go(context);
 }

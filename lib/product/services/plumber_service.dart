@@ -15,4 +15,6 @@ final class PlumberService extends BaseService {
   Future<void> addPlumber(Plumber plumber) async {
     await plumberCollection.add(plumber);
   }
+
+  Future<void> confirmPlumber(String userId) async {}
 }

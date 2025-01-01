@@ -12,12 +12,15 @@ enum FirestoreCollections {
   users,
   customers,
   plumbers,
-  works;
+  works,
+  ;
 }
 
 enum FirestoreFields {
   createdAt,
   workDate,
   plumberId,
-  customerId;
+  customerId,
+  workId,
+  ;
 }

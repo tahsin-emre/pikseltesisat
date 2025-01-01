@@ -26,6 +26,21 @@ final class AuthService extends BaseService {
     }
   }
 
+  Future<String?> register({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      await auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return null;
+    } on Exception catch (e) {
+      return '${LocaleKeys.base_error.tr()} $e';
+    }
+  }
+
   Future<void> logout() async {
     await auth.signOut();
   }

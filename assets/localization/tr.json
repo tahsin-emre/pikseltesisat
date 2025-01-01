@@ -29,7 +29,8 @@
         "search": "Ara",
         "noData": "Veri bulunamadı",
         "loading": "Yükleniyor...",
-        "error": "Bir hata oluştu"
+        "error": "Bir hata oluştu",
+        "pickLater": "Daha sonra seç"
     },
     "customer": {
         "name": "Ad",
@@ -56,7 +57,8 @@
         "editPlumber": "Tesisatçı Düzenle",
         "deletePlumber": "Tesisatçı Sil",
         "plumberDetail": "Tesisatçı Detayı",
-        "plumberList": "Tesisatçı Listesi"
+        "plumberList": "Tesisatçı Listesi",
+        "pickPlumber": "Tesisatçı Seç"
     },
     "work": {
         "newWork": "Yeni İş",

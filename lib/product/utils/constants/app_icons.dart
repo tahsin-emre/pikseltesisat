@@ -33,6 +33,7 @@ final class AppIcons {
   static const moreHoriz = Icons.more_horiz_rounded;
   static const call = Icons.call_rounded;
   static const location = Icons.location_on_rounded;
+  static const calendar = Icons.calendar_month;
 }
 
 extension AppIconsExtension on IconData {

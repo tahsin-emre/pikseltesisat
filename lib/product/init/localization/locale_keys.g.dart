@@ -28,6 +28,7 @@ abstract class  LocaleKeys {
   static const base_noData = 'base.noData';
   static const base_loading = 'base.loading';
   static const base_error = 'base.error';
+  static const base_pickLater = 'base.pickLater';
   static const base = 'base';
   static const customer_name = 'customer.name';
   static const customer_surname = 'customer.surname';
@@ -53,6 +54,7 @@ abstract class  LocaleKeys {
   static const plumber_deletePlumber = 'plumber.deletePlumber';
   static const plumber_plumberDetail = 'plumber.plumberDetail';
   static const plumber_plumberList = 'plumber.plumberList';
+  static const plumber_pickPlumber = 'plumber.pickPlumber';
   static const plumber = 'plumber';
   static const work_newWork = 'work.newWork';
   static const work_editWork = 'work.editWork';

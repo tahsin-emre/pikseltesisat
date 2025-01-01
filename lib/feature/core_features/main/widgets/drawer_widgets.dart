@@ -27,9 +27,14 @@ final class DrawerTile extends StatelessWidget {
   }
 }
 
-final class DrawerLogOut extends StatelessWidget {
+final class DrawerLogOut extends StatefulWidget {
   const DrawerLogOut({super.key});
 
+  @override
+  State<DrawerLogOut> createState() => _DrawerLogOutState();
+}
+
+class _DrawerLogOutState extends State<DrawerLogOut> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -38,9 +43,12 @@ final class DrawerLogOut extends StatelessWidget {
       leading: AppIcons.logout.toIcon,
       onTap: () async {
         await context.read<AuthCubit>().logout();
-        // ignore: use_build_context_synchronously
-        const SplashRoute().go(context);
+        goToSplash();
       },
     );
+  }
+
+  void goToSplash() {
+    const SplashRoute().go(context);
   }
 }

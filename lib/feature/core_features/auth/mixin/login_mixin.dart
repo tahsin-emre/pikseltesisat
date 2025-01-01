@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
 import 'package:pikseltesisat/feature/core_features/auth/view/login_view.dart';
+import 'package:pikseltesisat/product/init/methods/toast.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
-import 'package:pikseltesisat/product/utils/extensions/context_ext.dart';
 
 mixin LoginMixin on State<LoginView> {
   late final _authCubit = context.read<AuthCubit>();
@@ -21,7 +21,7 @@ mixin LoginMixin on State<LoginView> {
     );
     loadingNotifier.value = false;
     if (error != null) {
-      notifyUser(error);
+      toast(error);
       return;
     }
     navigateToSplash();
@@ -29,9 +29,5 @@ mixin LoginMixin on State<LoginView> {
 
   void navigateToSplash() {
     const SplashRoute().go(context);
-  }
-
-  void notifyUser(String message) {
-    context.notify(message);
   }
 }

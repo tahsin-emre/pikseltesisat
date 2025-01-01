@@ -5,8 +5,9 @@ import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
 import 'package:pikseltesisat/product/init/router/app_router.dart';
 import 'package:pikseltesisat/product/init/theme/app_theme.dart';
 import 'package:pikseltesisat/product/utils/constants/app_constants.dart';
+import 'package:toastification/toastification.dart';
 
-class App extends StatelessWidget {
+final class App extends StatelessWidget {
   const App({super.key});
 
   @override
@@ -15,14 +16,16 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => AuthCubit()),
       ],
-      child: MaterialApp.router(
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        routerConfig: AppRouter.config,
-        theme: AppTheme.light,
-        title: AppConstants.name,
-        debugShowCheckedModeBanner: false,
+      child: ToastificationWrapper(
+        child: MaterialApp.router(
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          routerConfig: AppRouter.config,
+          theme: AppTheme.light,
+          title: AppConstants.name,
+          debugShowCheckedModeBanner: false,
+        ),
       ),
     );
   }

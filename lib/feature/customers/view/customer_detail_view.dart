@@ -44,7 +44,7 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
                 const Divider(),
                 TitleText(LocaleKeys.work_workList.tr()),
                 const SizedBox(height: AppSizes.s),
-                const WorkNewTile(),
+                WorkNewTile(customerId: widget.customer.id),
                 FirestoreListView<Work>(
                   query: query,
                   itemBuilder: (_, e) => WorkTile(e.data()),

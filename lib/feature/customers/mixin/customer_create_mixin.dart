@@ -10,7 +10,6 @@ import 'package:pikseltesisat/product/services/customer_service.dart';
 import 'package:pikseltesisat/product/utils/extensions/context_ext.dart';
 
 mixin CustomerCreateMixin on State<CustomerCreateView> {
-  final loadingNotifier = ValueNotifier<bool>(false);
   final _customerService = CustomerService();
   final formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
@@ -23,18 +22,10 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
   @override
   void initState() {
     super.initState();
-    init();
-  }
-
-  Future<void> init() async {
-    loadingNotifier.value = true;
-    await Future.delayed(const Duration(milliseconds: 300), () {});
-    loadingNotifier.value = false;
   }
 
   Future<void> createCustomer() async {
     if (!formKey.currentState!.validate()) return;
-    loadingNotifier.value = true;
     final customer = Customer(
       name: nameController.text,
       phone: phoneController.value.international,
@@ -43,7 +34,6 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
       province: 34,
     );
     await _customerService.addCustomer(customer);
-    loadingNotifier.value = false;
     notifyUserAndPop();
   }
 

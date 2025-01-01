@@ -5,7 +5,7 @@ import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/customer/district.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 
-class DistrictSelector extends StatelessWidget {
+final class DistrictSelector extends StatelessWidget {
   const DistrictSelector(this.onChanged, {super.key});
   final ValueChanged<District?> onChanged;
   @override

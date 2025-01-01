@@ -62,6 +62,16 @@
         "newWork": "Yeni İş",
         "editWork": "İş Düzenle",
         "workList": "İş Listesi",
-        "workDetail": "İş Detayı"
+        "workDetail": "İş Detayı",
+        "workAdded": "İş eklendi",
+        "workDate": "İş Tarihi",
+        "workKind": "İş Türü",
+        "waterLeakage": "Su Kaçağı",
+        "unclogging": "Tıkanıklık Açma",
+        "repair": "Onarım",
+        "washing": "Yıkama",
+        "additional": "Ek Ücret",
+        "backWork": "Geri Dönüş",
+        "service": "Servis"
     }
 }

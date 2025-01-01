@@ -287,7 +287,7 @@ RouteBase get $workCreateRoute => GoRouteData.$route(
 
 extension $WorkCreateRouteExtension on WorkCreateRoute {
   static WorkCreateRoute _fromState(GoRouterState state) => WorkCreateRoute(
-        state.extra as Work?,
+        state.extra as Work,
       );
 
   String get location => GoRouteData.$location(

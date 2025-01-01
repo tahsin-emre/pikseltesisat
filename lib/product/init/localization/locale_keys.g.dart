@@ -58,6 +58,16 @@ abstract class  LocaleKeys {
   static const work_editWork = 'work.editWork';
   static const work_workList = 'work.workList';
   static const work_workDetail = 'work.workDetail';
+  static const work_workAdded = 'work.workAdded';
+  static const work_workDate = 'work.workDate';
+  static const work_workKind = 'work.workKind';
+  static const work_waterLeakage = 'work.waterLeakage';
+  static const work_unclogging = 'work.unclogging';
+  static const work_repair = 'work.repair';
+  static const work_washing = 'work.washing';
+  static const work_additional = 'work.additional';
+  static const work_backWork = 'work.backWork';
+  static const work_service = 'work.service';
   static const work = 'work';
 
 }

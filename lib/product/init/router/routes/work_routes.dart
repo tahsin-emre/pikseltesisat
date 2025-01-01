@@ -2,14 +2,14 @@ part of '../app_routes.dart';
 
 @TypedGoRoute<WorkCreateRoute>(path: WorkCreateRoute.path)
 final class WorkCreateRoute extends GoRouteData {
-  const WorkCreateRoute([this.$extra]);
+  const WorkCreateRoute(this.$extra);
   static const String path = '/work/create';
   static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
-  final Work? $extra;
+  final Work $extra;
 
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
-    return AppPage(child: WorkCreateView(work: $extra));
+    return AppPage(child: WorkCreateView($extra));
   }
 }
 

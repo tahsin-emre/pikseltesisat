@@ -19,6 +19,7 @@ final class CustomerDetailCard extends StatelessWidget {
               Text(customer.name ?? ''),
               Text(customer.phone ?? ''),
               Text(customer.address ?? ''),
+              Text(customer.district?.name ?? ''),
             ],
           ).expanded,
           IconButton.filled(

@@ -6,11 +6,14 @@ import 'package:pikseltesisat/feature/customers/widget/customer_detail_card.dart
 import 'package:pikseltesisat/feature/customers/widget/customer_detail_fab.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/base_app_bar.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/loading.dart';
+import 'package:pikseltesisat/feature/sub_features/common_widgets/title_text.dart';
+import 'package:pikseltesisat/feature/works/widget/work_new_tile.dart';
 import 'package:pikseltesisat/feature/works/widget/work_tile.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
+import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class CustomerDetailView extends StatefulWidget {
@@ -25,7 +28,7 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppBar(title: LocaleKeys.customer_customerDetail.tr()),
+      appBar: BaseAppBar(title: widget.customer.name ?? ''),
       floatingActionButton: const CustomerDetailFab(),
       body: ValueListenableBuilder(
         valueListenable: loadingNotifier,
@@ -36,9 +39,12 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                TitleText(LocaleKeys.customer_customerDetail.tr()),
                 CustomerDetailCard(widget.customer),
                 const Divider(),
-                Text(LocaleKeys.work_workList.tr()),
+                TitleText(LocaleKeys.work_workList.tr()),
+                const SizedBox(height: AppSizes.s),
+                const WorkNewTile(),
                 FirestoreListView<Work>(
                   query: query,
                   itemBuilder: (_, e) => WorkTile(e.data()),

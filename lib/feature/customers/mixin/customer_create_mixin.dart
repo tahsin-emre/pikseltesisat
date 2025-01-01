@@ -39,7 +39,7 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
       name: nameController.text,
       phone: phoneController.value.international,
       address: addressController.text,
-      district: district?.id,
+      district: district,
       province: 34,
     );
     await _customerService.addCustomer(customer);

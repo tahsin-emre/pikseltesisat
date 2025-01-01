@@ -44,19 +44,4 @@ final class DataProvinceDistrict {
     District(id: 1708, provinceId: 34, name: 'ÜSKÜDAR'),
     District(id: 1739, provinceId: 34, name: 'ZEYTİNBURNU'),
   ];
-
-  //  static const provinces = [
-  //   Province(
-  //     id: 1,
-  //     name: 'ADANA',
-  //     districts: [
-  //       District(id: 1757, provinceId: 1, name: 'ALADAĞ'),
-  //     ],
-  //   ),
-
-  // ];
-
-  // static const districts = [
-  //   District(id: 1757, provinceId: 1, name: 'ALADAĞ'),
-  // ];
 }

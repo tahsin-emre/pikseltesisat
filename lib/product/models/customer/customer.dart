@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:pikseltesisat/product/models/customer/district.dart';
+import 'package:pikseltesisat/product/utils/extensions/int_ext.dart';
 
 final class Customer extends Equatable {
   const Customer({
@@ -22,7 +24,7 @@ final class Customer extends Equatable {
       phone: map['phone'] as String?,
       address: map['address'] as String?,
       province: map['province'] as int?,
-      district: map['district'] as int?,
+      district: (map['district'] as int?)?.toDisctrict,
     );
   }
 
@@ -42,7 +44,7 @@ final class Customer extends Equatable {
     String? phone,
     String? address,
     int? province,
-    int? district,
+    District? district,
   }) {
     return Customer(
       id: id ?? this.id,
@@ -59,7 +61,7 @@ final class Customer extends Equatable {
   final String? phone;
   final String? address;
   final int? province;
-  final int? district;
+  final District? district;
 
   @override
   List<Object?> get props => [

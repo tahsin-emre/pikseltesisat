@@ -6,12 +6,6 @@ final class CustomerService extends BaseService {
   CustomerService._();
   static final _instance = CustomerService._();
 
-  late final customerCollection =
-      db.collection(FirestoreCollections.customers.name).withConverter(
-            toFirestore: Customer.toFirestore,
-            fromFirestore: Customer.fromFirestore,
-          );
-
   Future<void> addCustomer(Customer customer) async {
     await customerCollection.add(customer);
   }

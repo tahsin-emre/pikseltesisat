@@ -24,15 +24,26 @@ part 'app_routes.g.dart';
 part 'routes/customer_routes.dart';
 part 'routes/main_routes.dart';
 part 'routes/plumber_routes.dart';
-part 'routes/shell_routes.dart';
 part 'routes/work_routes.dart';
 
 @TypedShellRoute<MainShellRoute>(
   routes: [
+    //Core Routes
     TypedGoRoute<DashboardRoute>(path: DashboardRoute.path),
+    //Customer Routes
     TypedGoRoute<CustomerListRoute>(path: CustomerListRoute.path),
+    TypedGoRoute<CustomerCreateRoute>(path: CustomerCreateRoute.path),
+    TypedGoRoute<CustomerDetailRoute>(path: CustomerDetailRoute.path),
+
+    //Plumber Routes
     TypedGoRoute<PlumberListRoute>(path: PlumberListRoute.path),
+    TypedGoRoute<PlumberCreateRoute>(path: PlumberCreateRoute.path),
+    TypedGoRoute<PlumberDetailRoute>(path: PlumberDetailRoute.path),
+
+    //Work Routes
     TypedGoRoute<WorkListRoute>(path: WorkListRoute.path),
+    TypedGoRoute<WorkCreateRoute>(path: WorkCreateRoute.path),
+    TypedGoRoute<WorkDetailRoute>(path: WorkDetailRoute.path),
   ],
 )
 final class MainShellRoute extends ShellRouteData {

@@ -4,14 +4,22 @@ import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
 
-final class WorkTile extends StatelessWidget {
+final class WorkTile extends StatefulWidget {
   const WorkTile(this.work, {super.key});
   final Work work;
+
+  @override
+  State<WorkTile> createState() => _WorkTileState();
+}
+
+class _WorkTileState extends State<WorkTile> {
+  final loadingNotifier = ValueNotifier<bool>(false);
+
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        onTap: () => WorkDetailRoute(work).push<void>(context),
+        onTap: () => WorkDetailRoute(widget.work).go(context),
         title: Text(workDate),
         subtitle: subtitle,
       ),
@@ -19,7 +27,7 @@ final class WorkTile extends StatelessWidget {
   }
 
   Widget get subtitle {
-    if (work.workKind == null) return const SizedBox();
+    if (widget.work.workKind == null) return const SizedBox();
     return Row(
       children: [
         Container(
@@ -27,17 +35,17 @@ final class WorkTile extends StatelessWidget {
           height: 20,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: work.workKind!.color,
+            color: widget.work.workKind!.color,
           ),
         ),
         const SizedBox(width: AppSizes.xs),
-        Text(work.workKind?.localeKey.tr() ?? ''),
+        Text(widget.work.workKind?.localeKey.tr() ?? ''),
       ],
     );
   }
 
   String get workDate {
-    if (work.workDate == null) return '';
-    return DateFormat('dd MMMM y EEEE, HH:mm').format(work.workDate!);
+    if (widget.work.workDate == null) return '';
+    return DateFormat('dd MMMM y EEEE, HH:mm').format(widget.work.workDate!);
   }
 }

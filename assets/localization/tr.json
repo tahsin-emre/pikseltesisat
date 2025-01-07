@@ -50,7 +50,8 @@
         "deleteCustomer": "Müşteri Sil",
         "customerDetail": "Müşteri Detayı",
         "customerList": "Müşteri Listesi",
-        "customerAdded": "Müşteri eklendi"
+        "customerAdded": "Müşteri eklendi",
+        "customerPick": "Müşteri Seç"
     },
     "plumber": {
         "name": "Ad",
@@ -64,7 +65,8 @@
         "deletePlumber": "Tesisatçı Sil",
         "plumberDetail": "Tesisatçı Detayı",
         "plumberList": "Tesisatçı Listesi",
-        "pickPlumber": "Tesisatçı Seç"
+        "pickPlumber": "Tesisatçı Seç",
+        "plumberAdded": "Tesisatçı eklendi"
     },
     "work": {
         "newWork": "Yeni İş",

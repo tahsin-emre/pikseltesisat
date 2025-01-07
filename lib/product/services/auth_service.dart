@@ -9,12 +9,6 @@ final class AuthService extends BaseService {
   AuthService._();
   static final _instance = AuthService._();
 
-  late final userCollection =
-      db.collection(FirestoreCollections.users.name).withConverter(
-            fromFirestore: MyUser.fromFirestore,
-            toFirestore: MyUser.toFirestore,
-          );
-
   Future<String?> login(String email, String password) async {
     try {
       await auth.signInWithEmailAndPassword(email: email, password: password);

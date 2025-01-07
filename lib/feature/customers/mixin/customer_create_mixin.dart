@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:pikseltesisat/feature/customers/view/customer_create_view.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/methods/toast.dart';
+import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/customer/district.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
@@ -39,6 +39,6 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
 
   void notifyUserAndPop() {
     toast(LocaleKeys.customer_customerAdded.tr());
-    context.pop();
+    const CustomerListRoute().go(context);
   }
 }

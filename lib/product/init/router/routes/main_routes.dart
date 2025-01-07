@@ -33,6 +33,16 @@ final class SplashRoute extends GoRouteData {
   }
 }
 
+final class DashboardRoute extends GoRouteData {
+  const DashboardRoute();
+  static const String path = '/main/dashboard';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  @override
+  AppPage buildPage(BuildContext context, GoRouterState state) {
+    return AppPage(child: const DashboardView());
+  }
+}
+
 @TypedGoRoute<WaitingRoute>(path: WaitingRoute.path)
 final class WaitingRoute extends GoRouteData {
   const WaitingRoute();

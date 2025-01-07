@@ -9,12 +9,6 @@ final class PlumberService extends BaseService {
   PlumberService._();
   static final _instance = PlumberService._();
 
-  late final plumberCollection =
-      db.collection(FirestoreCollections.plumbers.name).withConverter(
-            toFirestore: Plumber.toFirestore,
-            fromFirestore: Plumber.fromFirestore,
-          );
-
   late final Query<MyUser> waitingCollection = db
       .collection(FirestoreCollections.users.name)
       .withConverter(
@@ -26,9 +20,16 @@ final class PlumberService extends BaseService {
         isEqualTo: UserType.waiting.index,
       );
 
-  Future<void> addPlumber(Plumber plumber) async {
-    await plumberCollection.add(plumber);
+  Future<String?> confirmPlumber(MyUser user) async {
+    try {
+      final newPlumber = Plumber(id: user.id, name: user.name);
+      await plumberCollection.doc(user.id).set(newPlumber);
+      await userCollection.doc(user.id).update({
+        FirestoreFields.userType.name: UserType.plumber.index,
+      });
+      return null;
+    } on Exception catch (e) {
+      return e.toString();
+    }
   }
-
-  Future<void> confirmPlumber(String userId) async {}
 }

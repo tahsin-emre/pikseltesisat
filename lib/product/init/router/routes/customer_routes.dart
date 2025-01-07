@@ -1,10 +1,19 @@
 part of '../app_routes.dart';
 
-@TypedGoRoute<CustomerCreateRoute>(path: CustomerCreateRoute.path)
+final class CustomerListRoute extends GoRouteData {
+  const CustomerListRoute();
+  static const String path = '/main/customer-list';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  @override
+  AppPage buildPage(BuildContext context, GoRouterState state) {
+    return AppPage(child: const CustomerListView());
+  }
+}
+
 final class CustomerCreateRoute extends GoRouteData {
   const CustomerCreateRoute([this.$extra]);
-  static const String path = '/customer/create';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static const String path = '/main/customer-create';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
   final Customer? $extra;
 
   @override
@@ -13,11 +22,10 @@ final class CustomerCreateRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<CustomerDetailRoute>(path: CustomerDetailRoute.path)
 final class CustomerDetailRoute extends GoRouteData {
   const CustomerDetailRoute(this.$extra);
-  static const String path = '/customer/detail';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static const String path = '/main/customer-details';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
   final Customer $extra;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {

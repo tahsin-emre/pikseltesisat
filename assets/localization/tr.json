@@ -4,6 +4,8 @@
         "home": "Ana Sayfa",
         "customers": "Müşteriler",
         "plumbers": "Tesisatçılar",
+        "works": "İşler",
+        "reports": "Raporlar",
         "logout": "Çıkış"
     },
     "login": {
@@ -11,7 +13,9 @@
         "email": "E-posta",
         "password": "Şifre",
         "forgotPassword": "Şifremi Unuttum",
-        "register": "Kayıt Ol"
+        "register": "Kayıt Ol",
+        "nameSurname": "Ad Soyad",
+        "waitingForConfirmation": "Hesabınız onay beklemektedir"
     },
     "validators": {
         "required": "Bu alan zorunludur",
@@ -27,7 +31,12 @@
         "search": "Ara",
         "noData": "Veri bulunamadı",
         "loading": "Yükleniyor...",
-        "error": "Bir hata oluştu"
+        "error": "Bir hata oluştu",
+        "pickLater": "Daha sonra seç",
+        "yes": "Evet",
+        "no": "Hayır",
+        "welcome": "Hoşgeldin {}",
+        "confirm": "Onayla"
     },
     "customer": {
         "name": "Ad",
@@ -40,6 +49,37 @@
         "editCustomer": "Müşteri Düzenle",
         "deleteCustomer": "Müşteri Sil",
         "customerDetail": "Müşteri Detayı",
-        "customerList": "Müşteri Listesi"
+        "customerList": "Müşteri Listesi",
+        "customerAdded": "Müşteri eklendi"
+    },
+    "plumber": {
+        "name": "Ad",
+        "surname": "Soyad",
+        "phone": "Telefon",
+        "address": "Adres",
+        "province": "İl",
+        "district": "İlçe",
+        "newPlumber": "Yeni Tesisatçı",
+        "editPlumber": "Tesisatçı Düzenle",
+        "deletePlumber": "Tesisatçı Sil",
+        "plumberDetail": "Tesisatçı Detayı",
+        "plumberList": "Tesisatçı Listesi",
+        "pickPlumber": "Tesisatçı Seç"
+    },
+    "work": {
+        "newWork": "Yeni İş",
+        "editWork": "İş Düzenle",
+        "workList": "İş Listesi",
+        "workDetail": "İş Detayı",
+        "workAdded": "İş eklendi",
+        "workDate": "İş Tarihi",
+        "workKind": "İş Türü",
+        "waterLeakage": "Su Kaçağı",
+        "unclogging": "Tıkanıklık Açma",
+        "repair": "Onarım",
+        "washing": "Yıkama",
+        "additional": "Ek Ücret",
+        "backWork": "Geri Dönüş",
+        "service": "Servis"
     }
 }

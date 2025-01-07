@@ -11,6 +11,17 @@ final class LoginRoute extends GoRouteData {
   }
 }
 
+@TypedGoRoute<RegisterRoute>(path: RegisterRoute.path)
+final class RegisterRoute extends GoRouteData {
+  const RegisterRoute();
+  static const String path = '/register';
+  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  @override
+  AppPage buildPage(BuildContext context, GoRouterState state) {
+    return AppPage(child: const RegisterView());
+  }
+}
+
 @TypedGoRoute<SplashRoute>(path: SplashRoute.path)
 final class SplashRoute extends GoRouteData {
   const SplashRoute();
@@ -19,5 +30,16 @@ final class SplashRoute extends GoRouteData {
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const SplashView());
+  }
+}
+
+@TypedGoRoute<WaitingRoute>(path: WaitingRoute.path)
+final class WaitingRoute extends GoRouteData {
+  const WaitingRoute();
+  static const String path = '/waiting';
+  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  @override
+  AppPage buildPage(BuildContext context, GoRouterState state) {
+    return AppPage(child: const WaitingView());
   }
 }

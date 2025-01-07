@@ -8,6 +8,8 @@ class BaseAppBar extends AppBar {
     super.key,
   }) : super(
           forceMaterialTransparency: false,
+          excludeHeaderSemantics: false,
           title: Text(title),
+          notificationPredicate: (notification) => false,
         );
 }

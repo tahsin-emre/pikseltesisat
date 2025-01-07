@@ -9,4 +9,9 @@ final class CustomerService extends BaseService {
   Future<void> addCustomer(Customer customer) async {
     await customerCollection.add(customer);
   }
+
+  Future<Customer?> getCustomer(String id) async {
+    final response = await customerCollection.doc(id).get();
+    return response.data();
+  }
 }

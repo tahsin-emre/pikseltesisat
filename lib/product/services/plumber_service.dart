@@ -32,4 +32,9 @@ final class PlumberService extends BaseService {
       return e.toString();
     }
   }
+
+  Future<Plumber?> getPlumber(String id) async {
+    final response = await plumberCollection.doc(id).get();
+    return response.data();
+  }
 }

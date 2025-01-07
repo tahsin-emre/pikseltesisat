@@ -50,7 +50,8 @@
         "deleteCustomer": "Müşteri Sil",
         "customerDetail": "Müşteri Detayı",
         "customerList": "Müşteri Listesi",
-        "customerAdded": "Müşteri eklendi"
+        "customerAdded": "Müşteri eklendi",
+        "customerPick": "Müşteri Seç"
     },
     "plumber": {
         "name": "Ad",

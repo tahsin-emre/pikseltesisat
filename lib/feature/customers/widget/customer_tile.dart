@@ -9,7 +9,7 @@ final class CustomerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => CustomerDetailRoute(customer).push<void>(context),
+      onTap: () => CustomerDetailRoute(customer).go(context),
       title: Text(customer.name ?? ''),
       subtitle: Text(subtitle),
       trailing: AppIcons.forward.toIcon,

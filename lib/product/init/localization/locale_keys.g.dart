@@ -48,6 +48,7 @@ abstract class  LocaleKeys {
   static const customer_customerDetail = 'customer.customerDetail';
   static const customer_customerList = 'customer.customerList';
   static const customer_customerAdded = 'customer.customerAdded';
+  static const customer_customerPick = 'customer.customerPick';
   static const customer = 'customer';
   static const plumber_name = 'plumber.name';
   static const plumber_surname = 'plumber.surname';

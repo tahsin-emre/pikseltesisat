@@ -29,6 +29,7 @@ class _CustomerListViewState extends State<CustomerListView>
         ),
         FirestoreListView(
           query: customerStream,
+          pageSize: 5,
           itemBuilder: (_, e) => CustomerTile(customer: e.data()),
         ).expanded,
       ],

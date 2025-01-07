@@ -1,10 +1,19 @@
 part of '../app_routes.dart';
 
-@TypedGoRoute<PlumberCreateRoute>(path: PlumberCreateRoute.path)
+final class PlumberListRoute extends GoRouteData {
+  const PlumberListRoute();
+  static const String path = '/main/plumber-list';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  @override
+  AppPage buildPage(BuildContext context, GoRouterState state) {
+    return AppPage(child: const PlumberListView());
+  }
+}
+
 final class PlumberCreateRoute extends GoRouteData {
   const PlumberCreateRoute([this.$extra]);
-  static const String path = '/plumber/create';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static const String path = '/main/plumber-create';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
   final Plumber? $extra;
 
   @override
@@ -13,11 +22,10 @@ final class PlumberCreateRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<PlumberDetailRoute>(path: PlumberDetailRoute.path)
 final class PlumberDetailRoute extends GoRouteData {
   const PlumberDetailRoute(this.$extra);
-  static const String path = '/plumber/detail';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static const String path = '/main/plumber-detail';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
   final Plumber $extra;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {

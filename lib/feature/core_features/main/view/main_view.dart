@@ -22,7 +22,7 @@ class _MainViewState extends State<MainView> {
       controller: _advancedDrawerController,
       animationCurve: Curves.easeInQuad,
       animationDuration: Durations.medium4,
-      openRatio: .5,
+      openRatio: context.width > 1200 ? .1 : .5,
       drawer: const MainDrawer(),
       child: Scaffold(
         appBar: MainAppBar(onTap: toggleDrawer),

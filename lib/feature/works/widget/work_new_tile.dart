@@ -6,15 +6,13 @@ import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 
 final class WorkNewTile extends StatelessWidget {
-  const WorkNewTile({required this.customerId, super.key});
-  final String customerId;
+  const WorkNewTile({this.customerId, super.key});
+  final String? customerId;
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        onTap: () => WorkCreateRoute(
-          Work(customerId: customerId),
-        ).push<void>(context),
+        onTap: () => WorkCreateRoute(Work(customerId: customerId)).go(context),
         title: Text(LocaleKeys.work_newWork.tr()),
         leading: AppIcons.add.toIcon,
       ),

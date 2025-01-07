@@ -1,11 +1,20 @@
 part of '../app_routes.dart';
 
-@TypedGoRoute<WorkCreateRoute>(path: WorkCreateRoute.path)
+final class WorkListRoute extends GoRouteData {
+  const WorkListRoute();
+  static const String path = '/main/work-list';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  @override
+  AppPage buildPage(BuildContext context, GoRouterState state) {
+    return AppPage(child: const WorkListView());
+  }
+}
+
 final class WorkCreateRoute extends GoRouteData {
-  const WorkCreateRoute(this.$extra);
-  static const String path = '/work/create';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
-  final Work $extra;
+  const WorkCreateRoute([this.$extra]);
+  static const String path = '/main/work-create';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  final Work? $extra;
 
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
@@ -13,11 +22,10 @@ final class WorkCreateRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<WorkDetailRoute>(path: WorkDetailRoute.path)
 final class WorkDetailRoute extends GoRouteData {
   const WorkDetailRoute(this.$extra);
-  static const String path = '/work/detail';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static const String path = '/main/work-detail';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
   final Work $extra;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {

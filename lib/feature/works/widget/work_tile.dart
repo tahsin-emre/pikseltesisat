@@ -11,7 +11,7 @@ final class WorkTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        onTap: () => WorkDetailRoute(work).push<void>(context),
+        onTap: () => WorkDetailRoute(work).go(context),
         title: Text(workDate),
         subtitle: subtitle,
       ),

@@ -13,6 +13,7 @@ import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
+import 'package:pikseltesisat/product/utils/extensions/context_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class CustomerDetailView extends StatefulWidget {
@@ -29,23 +30,30 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
     return Scaffold(
       appBar: BaseAppBar(title: widget.customer.name ?? ''),
       floatingActionButton: const CustomerDetailFab(),
-      body: Container(
-        padding: AppPaddings.allS,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TitleText(LocaleKeys.customer_customerDetail.tr()),
-            CustomerDetailCard(widget.customer),
-            const Divider(),
-            TitleText(LocaleKeys.work_workList.tr()),
-            const SizedBox(height: AppSizes.s),
-            WorkNewTile(customerId: widget.customer.id),
-            FirestoreListView<Work>(
-              query: query,
-              itemBuilder: (_, e) => WorkTile(e.data()),
-            ).expanded,
-          ],
-        ),
+      body: Row(
+        children: [
+          const Spacer(),
+          Container(
+            width: context.pageWidth,
+            padding: AppPaddings.allS,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TitleText(LocaleKeys.customer_customerDetail.tr()),
+                CustomerDetailCard(widget.customer),
+                const Divider(),
+                TitleText(LocaleKeys.work_workList.tr()),
+                const SizedBox(height: AppSizes.s),
+                WorkNewTile(customerId: widget.customer.id),
+                FirestoreListView<Work>(
+                  query: query,
+                  itemBuilder: (_, e) => WorkTile(e.data()),
+                ).expanded,
+              ],
+            ),
+          ),
+          const Spacer(),
+        ],
       ),
     );
   }

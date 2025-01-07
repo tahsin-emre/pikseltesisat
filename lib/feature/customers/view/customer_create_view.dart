@@ -8,6 +8,7 @@ import 'package:pikseltesisat/feature/sub_features/common_widgets/custom_text_fi
 import 'package:pikseltesisat/feature/sub_features/common_widgets/district_selector.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
+import 'package:pikseltesisat/product/utils/extensions/context_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class CustomerCreateView extends StatefulWidget {
@@ -24,30 +25,40 @@ class _CustomerCreateViewState extends State<CustomerCreateView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(title: LocaleKeys.customer_newCustomer.tr()),
-      body: Form(
-        key: formKey,
-        child: Column(
-          children: [
-            CustomTextField(
-              label: LocaleKeys.customer_name.tr(),
-              controller: nameController,
+      body: Row(
+        children: [
+          const Spacer(),
+          Container(
+            width: context.pageWidth,
+            alignment: Alignment.center,
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  CustomTextField(
+                    label: LocaleKeys.customer_name.tr(),
+                    controller: nameController,
+                  ),
+                  CustomTextField(
+                    label: LocaleKeys.customer_address.tr(),
+                    controller: addressController,
+                  ),
+                  Row(
+                    children: [
+                      DistrictSelector((val) => district = val).expanded,
+                      CustomPhoneField(controller: phoneController).expanded,
+                    ],
+                  ),
+                  AsyncButton(
+                    onTap: createCustomer,
+                    label: LocaleKeys.base_save.tr(),
+                  ),
+                ],
+              ),
             ),
-            CustomTextField(
-              label: LocaleKeys.customer_address.tr(),
-              controller: addressController,
-            ),
-            Row(
-              children: [
-                DistrictSelector((val) => district = val).expanded,
-                CustomPhoneField(controller: phoneController).expanded,
-              ],
-            ),
-            AsyncButton(
-              onTap: createCustomer,
-              label: LocaleKeys.base_save.tr(),
-            ),
-          ],
-        ),
+          ),
+          const Spacer(),
+        ],
       ),
     );
   }

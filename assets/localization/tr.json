@@ -35,7 +35,8 @@
         "pickLater": "Daha sonra seç",
         "yes": "Evet",
         "no": "Hayır",
-        "welcome": "Hoşgeldin {}"
+        "welcome": "Hoşgeldin {}",
+        "confirm": "Onayla"
     },
     "customer": {
         "name": "Ad",

@@ -22,5 +22,6 @@ enum FirestoreFields {
   plumberId,
   customerId,
   workId,
+  userType,
   ;
 }

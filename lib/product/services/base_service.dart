@@ -11,9 +11,17 @@ abstract class BaseService {
 enum FirestoreCollections {
   users,
   customers,
-  plumbers;
+  plumbers,
+  works,
+  ;
 }
 
 enum FirestoreFields {
-  createdAt;
+  createdAt,
+  workDate,
+  plumberId,
+  customerId,
+  workId,
+  userType,
+  ;
 }

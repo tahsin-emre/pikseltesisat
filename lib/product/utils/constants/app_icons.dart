@@ -26,6 +26,14 @@ final class AppIcons {
   static const up = Icons.arrow_upward_rounded;
   static const down = Icons.arrow_downward_rounded;
   static const addPerson = Icons.person_add_rounded;
+  static const person = Icons.person_rounded;
+  static const report = Icons.file_open_rounded;
+  static const works = Icons.work_history_rounded;
+  static const moreVert = Icons.more_vert_rounded;
+  static const moreHoriz = Icons.more_horiz_rounded;
+  static const call = Icons.call_rounded;
+  static const location = Icons.location_on_rounded;
+  static const calendar = Icons.calendar_month;
 }
 
 extension AppIconsExtension on IconData {

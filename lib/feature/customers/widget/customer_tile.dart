@@ -11,8 +11,11 @@ final class CustomerTile extends StatelessWidget {
     return ListTile(
       onTap: () => CustomerDetailRoute(customer).push<void>(context),
       title: Text(customer.name ?? ''),
-      subtitle: Text(customer.phone ?? ''),
+      subtitle: Text(subtitle),
       trailing: AppIcons.forward.toIcon,
     );
   }
+
+  String get subtitle =>
+      '${customer.address ?? ''}\n${customer.district?.name ?? ''}';
 }

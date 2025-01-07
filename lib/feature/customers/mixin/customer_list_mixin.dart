@@ -7,6 +7,5 @@ import 'package:pikseltesisat/product/services/customer_service.dart';
 mixin CustomerListMixin on State<CustomerListView> {
   final _customerService = CustomerService();
 
-  Stream<QuerySnapshot<Customer>> get customerStream =>
-      _customerService.customerListStream;
+  Query<Customer> get customerStream => _customerService.customerCollection;
 }

@@ -62,6 +62,7 @@ abstract class  LocaleKeys {
   static const plumber_plumberDetail = 'plumber.plumberDetail';
   static const plumber_plumberList = 'plumber.plumberList';
   static const plumber_pickPlumber = 'plumber.pickPlumber';
+  static const plumber_plumberAdded = 'plumber.plumberAdded';
   static const plumber = 'plumber';
   static const work_newWork = 'work.newWork';
   static const work_editWork = 'work.editWork';

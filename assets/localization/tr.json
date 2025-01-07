@@ -65,7 +65,8 @@
         "deletePlumber": "Tesisatçı Sil",
         "plumberDetail": "Tesisatçı Detayı",
         "plumberList": "Tesisatçı Listesi",
-        "pickPlumber": "Tesisatçı Seç"
+        "pickPlumber": "Tesisatçı Seç",
+        "plumberAdded": "Tesisatçı eklendi"
     },
     "work": {
         "newWork": "Yeni İş",

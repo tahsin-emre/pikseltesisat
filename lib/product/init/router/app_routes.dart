@@ -30,7 +30,10 @@ part 'routes/work_routes.dart';
 @TypedShellRoute<MainShellRoute>(
   routes: [
     TypedGoRoute<DashboardRoute>(path: DashboardRoute.path),
+    //Customer Routes
     TypedGoRoute<CustomerListRoute>(path: CustomerListRoute.path),
+    TypedGoRoute<CustomerCreateRoute>(path: CustomerCreateRoute.path),
+    TypedGoRoute<CustomerDetailRoute>(path: CustomerDetailRoute.path),
     TypedGoRoute<PlumberListRoute>(path: PlumberListRoute.path),
     TypedGoRoute<WorkListRoute>(path: WorkListRoute.path),
   ],

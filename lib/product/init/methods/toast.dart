@@ -5,7 +5,7 @@ void toast(String text) {
   toastification.show(
     title: Text(text),
     style: ToastificationStyle.minimal,
-    alignment: Alignment.bottomRight,
+    alignment: Alignment.topRight,
     type: ToastificationType.info,
     showIcon: false,
     autoCloseDuration: const Duration(seconds: 3),

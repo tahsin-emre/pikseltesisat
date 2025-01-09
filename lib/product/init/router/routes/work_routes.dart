@@ -26,7 +26,7 @@ final class WorkDetailRoute extends GoRouteData {
   const WorkDetailRoute(this.$extra);
   static const String path = '/main/work-detail';
   static final $parentNavigatorKey = AppRouter.mainShellKey;
-  final Work $extra;
+  final Work? $extra;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: WorkDetailView(work: $extra));

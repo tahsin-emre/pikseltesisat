@@ -26,7 +26,7 @@ final class PlumberDetailRoute extends GoRouteData {
   const PlumberDetailRoute(this.$extra);
   static const String path = '/main/plumber-detail';
   static final $parentNavigatorKey = AppRouter.mainShellKey;
-  final Plumber $extra;
+  final Plumber? $extra;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: PlumberDetailView(plumber: $extra));

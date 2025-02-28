@@ -23,10 +23,10 @@ final class CustomerCreateRoute extends GoRouteData {
 }
 
 final class CustomerDetailRoute extends GoRouteData {
-  const CustomerDetailRoute([this.$extra]);
+  const CustomerDetailRoute(this.$extra);
   static const String path = '/main/customer-details';
   static final $parentNavigatorKey = AppRouter.mainShellKey;
-  final Customer? $extra;
+  final Customer $extra;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: CustomerDetailView(customer: $extra));

@@ -5,7 +5,7 @@ import 'package:pikseltesisat/product/services/base_service.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
 
 mixin PlumberDetailMixin on State<PlumberDetailView> {
-  late final Plumber plumber;
+  late final Plumber plumber = widget.plumber;
   final _workService = WorkService();
   late final query = _workService.workCollection
       .where(
@@ -20,11 +20,5 @@ mixin PlumberDetailMixin on State<PlumberDetailView> {
   @override
   void initState() {
     super.initState();
-    setPlumber();
-  }
-
-  void setPlumber() {
-    if (widget.plumber == null) return;
-    plumber = widget.plumber!;
   }
 }

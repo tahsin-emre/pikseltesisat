@@ -8,6 +8,7 @@ import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
+import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 import 'package:pikseltesisat/product/utils/validators/form_validators.dart';
 
 final class LoginView extends StatefulWidget {
@@ -25,22 +26,22 @@ class _LoginViewState extends State<LoginView> with LoginMixin {
       body: Form(
         key: formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: Column(
-          children: [
+        child: CustomScrollView(
+          slivers: [
             AuthTextField(
               label: LocaleKeys.login_email.tr(),
               icon: AppIcons.email,
               controller: emailController,
               isPassword: false,
               validator: FormValidators.email,
-            ),
+            ).toSliver,
             AuthTextField(
               label: LocaleKeys.login_password.tr(),
               icon: AppIcons.password,
               controller: passwordController,
               isPassword: true,
               validator: FormValidators.required,
-            ),
+            ).toSliver,
             Container(
               padding: AppPaddings.allS,
               alignment: Alignment.centerRight,
@@ -54,11 +55,11 @@ class _LoginViewState extends State<LoginView> with LoginMixin {
                   ),
                 ),
               ),
-            ),
+            ).toSliver,
             AsyncButton(
               onTap: login,
               label: LocaleKeys.login_login.tr(),
-            ),
+            ).toSliver,
           ],
         ),
       ),

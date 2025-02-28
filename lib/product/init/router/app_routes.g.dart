@@ -137,7 +137,7 @@ extension $CustomerCreateRouteExtension on CustomerCreateRoute {
 extension $CustomerDetailRouteExtension on CustomerDetailRoute {
   static CustomerDetailRoute _fromState(GoRouterState state) =>
       CustomerDetailRoute(
-        state.extra as Customer?,
+        state.extra as Customer,
       );
 
   String get location => GoRouteData.$location(
@@ -199,7 +199,7 @@ extension $PlumberCreateRouteExtension on PlumberCreateRoute {
 extension $PlumberDetailRouteExtension on PlumberDetailRoute {
   static PlumberDetailRoute _fromState(GoRouterState state) =>
       PlumberDetailRoute(
-        state.extra as Plumber?,
+        state.extra as Plumber,
       );
 
   String get location => GoRouteData.$location(
@@ -258,7 +258,7 @@ extension $WorkCreateRouteExtension on WorkCreateRoute {
 
 extension $WorkDetailRouteExtension on WorkDetailRoute {
   static WorkDetailRoute _fromState(GoRouterState state) => WorkDetailRoute(
-        state.extra as Work?,
+        state.extra as Work,
       );
 
   String get location => GoRouteData.$location(

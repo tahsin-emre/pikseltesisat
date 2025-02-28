@@ -13,7 +13,7 @@ import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class PlumberDetailView extends StatefulWidget {
   const PlumberDetailView({required this.plumber, super.key});
-  final Plumber? plumber;
+  final Plumber plumber;
   @override
   State<PlumberDetailView> createState() => _PlumberDetailViewState();
 }
@@ -22,7 +22,6 @@ class _PlumberDetailViewState extends State<PlumberDetailView>
     with PlumberDetailMixin {
   @override
   Widget build(BuildContext context) {
-    if (widget.plumber == null) return const SizedBox();
     return Container(
       padding: AppPaddings.allS,
       child: Column(

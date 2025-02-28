@@ -15,7 +15,7 @@ import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class CustomerDetailView extends StatefulWidget {
   const CustomerDetailView({required this.customer, super.key});
-  final Customer? customer;
+  final Customer customer;
   @override
   State<CustomerDetailView> createState() => _CustomerDetailViewState();
 }
@@ -24,7 +24,6 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
     with CustomerDetailMixin {
   @override
   Widget build(BuildContext context) {
-    if (widget.customer == null) return const SizedBox.shrink();
     return Container(
       padding: AppPaddings.allS,
       child: Column(

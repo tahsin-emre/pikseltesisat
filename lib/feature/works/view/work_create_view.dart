@@ -10,6 +10,7 @@ import 'package:pikseltesisat/feature/works/widget/work_kind_selector.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
+import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class WorkCreateView extends StatefulWidget {
   const WorkCreateView(this.work, {super.key});
@@ -25,20 +26,21 @@ class _WorkCreateViewState extends State<WorkCreateView> with WorkCreateMixin {
       padding: AppPaddings.allS,
       child: Form(
         key: formKey,
-        child: Column(
-          children: [
+        child: CustomScrollView(
+          slivers: [
             CustomTextField(
               label: LocaleKeys.work_workDetail.tr(),
               controller: descriptonController,
-            ),
+            ).toSliver,
             WorkDateSelector(
               onSelected: selectDate,
               initWorkDate: DateTime.now(),
-            ),
-            if (customerId == null) CustomerSelector(selectCustomer),
-            PlumberSelector(selectPlumber),
-            WorkKindSelector(selectWorkKind),
-            AsyncButton(onTap: createWork, label: LocaleKeys.base_save.tr()),
+            ).toSliver,
+            if (customerId == null) CustomerSelector(selectCustomer).toSliver,
+            PlumberSelector(selectPlumber).toSliver,
+            WorkKindSelector(selectWorkKind).toSliver,
+            AsyncButton(onTap: createWork, label: LocaleKeys.base_save.tr())
+                .toSliver,
           ],
         ),
       ),

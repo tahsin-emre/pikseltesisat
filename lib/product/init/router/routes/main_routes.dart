@@ -43,6 +43,16 @@ final class DashboardRoute extends GoRouteData {
   }
 }
 
+final class SearchRoute extends GoRouteData {
+  const SearchRoute();
+  static const String path = '/main/search';
+  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  @override
+  AppPage buildPage(BuildContext context, GoRouterState state) {
+    return AppPage(child: const SearchListView());
+  }
+}
+
 @TypedGoRoute<WaitingRoute>(path: WaitingRoute.path)
 final class WaitingRoute extends GoRouteData {
   const WaitingRoute();

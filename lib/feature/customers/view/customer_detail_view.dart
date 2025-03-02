@@ -30,13 +30,16 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TitleText(LocaleKeys.customer_customerDetail.tr()),
-          CustomerDetailCard(widget.customer),
+          CustomerDetailCard(customer),
           const Divider(),
           TitleText(LocaleKeys.work_workList.tr()),
           const SizedBox(height: AppSizes.s),
-          WorkNewTile(customerId: widget.customer.id),
+          WorkNewTile(customerId: customer.id),
           FirestoreListView<Work>(
-            query: query,
+            query: query!,
+            emptyBuilder: (context) => const Text('Henüz İş Yok'),
+            errorBuilder: (context, error, stackTrace) =>
+                SelectableText('Hata Oluştu $error'),
             itemBuilder: (_, e) => WorkTile(e.data()),
           ).expanded,
         ],

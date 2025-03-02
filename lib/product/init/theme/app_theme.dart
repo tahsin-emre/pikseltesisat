@@ -5,6 +5,14 @@ final class AppTheme {
   AppTheme._();
 
   static ThemeData get light => ThemeData.light().copyWith(
+        listTileTheme: const ListTileThemeData(
+          leadingAndTrailingTextStyle: TextStyle(color: Colors.black),
+        ),
+        cardTheme: const CardThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: AppRadius.allS,
+          ),
+        ),
         snackBarTheme: const SnackBarThemeData(
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(

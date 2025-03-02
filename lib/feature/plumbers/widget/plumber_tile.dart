@@ -9,7 +9,7 @@ final class PlumberTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => PlumberDetailRoute(plumber).go(context),
+      onTap: () => PlumberDetailRoute(plumber).push<void>(context),
       title: Text(plumber.name ?? ''),
       subtitle: Text(plumber.id),
       trailing: AppIcons.forward.toIcon,

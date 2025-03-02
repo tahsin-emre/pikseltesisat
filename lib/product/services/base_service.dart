@@ -4,6 +4,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/my_user/my_user.dart';
 import 'package:pikseltesisat/product/models/plumber/plumber.dart';
+import 'package:pikseltesisat/product/models/work/work.dart';
 
 abstract class BaseService {
   final db = FirebaseFirestore.instance;
@@ -30,6 +31,13 @@ abstract class BaseService {
         toFirestore: Customer.toFirestore,
         fromFirestore: Customer.fromFirestore,
       );
+
+  final workCollection = FirebaseFirestore.instance
+      .collection(FirestoreCollections.works.name)
+      .withConverter(
+        toFirestore: Work.toFirestore,
+        fromFirestore: Work.fromFirestore,
+      );
 }
 
 enum FirestoreCollections {
@@ -47,5 +55,6 @@ enum FirestoreFields {
   customerId,
   workId,
   userType,
+  searchIndex,
   ;
 }

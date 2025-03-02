@@ -19,15 +19,15 @@ class _PlumberCreateViewState extends State<PlumberCreateView>
     with PlumberCreateMixin {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    return CustomScrollView(
+      slivers: [
         FirestoreListView<MyUser>(
           query: plumberService.waitingCollection,
           itemBuilder: (context, user) => _UserRow(
             user.data(),
             onTap: () => confirmPlumber(user.data()),
           ),
-        ).expanded,
+        ).toSliver,
       ],
     );
   }

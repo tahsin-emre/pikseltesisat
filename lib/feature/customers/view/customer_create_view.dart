@@ -22,40 +22,34 @@ class _CustomerCreateViewState extends State<CustomerCreateView>
     with CustomerCreateMixin {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Spacer(),
-        Container(
-          width: context.pageWidth,
-          alignment: Alignment.center,
-          child: Form(
-            key: formKey,
-            child: Column(
+    return Container(
+      width: context.pageWidth,
+      alignment: Alignment.center,
+      child: Form(
+        key: formKey,
+        child: CustomScrollView(
+          slivers: [
+            CustomTextField(
+              label: LocaleKeys.customer_name.tr(),
+              controller: nameController,
+            ).toSliver,
+            CustomTextField(
+              label: LocaleKeys.customer_address.tr(),
+              controller: addressController,
+            ).toSliver,
+            Row(
               children: [
-                CustomTextField(
-                  label: LocaleKeys.customer_name.tr(),
-                  controller: nameController,
-                ),
-                CustomTextField(
-                  label: LocaleKeys.customer_address.tr(),
-                  controller: addressController,
-                ),
-                Row(
-                  children: [
-                    DistrictSelector((val) => district = val).expanded,
-                    CustomPhoneField(controller: phoneController).expanded,
-                  ],
-                ),
-                AsyncButton(
-                  onTap: createCustomer,
-                  label: LocaleKeys.base_save.tr(),
-                ),
+                DistrictSelector((val) => district = val).expanded,
+                CustomPhoneField(controller: phoneController).expanded,
               ],
-            ),
-          ),
+            ).toSliver,
+            AsyncButton(
+              onTap: createCustomer,
+              label: LocaleKeys.base_save.tr(),
+            ).toSliver,
+          ],
         ),
-        const Spacer(),
-      ],
+      ),
     );
   }
 }

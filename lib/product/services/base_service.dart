@@ -55,5 +55,6 @@ enum FirestoreFields {
   customerId,
   workId,
   userType,
+  searchIndex,
   ;
 }

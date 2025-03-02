@@ -11,9 +11,9 @@ import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 final class WorkTile extends StatefulWidget {
-  const WorkTile(this.work, {super.key});
+  const WorkTile(this.work, {this.clickable = true, super.key});
   final Work work;
-
+  final bool clickable;
   @override
   State<WorkTile> createState() => _WorkTileState();
 }
@@ -32,7 +32,9 @@ class _WorkTileState extends State<WorkTile> {
           enabled: isLoading,
           child: Card(
             child: ListTile(
-              onTap: () => WorkDetailRoute(widget.work).go(context),
+              onTap: widget.clickable
+                  ? () => WorkDetailRoute(widget.work).push<void>(context)
+                  : null,
               title: Text(customer?.name ?? ''),
               subtitle: _Subtitle(
                 work: widget.work,
@@ -106,8 +108,8 @@ final class _Subtitle extends StatelessWidget {
         Row(
           children: [
             Container(
-              width: 10,
-              height: 10,
+              width: AppSizes.s,
+              height: AppSizes.s,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: work.workKind?.color,

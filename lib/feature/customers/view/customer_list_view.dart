@@ -25,7 +25,7 @@ class _CustomerListViewState extends State<CustomerListView>
         NewElementTile(
           icon: AppIcons.addPerson.toIcon,
           title: LocaleKeys.customer_newCustomer.tr(),
-          onTap: () => const CustomerCreateRoute().go(context),
+          onTap: () => const CustomerCreateRoute().push<void>(context),
         ),
         FirestoreListView(
           query: customerStream,

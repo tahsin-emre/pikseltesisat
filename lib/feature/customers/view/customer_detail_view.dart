@@ -35,11 +35,13 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
           TitleText(LocaleKeys.work_workList.tr()),
           const SizedBox(height: AppSizes.s),
           WorkNewTile(customerId: customer.id),
-          if (query != null)
-            FirestoreListView<Work>(
-              query: query!,
-              itemBuilder: (_, e) => WorkTile(e.data()),
-            ).expanded,
+          FirestoreListView<Work>(
+            query: query!,
+            emptyBuilder: (context) => const Text('Henüz İş Yok'),
+            errorBuilder: (context, error, stackTrace) =>
+                SelectableText('Hata Oluştu $error'),
+            itemBuilder: (_, e) => WorkTile(e.data()),
+          ).expanded,
         ],
       ),
     );

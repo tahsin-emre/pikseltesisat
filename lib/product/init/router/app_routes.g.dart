@@ -24,6 +24,11 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
           factory: $DashboardRouteExtension._fromState,
         ),
         GoRouteData.$route(
+          path: '/main/search',
+          parentNavigatorKey: SearchRoute.$parentNavigatorKey,
+          factory: $SearchRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: '/main/customer-list',
           parentNavigatorKey: CustomerListRoute.$parentNavigatorKey,
           factory: $CustomerListRouteExtension._fromState,
@@ -82,6 +87,23 @@ extension $DashboardRouteExtension on DashboardRoute {
 
   String get location => GoRouteData.$location(
         '/main/dashboard',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SearchRouteExtension on SearchRoute {
+  static SearchRoute _fromState(GoRouterState state) => const SearchRoute();
+
+  String get location => GoRouteData.$location(
+        '/main/search',
       );
 
   void go(BuildContext context) => context.go(location);

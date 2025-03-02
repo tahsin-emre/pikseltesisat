@@ -10,6 +10,7 @@ mixin WorkDetailMixin on State<WorkDetailView> {
   late final work = widget.work;
   Customer? customer;
   Plumber? plumber;
+  final addressNotifier = ValueNotifier<String>('');
 
   @override
   void initState() {
@@ -19,7 +20,11 @@ mixin WorkDetailMixin on State<WorkDetailView> {
 
   Future<void> _init() async {
     customer = await CustomerService().getCustomer(work.customerId ?? '');
-    plumber = await PlumberService().getPlumber(work.plumberId ?? '');
+    if (work.plumberId != null) {
+      plumber = await PlumberService().getPlumber(work.plumberId ?? '');
+    }
+
+    addressNotifier.value = customer?.address ?? '';
     loadingNotifier.value = false;
   }
 }

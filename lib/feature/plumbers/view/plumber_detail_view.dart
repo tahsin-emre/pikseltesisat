@@ -34,6 +34,9 @@ class _PlumberDetailViewState extends State<PlumberDetailView>
           const SizedBox(height: AppSizes.s),
           FirestoreListView<Work>(
             query: query,
+            emptyBuilder: (context) => const Text('Henüz İş Yok'),
+            errorBuilder: (context, error, stackTrace) =>
+                SelectableText('Hata Oluştu $error'),
             itemBuilder: (_, e) => WorkTile(e.data()),
           ).expanded,
         ],

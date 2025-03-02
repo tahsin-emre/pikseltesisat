@@ -12,6 +12,7 @@ import 'package:pikseltesisat/feature/dashboard/view/dashboard_view.dart';
 import 'package:pikseltesisat/feature/plumbers/view/plumber_create_view.dart';
 import 'package:pikseltesisat/feature/plumbers/view/plumber_detail_view.dart';
 import 'package:pikseltesisat/feature/plumbers/view/plumber_list_view.dart';
+import 'package:pikseltesisat/feature/search/view/search_list_view.dart';
 import 'package:pikseltesisat/feature/works/view/work_create_view.dart';
 import 'package:pikseltesisat/feature/works/view/work_detail_view.dart';
 import 'package:pikseltesisat/feature/works/view/work_list_view.dart';
@@ -30,6 +31,7 @@ part 'routes/work_routes.dart';
   routes: [
     //Core Routes
     TypedGoRoute<DashboardRoute>(path: DashboardRoute.path),
+    TypedGoRoute<SearchRoute>(path: SearchRoute.path),
     //Customer Routes
     TypedGoRoute<CustomerListRoute>(path: CustomerListRoute.path),
     TypedGoRoute<CustomerCreateRoute>(path: CustomerCreateRoute.path),

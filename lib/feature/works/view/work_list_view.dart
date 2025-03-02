@@ -27,7 +27,7 @@ class _WorkListViewState extends State<WorkListView> with WorkListMixin {
             // NewElementTile(
             //   icon: AppIcons.add.toIcon,
             //   title: LocaleKeys.work_newWork.tr(),
-            //   onTap: () => const WorkCreateRoute().go(context),
+            //   onTap: () => const WorkCreateRoute().push<void>(context),
             // ),
             if (workQuery != null)
               FirestoreListView(

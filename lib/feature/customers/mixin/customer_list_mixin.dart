@@ -8,5 +8,5 @@ mixin CustomerListMixin on State<CustomerListView> {
   final _customerService = CustomerService();
 
   Query<Customer> get customerStream =>
-      _customerService.customerCollection.limit(4);
+      _customerService.customerCollection.limit(5);
 }

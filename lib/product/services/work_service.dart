@@ -1,4 +1,5 @@
 import 'package:pikseltesisat/product/models/work/work.dart';
+import 'package:pikseltesisat/product/models/work/work_comment.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 
 final class WorkService extends BaseService {
@@ -8,5 +9,9 @@ final class WorkService extends BaseService {
 
   Future<void> addWork(Work work) async {
     await workCollection.add(work);
+  }
+
+  Future<void> addComment(String workId, WorkComment comment) async {
+    await getCommentCollection(workId).add(comment);
   }
 }

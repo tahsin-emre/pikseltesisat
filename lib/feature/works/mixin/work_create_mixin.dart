@@ -55,6 +55,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
     descriptonController.text = widget.work?.description ?? '';
     workDate = widget.work?.workDate ?? DateTime.now();
     workType = widget.work?.workType;
+    serviceType = widget.work?.serviceType;
     personalId = widget.work?.personalId;
     customerId = widget.work?.customerId;
   }

@@ -5,6 +5,7 @@ import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/my_user/my_user.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
+import 'package:pikseltesisat/product/models/work/work_comment.dart';
 
 abstract class BaseService {
   final db = FirebaseFirestore.instance;
@@ -38,6 +39,16 @@ abstract class BaseService {
         toFirestore: Work.toFirestore,
         fromFirestore: Work.fromFirestore,
       );
+
+  CollectionReference<WorkComment> getCommentCollection(String workId) {
+    return workCollection
+        .doc(workId)
+        .collection(FirestoreCollections.comments.name)
+        .withConverter(
+          toFirestore: WorkComment.toFirestore,
+          fromFirestore: WorkComment.fromFirestore,
+        );
+  }
 }
 
 enum FirestoreCollections {
@@ -45,6 +56,7 @@ enum FirestoreCollections {
   customers,
   personals,
   works,
+  comments,
   ;
 }
 

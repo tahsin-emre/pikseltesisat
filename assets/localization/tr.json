@@ -3,7 +3,7 @@
     "drawer": {
         "home": "Ana Sayfa",
         "customers": "Müşteriler",
-        "plumbers": "Tesisatçılar",
+        "personals": "Personeller",
         "works": "İşler",
         "reports": "Raporlar",
         "logout": "Çıkış"
@@ -75,14 +75,19 @@
         "workList": "İş Listesi",
         "workDetail": "İş Detayı",
         "workAdded": "İş eklendi",
-        "workDate": "İş Tarihi",
-        "workKind": "İş Türü",
+        "workDate": "İş Tarihi"
+    },
+    "workType": {
+        "workType": "İş Türü",
         "waterLeakage": "Su Kaçağı",
         "unclogging": "Tıkanıklık Açma",
         "repair": "Onarım",
-        "washing": "Yıkama",
-        "additional": "Ek Ücret",
-        "backWork": "Geri Dönüş",
-        "service": "Servis"
+        "washing": "Yıkama"
+    },
+    "serviceType": {
+        "serviceType": "Servis Türü",
+        "service": "Servis",
+        "rework": "Geri Dönüş",
+        "extra": "Ek Ücret"
     }
 }

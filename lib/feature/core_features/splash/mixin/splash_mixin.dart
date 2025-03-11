@@ -19,6 +19,7 @@ mixin SplashMixin on State<SplashView> {
 
   Future<void> findCurrentUser() async {
     await _authCubit.findCurrentUser();
+    if (!mounted) return;
     navigate(state.user);
   }
 

@@ -6,7 +6,7 @@ import 'package:pikseltesisat/feature/sub_features/common_widgets/async_button.d
 import 'package:pikseltesisat/feature/sub_features/common_widgets/custom_text_field.dart';
 import 'package:pikseltesisat/feature/works/mixin/work_create_mixin.dart';
 import 'package:pikseltesisat/feature/works/widget/work_date_selector.dart';
-import 'package:pikseltesisat/feature/works/widget/work_kind_selector.dart';
+import 'package:pikseltesisat/feature/works/widget/work_type_selector.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
@@ -39,7 +39,7 @@ class _WorkCreateViewState extends State<WorkCreateView> with WorkCreateMixin {
             ).toSliver,
             if (customerId == null) CustomerSelector(selectCustomer).toSliver,
             PlumberSelector(selectPlumber).toSliver,
-            WorkKindSelector(selectWorkKind).toSliver,
+            WorkTypeSelector(selectWorkType).toSliver,
             CustomTextField(
               label: 'Ücret',
               controller: TextEditingController(),

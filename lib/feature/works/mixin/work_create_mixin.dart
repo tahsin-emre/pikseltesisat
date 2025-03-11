@@ -8,7 +8,7 @@ import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/plumber/plumber.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
-import 'package:pikseltesisat/product/utils/enums/work_kind.dart';
+import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 
 mixin WorkCreateMixin on State<WorkCreateView> {
   final _workService = WorkService();
@@ -17,7 +17,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
 
   final descriptonController = TextEditingController();
   DateTime? workDate;
-  WorkKind? workKind;
+  WorkType? workType;
   String? plumberId;
   String? customerId;
 
@@ -34,7 +34,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
       customerId: customerId,
       plumberId: plumberId,
       workDate: workDate,
-      workKind: workKind,
+      workType: workType,
       createdAt: DateTime.now(),
     );
     try {
@@ -50,14 +50,14 @@ mixin WorkCreateMixin on State<WorkCreateView> {
   void setInitialValues() {
     descriptonController.text = widget.work?.description ?? '';
     workDate = widget.work?.workDate ?? DateTime.now();
-    workKind = widget.work?.workKind;
+    workType = widget.work?.workType;
     plumberId = widget.work?.plumberId;
     customerId = widget.work?.customerId;
   }
 
-  void selectWorkKind(WorkKind? newWorkKind) {
-    if (newWorkKind == null) return;
-    workKind = newWorkKind;
+  void selectWorkType(WorkType? newWorkType) {
+    if (newWorkType == null) return;
+    workType = newWorkType;
   }
 
   void selectPlumber(Plumber? newPlumber) {

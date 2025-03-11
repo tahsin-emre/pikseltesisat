@@ -71,14 +71,17 @@ abstract class  LocaleKeys {
   static const work_workDetail = 'work.workDetail';
   static const work_workAdded = 'work.workAdded';
   static const work_workDate = 'work.workDate';
-  static const work_workKind = 'work.workKind';
-  static const work_waterLeakage = 'work.waterLeakage';
-  static const work_unclogging = 'work.unclogging';
-  static const work_repair = 'work.repair';
-  static const work_washing = 'work.washing';
-  static const work_additional = 'work.additional';
-  static const work_backWork = 'work.backWork';
-  static const work_service = 'work.service';
   static const work = 'work';
+  static const workType_workType = 'workType.workType';
+  static const workType_waterLeakage = 'workType.waterLeakage';
+  static const workType_unclogging = 'workType.unclogging';
+  static const workType_repair = 'workType.repair';
+  static const workType_washing = 'workType.washing';
+  static const workType = 'workType';
+  static const serviceType_serviceType = 'serviceType.serviceType';
+  static const serviceType_service = 'serviceType.service';
+  static const serviceType_rework = 'serviceType.rework';
+  static const serviceType_extra = 'serviceType.extra';
+  static const serviceType = 'serviceType';
 
 }

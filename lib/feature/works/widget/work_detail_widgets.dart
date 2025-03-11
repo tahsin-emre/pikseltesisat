@@ -10,7 +10,7 @@ final class _Address extends StatelessWidget {
       builder: (_, address, __) {
         return Text(
           address,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
           ),
         );

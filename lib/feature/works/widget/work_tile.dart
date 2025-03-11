@@ -112,11 +112,11 @@ final class _Subtitle extends StatelessWidget {
               height: AppSizes.s,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: work.workKind?.color,
+                color: work.workType?.color,
               ),
             ),
             const SizedBox(width: AppSizes.xs),
-            Text('${work.workKind?.localeKey.tr()}'),
+            Text('${work.workType?.localeKey.tr()}'),
           ],
         ),
         Text('${customer?.address} ${customer?.district?.name}'),

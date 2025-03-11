@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
-import 'package:pikseltesisat/product/utils/enums/work_kind.dart';
+import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 
-final class WorkKindSelector extends StatelessWidget {
-  const WorkKindSelector(this.onChanged, {super.key});
-  final ValueChanged<WorkKind?> onChanged;
+final class WorkTypeSelector extends StatelessWidget {
+  const WorkTypeSelector(this.onChanged, {super.key});
+  final ValueChanged<WorkType?> onChanged;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,15 +15,15 @@ final class WorkKindSelector extends StatelessWidget {
       child: DropdownButtonFormField(
         onChanged: onChanged,
         decoration: InputDecoration(
-          labelText: LocaleKeys.work_workKind.tr(),
+          labelText: LocaleKeys.workType_workType.tr(),
           border: const OutlineInputBorder(),
         ),
-        items: WorkKind.values
+        items: WorkType.values
             .sublist(1)
             .map(
-              (e) => DropdownMenuItem<WorkKind>(
+              (e) => DropdownMenuItem<WorkType>(
                 value: e,
-                child: _KindRow(e),
+                child: _TypeRow(e),
               ),
             )
             .toList(),
@@ -32,9 +32,9 @@ final class WorkKindSelector extends StatelessWidget {
   }
 }
 
-final class _KindRow extends StatelessWidget {
-  const _KindRow(this.workKind);
-  final WorkKind workKind;
+final class _TypeRow extends StatelessWidget {
+  const _TypeRow(this.workType);
+  final WorkType workType;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -44,11 +44,11 @@ final class _KindRow extends StatelessWidget {
           height: 20,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: workKind.color,
+            color: workType.color,
           ),
         ),
         const SizedBox(width: AppSizes.xs),
-        Text(workKind.localeKey.tr()),
+        Text(workType.localeKey.tr()),
       ],
     );
   }

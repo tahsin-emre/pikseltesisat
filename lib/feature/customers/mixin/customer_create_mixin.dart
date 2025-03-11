@@ -32,6 +32,7 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
       address: addressController.text,
       district: district,
       province: 34,
+      createdAt: DateTime.now(),
     );
     await _customerService.addCustomer(customer);
     notifyUserAndPop();

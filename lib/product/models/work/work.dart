@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pikseltesisat/product/utils/enums/work_kind.dart';
+import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 import 'package:pikseltesisat/product/utils/extensions/int_ext.dart';
 
 final class Work extends Equatable {
@@ -11,7 +11,7 @@ final class Work extends Equatable {
     this.plumberId,
     this.createdAt,
     this.workDate,
-    this.workKind,
+    this.workType,
   });
 
   factory Work.fromFirestore(
@@ -26,7 +26,7 @@ final class Work extends Equatable {
       plumberId: map['plumberId'] as String?,
       createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
       workDate: (map['workDate'] as Timestamp?)?.toDate(),
-      workKind: (map['workKind'] as int?)?.toWorkKind,
+      workType: (map['workType'] as int?)?.toWorkType,
     );
   }
 
@@ -37,7 +37,7 @@ final class Work extends Equatable {
       'plumberId': work.plumberId,
       'createdAt': work.createdAt,
       'workDate': work.workDate,
-      'workKind': work.workKind?.index,
+      'workKind': work.workType?.index,
     };
   }
 
@@ -48,7 +48,7 @@ final class Work extends Equatable {
     String? plumberId,
     DateTime? createdAt,
     DateTime? workDate,
-    WorkKind? workKind,
+    WorkType? workType,
   }) {
     return Work(
       id: id ?? this.id,
@@ -57,7 +57,7 @@ final class Work extends Equatable {
       plumberId: plumberId ?? this.plumberId,
       createdAt: createdAt ?? this.createdAt,
       workDate: workDate ?? this.workDate,
-      workKind: workKind ?? this.workKind,
+      workType: workType ?? this.workType,
     );
   }
 
@@ -67,7 +67,7 @@ final class Work extends Equatable {
   final String? plumberId;
   final DateTime? createdAt;
   final DateTime? workDate;
-  final WorkKind? workKind;
+  final WorkType? workType;
 
   @override
   List<Object?> get props => [
@@ -77,6 +77,6 @@ final class Work extends Equatable {
         plumberId,
         createdAt,
         workDate,
-        workKind,
+        workType,
       ];
 }

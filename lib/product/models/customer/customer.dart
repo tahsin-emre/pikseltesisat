@@ -12,6 +12,7 @@ final class Customer extends Equatable {
     this.province,
     this.district,
     this.searchIndex,
+    this.createdAt,
   });
 
   factory Customer.fromFirestore(
@@ -27,6 +28,7 @@ final class Customer extends Equatable {
       province: map['province'] as int?,
       district: (map['district'] as int?)?.toDisctrict,
       searchIndex: map['searchIndex'] as List<dynamic>?,
+      createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
     );
   }
 
@@ -38,6 +40,7 @@ final class Customer extends Equatable {
       'province': customer.province,
       'district': customer.district?.id,
       'searchIndex': customer.searchIndex,
+      'createdAt': customer.createdAt,
     };
   }
 
@@ -49,6 +52,7 @@ final class Customer extends Equatable {
     int? province,
     District? district,
     List<dynamic>? searchIndex,
+    DateTime? createdAt,
   }) {
     return Customer(
       id: id ?? this.id,
@@ -58,6 +62,7 @@ final class Customer extends Equatable {
       province: province ?? this.province,
       district: district ?? this.district,
       searchIndex: searchIndex ?? this.searchIndex,
+      createdAt: createdAt ?? this.createdAt,
     );
   }
 
@@ -68,6 +73,7 @@ final class Customer extends Equatable {
   final int? province;
   final District? district;
   final List<dynamic>? searchIndex;
+  final DateTime? createdAt;
 
   @override
   List<Object?> get props => [
@@ -78,5 +84,6 @@ final class Customer extends Equatable {
         province,
         district,
         searchIndex,
+        createdAt,
       ];
 }

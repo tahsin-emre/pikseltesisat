@@ -12,7 +12,8 @@ final class WorkNewTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        onTap: () => WorkCreateRoute(Work(customerId: customerId)).go(context),
+        onTap: () =>
+            WorkCreateRoute(Work(customerId: customerId)).push<void>(context),
         title: Text(LocaleKeys.work_newWork.tr()),
         leading: AppIcons.add.toIcon,
       ),

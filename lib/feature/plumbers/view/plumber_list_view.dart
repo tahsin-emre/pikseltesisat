@@ -25,7 +25,7 @@ class _PlumberListViewState extends State<PlumberListView>
         NewElementTile(
           icon: AppIcons.addPerson.toIcon,
           title: LocaleKeys.plumber_newPlumber.tr(),
-          onTap: () => const PlumberCreateRoute().go(context),
+          onTap: () => const PlumberCreateRoute().push<void>(context),
         ),
         FirestoreListView(
           query: plumberQuery,

@@ -27,6 +27,7 @@ class _WorkCreateViewState extends State<WorkCreateView> with WorkCreateMixin {
       child: Form(
         key: formKey,
         child: CustomScrollView(
+          shrinkWrap: true,
           slivers: [
             CustomTextField(
               label: LocaleKeys.work_workDetail.tr(),
@@ -39,6 +40,10 @@ class _WorkCreateViewState extends State<WorkCreateView> with WorkCreateMixin {
             if (customerId == null) CustomerSelector(selectCustomer).toSliver,
             PlumberSelector(selectPlumber).toSliver,
             WorkKindSelector(selectWorkKind).toSliver,
+            CustomTextField(
+              label: 'Ücret',
+              controller: TextEditingController(),
+            ).toSliver,
             AsyncButton(onTap: createWork, label: LocaleKeys.base_save.tr())
                 .toSliver,
           ],

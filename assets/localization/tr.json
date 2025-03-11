@@ -75,7 +75,8 @@
         "workList": "İş Listesi",
         "workDetail": "İş Detayı",
         "workAdded": "İş eklendi",
-        "workDate": "İş Tarihi"
+        "workDate": "İş Tarihi",
+        "price": "Ücret"
     },
     "workType": {
         "workType": "İş Türü",

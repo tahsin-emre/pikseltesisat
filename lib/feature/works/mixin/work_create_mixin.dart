@@ -8,6 +8,7 @@ import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
+import 'package:pikseltesisat/product/utils/enums/service_type.dart';
 import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 
 mixin WorkCreateMixin on State<WorkCreateView> {
@@ -18,6 +19,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
   final descriptonController = TextEditingController();
   DateTime? workDate;
   WorkType? workType;
+  ServiceType? serviceType;
   String? personalId;
   String? customerId;
 
@@ -58,6 +60,11 @@ mixin WorkCreateMixin on State<WorkCreateView> {
   void selectWorkType(WorkType? newWorkType) {
     if (newWorkType == null) return;
     workType = newWorkType;
+  }
+
+  void selectServiceType(ServiceType? newServiceType) {
+    if (newServiceType == null) return;
+    serviceType = newServiceType;
   }
 
   void selectPersonal(Personal? newPersonal) {

@@ -71,6 +71,7 @@ abstract class  LocaleKeys {
   static const work_workDetail = 'work.workDetail';
   static const work_workAdded = 'work.workAdded';
   static const work_workDate = 'work.workDate';
+  static const work_price = 'work.price';
   static const work = 'work';
   static const workType_workType = 'workType.workType';
   static const workType_waterLeakage = 'workType.waterLeakage';

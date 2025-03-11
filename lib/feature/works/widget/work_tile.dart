@@ -112,7 +112,18 @@ final class _Subtitle extends StatelessWidget {
               height: AppSizes.s,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: work.workType?.color,
+                color: work.serviceType?.color ?? Colors.black,
+              ),
+            ),
+            const SizedBox(width: AppSizes.xs),
+            Text('${work.serviceType?.localeKey.tr()}'),
+            const SizedBox(width: AppSizes.s),
+            Container(
+              width: AppSizes.s,
+              height: AppSizes.s,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: work.workType?.color ?? Colors.black,
               ),
             ),
             const SizedBox(width: AppSizes.xs),

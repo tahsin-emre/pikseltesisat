@@ -13,7 +13,7 @@ final class MainDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: context.general.colorScheme.onSecondary,
       child: SafeArea(
         child: CustomScrollView(

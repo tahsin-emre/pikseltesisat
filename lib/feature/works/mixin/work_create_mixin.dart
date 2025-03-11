@@ -17,6 +17,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
   late final query = _workService.workCollection;
 
   final descriptonController = TextEditingController();
+  final servicePriceController = TextEditingController();
   DateTime? workDate;
   WorkType? workType;
   ServiceType? serviceType;
@@ -37,6 +38,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
       personalId: personalId,
       workDate: workDate,
       workType: workType,
+      serviceType: serviceType,
       createdAt: DateTime.now(),
     );
     try {

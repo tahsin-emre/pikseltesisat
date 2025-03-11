@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:pikseltesisat/product/utils/enums/service_type.dart';
 import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 import 'package:pikseltesisat/product/utils/extensions/int_ext.dart';
 
@@ -12,6 +13,7 @@ final class Work extends Equatable {
     this.createdAt,
     this.workDate,
     this.workType,
+    this.serviceType,
   });
 
   factory Work.fromFirestore(
@@ -27,6 +29,7 @@ final class Work extends Equatable {
       createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
       workDate: (map['workDate'] as Timestamp?)?.toDate(),
       workType: (map['workType'] as int?)?.toWorkType,
+      serviceType: (map['serviceType'] as int?)?.toServiceType,
     );
   }
 
@@ -37,7 +40,8 @@ final class Work extends Equatable {
       'personalId': work.personalId,
       'createdAt': work.createdAt,
       'workDate': work.workDate,
-      'workKind': work.workType?.index,
+      'workType': work.workType?.index,
+      'serviceType': work.serviceType?.index,
     };
   }
 
@@ -49,6 +53,7 @@ final class Work extends Equatable {
     DateTime? createdAt,
     DateTime? workDate,
     WorkType? workType,
+    ServiceType? serviceType,
   }) {
     return Work(
       id: id ?? this.id,
@@ -58,6 +63,7 @@ final class Work extends Equatable {
       createdAt: createdAt ?? this.createdAt,
       workDate: workDate ?? this.workDate,
       workType: workType ?? this.workType,
+      serviceType: serviceType ?? this.serviceType,
     );
   }
 
@@ -68,6 +74,7 @@ final class Work extends Equatable {
   final DateTime? createdAt;
   final DateTime? workDate;
   final WorkType? workType;
+  final ServiceType? serviceType;
 
   @override
   List<Object?> get props => [
@@ -78,5 +85,6 @@ final class Work extends Equatable {
         createdAt,
         workDate,
         workType,
+        serviceType,
       ];
 }

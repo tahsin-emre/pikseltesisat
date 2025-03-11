@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
-import 'package:pikseltesisat/product/models/plumber/plumber.dart';
+import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
-import 'package:pikseltesisat/product/services/plumber_service.dart';
+import 'package:pikseltesisat/product/services/personal_service.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -21,7 +21,7 @@ final class WorkTile extends StatefulWidget {
 class _WorkTileState extends State<WorkTile> {
   final loadingNotifier = ValueNotifier<bool>(false);
   Customer? customer;
-  Plumber? plumber;
+  Personal? personal;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _WorkTileState extends State<WorkTile> {
               subtitle: _Subtitle(
                 work: widget.work,
                 customer: customer,
-                plumber: plumber,
+                personal: personal,
               ),
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -69,10 +69,10 @@ class _WorkTileState extends State<WorkTile> {
   @override
   void initState() {
     super.initState();
-    getCustomerAndPlumber();
+    getCustomerAndPersonal();
   }
 
-  Future<void> getCustomerAndPlumber() async {
+  Future<void> getCustomerAndPersonal() async {
     if (widget.work.customerId == null) return;
     loadingNotifier.value = true;
 
@@ -80,10 +80,10 @@ class _WorkTileState extends State<WorkTile> {
         await CustomerService().getCustomer(widget.work.customerId ?? '');
     customer = customerResponse;
 
-    if (widget.work.plumberId != null) {
-      final plumberResponse =
-          await PlumberService().getPlumber(widget.work.plumberId ?? '');
-      plumber = plumberResponse;
+    if (widget.work.personalId != null) {
+      final personalResponse =
+          await PersonalService().getPersonal(widget.work.personalId ?? '');
+      personal = personalResponse;
     }
 
     loadingNotifier.value = false;
@@ -94,11 +94,11 @@ final class _Subtitle extends StatelessWidget {
   const _Subtitle({
     required this.work,
     required this.customer,
-    required this.plumber,
+    required this.personal,
   });
   final Work work;
   final Customer? customer;
-  final Plumber? plumber;
+  final Personal? personal;
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +120,7 @@ final class _Subtitle extends StatelessWidget {
           ],
         ),
         Text('${customer?.address} ${customer?.district?.name}'),
-        Text(plumber?.name ?? LocaleKeys.plumber_plumberNotChoosen.tr()),
+        Text(personal?.name ?? LocaleKeys.personal_personalNotChoosen.tr()),
       ],
     );
   }

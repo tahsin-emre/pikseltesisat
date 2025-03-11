@@ -35,11 +35,11 @@ final class MainDrawer extends StatelessWidget {
             icon: AppIcons.customers,
             onTap: () => const CustomerListRoute().go(context),
           ).toSliver,
-          //Plumbers
+          //Personals
           DrawerTile(
-            title: LocaleKeys.drawer_plumbers.tr(),
-            icon: AppIcons.plumbers,
-            onTap: () => const PlumberListRoute().go(context),
+            title: LocaleKeys.drawer_personals.tr(),
+            icon: AppIcons.personals,
+            onTap: () => const PersonalListRoute().go(context),
           ).toSliver,
           //Reports
           DrawerTile(

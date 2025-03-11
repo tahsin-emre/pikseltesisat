@@ -8,7 +8,7 @@ final class Work extends Equatable {
     this.id = '',
     this.description,
     this.customerId,
-    this.plumberId,
+    this.personalId,
     this.createdAt,
     this.workDate,
     this.workType,
@@ -23,7 +23,7 @@ final class Work extends Equatable {
       id: snapshot.id,
       description: map['description'] as String?,
       customerId: map['customerId'] as String?,
-      plumberId: map['plumberId'] as String?,
+      personalId: map['personalId'] as String?,
       createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
       workDate: (map['workDate'] as Timestamp?)?.toDate(),
       workType: (map['workType'] as int?)?.toWorkType,
@@ -34,7 +34,7 @@ final class Work extends Equatable {
     return {
       'description': work.description,
       'customerId': work.customerId,
-      'plumberId': work.plumberId,
+      'personalId': work.personalId,
       'createdAt': work.createdAt,
       'workDate': work.workDate,
       'workKind': work.workType?.index,
@@ -45,7 +45,7 @@ final class Work extends Equatable {
     String? id,
     String? description,
     String? customerId,
-    String? plumberId,
+    String? personalId,
     DateTime? createdAt,
     DateTime? workDate,
     WorkType? workType,
@@ -54,7 +54,7 @@ final class Work extends Equatable {
       id: id ?? this.id,
       description: description ?? this.description,
       customerId: customerId ?? this.customerId,
-      plumberId: plumberId ?? this.plumberId,
+      personalId: personalId ?? this.personalId,
       createdAt: createdAt ?? this.createdAt,
       workDate: workDate ?? this.workDate,
       workType: workType ?? this.workType,
@@ -64,7 +64,7 @@ final class Work extends Equatable {
   final String id;
   final String? description;
   final String? customerId;
-  final String? plumberId;
+  final String? personalId;
   final DateTime? createdAt;
   final DateTime? workDate;
   final WorkType? workType;
@@ -74,7 +74,7 @@ final class Work extends Equatable {
         id,
         description,
         customerId,
-        plumberId,
+        personalId,
         createdAt,
         workDate,
         workType,

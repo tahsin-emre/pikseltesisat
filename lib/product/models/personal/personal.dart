@@ -1,34 +1,34 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
-final class Plumber extends Equatable {
-  const Plumber({
+final class Personal extends Equatable {
+  const Personal({
     this.id = '',
     this.name,
   });
 
-  factory Plumber.fromFirestore(
+  factory Personal.fromFirestore(
     DocumentSnapshot<Map<String, dynamic>> snapshot,
     SnapshotOptions? _,
   ) {
     final map = snapshot.data()!;
-    return Plumber(
+    return Personal(
       id: snapshot.id,
       name: map['name'] as String?,
     );
   }
 
-  static Map<String, dynamic> toFirestore(Plumber plumber, SetOptions? _) {
+  static Map<String, dynamic> toFirestore(Personal personal, SetOptions? _) {
     return {
-      'name': plumber.name,
+      'name': personal.name,
     };
   }
 
-  Plumber copyWith({
+  Personal copyWith({
     String? id,
     String? name,
   }) {
-    return Plumber(
+    return Personal(
       id: id ?? this.id,
       name: name ?? this.name,
     );

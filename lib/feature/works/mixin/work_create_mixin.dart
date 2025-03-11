@@ -5,7 +5,7 @@ import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/methods/toast.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
-import 'package:pikseltesisat/product/models/plumber/plumber.dart';
+import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
 import 'package:pikseltesisat/product/utils/enums/work_type.dart';
@@ -18,7 +18,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
   final descriptonController = TextEditingController();
   DateTime? workDate;
   WorkType? workType;
-  String? plumberId;
+  String? personalId;
   String? customerId;
 
   @override
@@ -32,7 +32,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
     final work = Work(
       description: descriptonController.text,
       customerId: customerId,
-      plumberId: plumberId,
+      personalId: personalId,
       workDate: workDate,
       workType: workType,
       createdAt: DateTime.now(),
@@ -51,7 +51,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
     descriptonController.text = widget.work?.description ?? '';
     workDate = widget.work?.workDate ?? DateTime.now();
     workType = widget.work?.workType;
-    plumberId = widget.work?.plumberId;
+    personalId = widget.work?.personalId;
     customerId = widget.work?.customerId;
   }
 
@@ -60,9 +60,9 @@ mixin WorkCreateMixin on State<WorkCreateView> {
     workType = newWorkType;
   }
 
-  void selectPlumber(Plumber? newPlumber) {
-    if (newPlumber == null) return;
-    plumberId = newPlumber.id;
+  void selectPersonal(Personal? newPersonal) {
+    if (newPersonal == null) return;
+    personalId = newPersonal.id;
   }
 
   void selectCustomer(Customer? newCustomer) {

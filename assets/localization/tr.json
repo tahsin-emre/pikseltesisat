@@ -53,21 +53,21 @@
         "customerAdded": "Müşteri eklendi",
         "customerPick": "Müşteri Seç"
     },
-    "plumber": {
+    "personal": {
         "name": "Ad",
         "surname": "Soyad",
         "phone": "Telefon",
         "address": "Adres",
         "province": "İl",
         "district": "İlçe",
-        "newPlumber": "Yeni Tesisatçı",
-        "editPlumber": "Tesisatçı Düzenle",
-        "deletePlumber": "Tesisatçı Sil",
-        "plumberDetail": "Tesisatçı Detayı",
-        "plumberList": "Tesisatçı Listesi",
-        "pickPlumber": "Tesisatçı Seç",
-        "plumberAdded": "Tesisatçı eklendi",
-        "plumberNotChoosen": "Tesisatçı atanmadı"
+        "newPersonal": "Yeni Personel",
+        "editPersonal": "Personel Düzenle",
+        "deletePersonal": "Personel Sil",
+        "personalDetail": "Personel Detayı",
+        "personalList": "Personel Listesi",
+        "pickPersonal": "Personel Seç",
+        "personalAdded": "Personel eklendi",
+        "personalNotChoosen": "Personel atanmadı"
     },
     "work": {
         "newWork": "Yeni İş",

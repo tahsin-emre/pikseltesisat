@@ -26,7 +26,7 @@ mixin SplashMixin on State<SplashView> {
   void navigate(MyUser? user) {
     if (user == null) return const LoginRoute().go(context);
     if (user.isAdmin) return const DashboardRoute().go(context);
-    if (user.isPlumber) return const LoginRoute().go(context);
+    if (user.isPersonal) return const LoginRoute().go(context);
     if (user.isWaiting) return const WaitingRoute().go(context);
   }
 }

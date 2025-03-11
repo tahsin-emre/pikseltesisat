@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/feature/customers/widget/customer_selector.dart';
-import 'package:pikseltesisat/feature/plumbers/widget/plumber_selector.dart';
+import 'package:pikseltesisat/feature/personals/widget/personal_selector.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/async_button.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/custom_text_field.dart';
 import 'package:pikseltesisat/feature/works/mixin/work_create_mixin.dart';
@@ -38,7 +38,7 @@ class _WorkCreateViewState extends State<WorkCreateView> with WorkCreateMixin {
               initWorkDate: DateTime.now(),
             ).toSliver,
             if (customerId == null) CustomerSelector(selectCustomer).toSliver,
-            PlumberSelector(selectPlumber).toSliver,
+            PersonalSelector(selectPersonal).toSliver,
             WorkTypeSelector(selectWorkType).toSliver,
             CustomTextField(
               label: 'Ücret',

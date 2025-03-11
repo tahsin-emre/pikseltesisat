@@ -1,31 +1,31 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:pikseltesisat/feature/plumbers/mixin/plumber_create_mixin.dart';
+import 'package:pikseltesisat/feature/personals/mixin/personal_create_mixin.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/async_button.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/my_user/my_user.dart';
-import 'package:pikseltesisat/product/models/plumber/plumber.dart';
+import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
-class PlumberCreateView extends StatefulWidget {
-  const PlumberCreateView({this.plumber, super.key});
-  final Plumber? plumber;
+class PersonalCreateView extends StatefulWidget {
+  const PersonalCreateView({this.personal, super.key});
+  final Personal? personal;
   @override
-  State<PlumberCreateView> createState() => _PlumberCreateViewState();
+  State<PersonalCreateView> createState() => _PersonalCreateViewState();
 }
 
-class _PlumberCreateViewState extends State<PlumberCreateView>
-    with PlumberCreateMixin {
+class _PersonalCreateViewState extends State<PersonalCreateView>
+    with PersonalCreateMixin {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         FirestoreListView<MyUser>(
-          query: plumberService.waitingCollection,
+          query: personalService.waitingCollection,
           itemBuilder: (context, user) => _UserRow(
             user.data(),
-            onTap: () => confirmPlumber(user.data()),
+            onTap: () => confirmPersonal(user.data()),
           ),
         ).expanded,
       ],

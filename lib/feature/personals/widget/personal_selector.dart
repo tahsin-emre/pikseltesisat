@@ -1,23 +1,23 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
-import 'package:pikseltesisat/product/models/plumber/plumber.dart';
-import 'package:pikseltesisat/product/services/plumber_service.dart';
+import 'package:pikseltesisat/product/models/personal/personal.dart';
+import 'package:pikseltesisat/product/services/personal_service.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-final class PlumberSelector extends StatefulWidget {
-  const PlumberSelector(this.onChanged, {super.key});
-  final ValueChanged<Plumber?> onChanged;
+final class PersonalSelector extends StatefulWidget {
+  const PersonalSelector(this.onChanged, {super.key});
+  final ValueChanged<Personal?> onChanged;
 
   @override
-  State<PlumberSelector> createState() => _PlumberSelectorState();
+  State<PersonalSelector> createState() => _PersonalSelectorState();
 }
 
-class _PlumberSelectorState extends State<PlumberSelector> {
+class _PersonalSelectorState extends State<PersonalSelector> {
   final loadingNotifier = ValueNotifier<bool>(false);
-  final _plumberService = PlumberService();
-  final List<Plumber?> _plumbers = [];
+  final _personalService = PersonalService();
+  final List<Personal?> _personals = [];
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -30,14 +30,14 @@ class _PlumberSelectorState extends State<PlumberSelector> {
             child: DropdownButtonFormField(
               onChanged: widget.onChanged,
               decoration: InputDecoration(
-                labelText: LocaleKeys.plumber_pickPlumber.tr(),
+                labelText: LocaleKeys.personal_pickPersonal.tr(),
                 border: const OutlineInputBorder(),
               ),
-              items: _plumbers
+              items: _personals
                   .map(
-                    (e) => DropdownMenuItem<Plumber>(
+                    (e) => DropdownMenuItem<Personal>(
                       value: e,
-                      child: _PlumberRow(e),
+                      child: _PersonalRow(e),
                     ),
                   )
                   .toList(),
@@ -51,25 +51,25 @@ class _PlumberSelectorState extends State<PlumberSelector> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(fetchPlumbers);
+    Future.microtask(fetchPersonals);
   }
 
-  Future<void> fetchPlumbers() async {
+  Future<void> fetchPersonals() async {
     loadingNotifier.value = true;
-    final response = await _plumberService.plumberCollection.get();
+    final response = await _personalService.personalCollection.get();
     for (final item in response.docs) {
-      _plumbers.add(item.data());
+      _personals.add(item.data());
     }
-    _plumbers.insert(0, null);
+    _personals.insert(0, null);
     loadingNotifier.value = false;
   }
 }
 
-final class _PlumberRow extends StatelessWidget {
-  const _PlumberRow(this.plumber);
-  final Plumber? plumber;
+final class _PersonalRow extends StatelessWidget {
+  const _PersonalRow(this.personal);
+  final Personal? personal;
   @override
   Widget build(BuildContext context) {
-    return Text(plumber?.name ?? LocaleKeys.base_pickLater.tr());
+    return Text(personal?.name ?? LocaleKeys.base_pickLater.tr());
   }
 }

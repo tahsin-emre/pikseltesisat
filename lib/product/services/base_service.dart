@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/my_user/my_user.dart';
-import 'package:pikseltesisat/product/models/plumber/plumber.dart';
+import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 
 abstract class BaseService {
@@ -18,11 +18,11 @@ abstract class BaseService {
         toFirestore: MyUser.toFirestore,
       );
 
-  final plumberCollection = FirebaseFirestore.instance
-      .collection(FirestoreCollections.plumbers.name)
+  final personalCollection = FirebaseFirestore.instance
+      .collection(FirestoreCollections.personals.name)
       .withConverter(
-        fromFirestore: Plumber.fromFirestore,
-        toFirestore: Plumber.toFirestore,
+        fromFirestore: Personal.fromFirestore,
+        toFirestore: Personal.toFirestore,
       );
 
   final customerCollection = FirebaseFirestore.instance
@@ -43,7 +43,7 @@ abstract class BaseService {
 enum FirestoreCollections {
   users,
   customers,
-  plumbers,
+  personals,
   works,
   ;
 }
@@ -51,7 +51,7 @@ enum FirestoreCollections {
 enum FirestoreFields {
   createdAt,
   workDate,
-  plumberId,
+  personalId,
   customerId,
   workId,
   userType,

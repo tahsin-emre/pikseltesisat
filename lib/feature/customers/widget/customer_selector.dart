@@ -50,10 +50,10 @@ class _CustomerSelectorState extends State<CustomerSelector> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(fetchPlumbers);
+    Future.microtask(fetchPersonals);
   }
 
-  Future<void> fetchPlumbers() async {
+  Future<void> fetchPersonals() async {
     loadingNotifier.value = true;
     final response = await _customerService.customerCollection.get();
     for (final item in response.docs) {

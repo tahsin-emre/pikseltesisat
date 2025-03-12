@@ -46,7 +46,7 @@ class _WorkCreateViewState extends State<WorkCreateView> with WorkCreateMixin {
               ],
             ).toSliver,
             CustomTextField(
-              label: LocaleKeys.work_price.tr(),
+              label: LocaleKeys.work_servicePrice.tr(),
               isNumeric: true,
               controller: servicePriceController,
               suffix: '₺',

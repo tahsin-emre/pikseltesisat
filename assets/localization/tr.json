@@ -74,9 +74,14 @@
         "editWork": "İş Düzenle",
         "workList": "İş Listesi",
         "workDetail": "İş Detayı",
-        "workAdded": "İş eklendi",
+        "workAdded": "İş Eklendi",
         "workDate": "İş Tarihi",
-        "price": "Ücret"
+        "price": "Ücret",
+        "servicePrice": "Servis Ücreti",
+        "count": "Adet",
+        "totalPrice": "Toplam Ücret",
+        "workCreated": "İş oluşturuldu",
+        "oldWorks": "Geçmiş İşler"
     },
     "workType": {
         "workType": "İş Türü",

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:pikseltesisat/product/models/work/work_cart_item.dart';
 import 'package:pikseltesisat/product/utils/enums/service_type.dart';
 import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 import 'package:pikseltesisat/product/utils/extensions/int_ext.dart';
@@ -14,6 +15,7 @@ final class Work extends Equatable {
     this.workDate,
     this.workType,
     this.serviceType,
+    this.workCartItems,
   });
 
   factory Work.fromFirestore(
@@ -30,6 +32,10 @@ final class Work extends Equatable {
       workDate: (map['workDate'] as Timestamp?)?.toDate(),
       workType: (map['workType'] as int?)?.toWorkType,
       serviceType: (map['serviceType'] as int?)?.toServiceType,
+      workCartItems: List<WorkCartItem>.of(
+        (map['workCartItems'] as List<dynamic>? ?? [])
+            .map((e) => WorkCartItem.fromMap(e as Map<String, dynamic>)),
+      ),
     );
   }
 
@@ -42,6 +48,7 @@ final class Work extends Equatable {
       'workDate': work.workDate,
       'workType': work.workType?.index,
       'serviceType': work.serviceType?.index,
+      'workCartItems': work.workCartItems?.map((e) => e.toMap()).toList(),
     };
   }
 
@@ -54,6 +61,7 @@ final class Work extends Equatable {
     DateTime? workDate,
     WorkType? workType,
     ServiceType? serviceType,
+    List<WorkCartItem>? workCartItems,
   }) {
     return Work(
       id: id ?? this.id,
@@ -64,6 +72,7 @@ final class Work extends Equatable {
       workDate: workDate ?? this.workDate,
       workType: workType ?? this.workType,
       serviceType: serviceType ?? this.serviceType,
+      workCartItems: workCartItems ?? this.workCartItems,
     );
   }
 
@@ -75,6 +84,7 @@ final class Work extends Equatable {
   final DateTime? workDate;
   final WorkType? workType;
   final ServiceType? serviceType;
+  final List<WorkCartItem>? workCartItems;
 
   @override
   List<Object?> get props => [
@@ -86,5 +96,6 @@ final class Work extends Equatable {
         workDate,
         workType,
         serviceType,
+        workCartItems,
       ];
 }

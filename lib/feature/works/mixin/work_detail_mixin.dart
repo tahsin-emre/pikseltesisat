@@ -24,6 +24,8 @@ mixin WorkDetailMixin on State<WorkDetailView> {
     _init();
   }
 
+  Future<void> addLog() async {}
+
   Future<void> completeWork() async {}
 
   Future<void> priceOffer() async {}

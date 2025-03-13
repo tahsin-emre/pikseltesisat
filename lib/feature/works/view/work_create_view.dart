@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/feature/personals/widget/personal_selector.dart';
-import 'package:pikseltesisat/feature/sub_features/common_widgets/async_button.dart';
-import 'package:pikseltesisat/feature/sub_features/common_widgets/custom_text_field.dart';
+import 'package:pikseltesisat/feature/sub_features/ui_kit/async_button.dart';
+import 'package:pikseltesisat/feature/sub_features/ui_kit/custom_text_field.dart';
 import 'package:pikseltesisat/feature/works/mixin/work_create_mixin.dart';
 import 'package:pikseltesisat/feature/works/widget/work_create_widgets/service_type_selector.dart';
 import 'package:pikseltesisat/feature/works/widget/work_create_widgets/work_date_selector.dart';

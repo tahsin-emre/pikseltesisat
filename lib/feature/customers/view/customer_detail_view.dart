@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:pikseltesisat/feature/customers/mixin/customer_detail_mixin.dart';
 import 'package:pikseltesisat/feature/customers/widget/customer_detail_card.dart';
-import 'package:pikseltesisat/feature/sub_features/common_widgets/title_text.dart';
+import 'package:pikseltesisat/feature/sub_features/ui_kit/title_text.dart';
 import 'package:pikseltesisat/feature/works/widget/work_new_tile.dart';
 import 'package:pikseltesisat/feature/works/widget/work_tile.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';

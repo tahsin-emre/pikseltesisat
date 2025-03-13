@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/feature/works/alerts/work_comment_alert.dart';
 import 'package:pikseltesisat/feature/works/view/work_detail_view.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
+import 'package:pikseltesisat/product/models/work/work_comment.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
 import 'package:pikseltesisat/product/services/personal_service.dart';
@@ -24,7 +26,14 @@ mixin WorkDetailMixin on State<WorkDetailView> {
     _init();
   }
 
-  Future<void> addLog() async {}
+  Future<void> addComment() async {
+    final result = await showDialog<WorkComment?>(
+      context: context,
+      builder: (context) => const WorkLogAlert(),
+    );
+    if (result == null) return;
+    // await _workService.addWorkComment(result);
+  }
 
   Future<void> completeWork() async {}
 

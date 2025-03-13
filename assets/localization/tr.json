@@ -45,7 +45,8 @@
         "no": "Hayır",
         "welcome": "Hoşgeldin {}",
         "confirm": "Onayla",
-        "otherValue": "Diğer"
+        "otherValue": "Diğer",
+        "description": "Açıklama"
     },
     "customer": {
         "name": "Ad",

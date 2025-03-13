@@ -36,6 +36,7 @@ final class AppIcons {
   static const calendar = Icons.calendar_month;
   static const done = Icons.done_rounded;
   static const priceOffer = Icons.price_check_rounded;
+  static const comment = Icons.comment_rounded;
 }
 
 extension AppIconsExtension on IconData {

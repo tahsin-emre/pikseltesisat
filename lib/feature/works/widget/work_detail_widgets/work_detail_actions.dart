@@ -4,11 +4,11 @@ final class _WorkDetailActions extends StatelessWidget {
   const _WorkDetailActions({
     required this.onCompleteWork,
     required this.onPriceOffer,
-    required this.onAddLog,
+    required this.onAddComment,
   });
   final VoidCallback onCompleteWork;
   final VoidCallback onPriceOffer;
-  final VoidCallback onAddLog;
+  final VoidCallback onAddComment;
   @override
   Widget build(BuildContext context) {
     return SpeedDial(
@@ -26,8 +26,8 @@ final class _WorkDetailActions extends StatelessWidget {
         ),
         SpeedDialChild(
           label: LocaleKeys.work_addLog.tr(),
-          child: AppIcons.add.toIcon,
-          onTap: onAddLog,
+          child: AppIcons.comment.toIcon,
+          onTap: onAddComment,
         ),
       ],
     );

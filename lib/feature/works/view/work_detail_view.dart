@@ -39,7 +39,7 @@ class _WorkDetailViewState extends State<WorkDetailView> with WorkDetailMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: _WorkDetailActions(
-        onAddLog: addLog,
+        onAddComment: addComment,
         onCompleteWork: completeWork,
         onPriceOffer: priceOffer,
       ),

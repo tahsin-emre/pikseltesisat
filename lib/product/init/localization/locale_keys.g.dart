@@ -44,6 +44,7 @@ abstract class  LocaleKeys {
   static const base_welcome = 'base.welcome';
   static const base_confirm = 'base.confirm';
   static const base_otherValue = 'base.otherValue';
+  static const base_description = 'base.description';
   static const base = 'base';
   static const customer_name = 'customer.name';
   static const customer_surname = 'customer.surname';

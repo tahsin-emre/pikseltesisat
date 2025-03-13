@@ -12,6 +12,7 @@ import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
+import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class CustomerDetailView extends StatefulWidget {
@@ -34,7 +35,7 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
           CustomerDetailCard(customer),
           const Divider(),
           TitleText(LocaleKeys.work_workList.tr()),
-          const SizedBox(height: AppSizes.s),
+          AppSizes.s.toHeight,
           WorkNewTile(customerId: customer.id),
           FirestoreListView<Work>(
             query: query!,

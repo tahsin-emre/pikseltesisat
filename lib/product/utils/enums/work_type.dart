@@ -7,6 +7,7 @@ enum WorkType {
   unclogging(LocaleKeys.workType_unclogging, Colors.purple),
   repair(LocaleKeys.workType_repair, Colors.lightGreen),
   washing(LocaleKeys.workType_washing, Colors.amber),
+  other(LocaleKeys.base_otherValue, Colors.black),
   ;
 
   const WorkType(this.localeKey, this.color);

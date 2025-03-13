@@ -14,6 +14,7 @@ import 'package:pikseltesisat/product/models/work/work_comment.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
 import 'package:pikseltesisat/product/utils/enums/service_type.dart';
 import 'package:pikseltesisat/product/utils/enums/work_type.dart';
+import 'package:pikseltesisat/product/utils/validators/form_validators.dart';
 
 mixin WorkCreateMixin on State<WorkCreateView> {
   late final _authCubit = context.read<AuthCubit>();
@@ -37,6 +38,10 @@ mixin WorkCreateMixin on State<WorkCreateView> {
 
   Future<void> createWork() async {
     if (!formKey.currentState!.validate()) return;
+
+    // Form dışı alanların doğrulaması
+    if (!validateNonFormFields()) return;
+
     final work = Work(
       description: descriptonController.text,
       customerId: customerId,
@@ -71,6 +76,46 @@ mixin WorkCreateMixin on State<WorkCreateView> {
     }
   }
 
+  /// İş detayı için özel validator
+  String? validateDescription(String? value) =>
+      FormValidators.required(value) ??
+      (value!.length < 5
+          ? LocaleKeys.validators_descriptionRequired.tr()
+          : null);
+
+  /// Fiyat alanı için özel validator
+  String? validatePrice(String? value) {
+    final requiredError = FormValidators.required(value);
+    if (requiredError != null) return requiredError;
+
+    final numericValue = double.tryParse(value!);
+    if (numericValue == null || numericValue <= 0) {
+      return LocaleKeys.validators_priceRequired.tr();
+    }
+
+    return null;
+  }
+
+  /// Form dışındaki alanların doğrulaması
+  bool validateNonFormFields() {
+    final validationErrors = <String, String>{
+      if (workDate == null) 'workDate': LocaleKeys.validators_dateRequired.tr(),
+      if (personalId == null)
+        'personalId': LocaleKeys.validators_personalRequired.tr(),
+      if (workType == null)
+        'workType': LocaleKeys.validators_workTypeRequired.tr(),
+      if (serviceType == null)
+        'serviceType': LocaleKeys.validators_serviceTypeRequired.tr(),
+    };
+
+    if (validationErrors.isNotEmpty) {
+      toast(validationErrors.values.first);
+      return false;
+    }
+
+    return true;
+  }
+
   void setInitialValues() {
     descriptonController.text = widget.work?.description ?? '';
     workDate = widget.work?.workDate ?? DateTime.now();
@@ -82,27 +127,27 @@ mixin WorkCreateMixin on State<WorkCreateView> {
 
   void selectWorkType(WorkType? newWorkType) {
     if (newWorkType == null) return;
-    workType = newWorkType;
+    setState(() => workType = newWorkType);
   }
 
   void selectServiceType(ServiceType? newServiceType) {
     if (newServiceType == null) return;
-    serviceType = newServiceType;
+    setState(() => serviceType = newServiceType);
   }
 
   void selectPersonal(Personal? newPersonal) {
     if (newPersonal == null) return;
-    personalId = newPersonal.id;
+    setState(() => personalId = newPersonal.id);
   }
 
   void selectCustomer(Customer? newCustomer) {
     if (newCustomer == null) return;
-    customerId = newCustomer.id;
+    setState(() => customerId = newCustomer.id);
   }
 
   void selectDate(DateTime? newDate) {
     if (newDate == null) return;
-    workDate = newDate;
+    setState(() => workDate = newDate);
   }
 
   void pop() => const WorkListRoute().go(context);

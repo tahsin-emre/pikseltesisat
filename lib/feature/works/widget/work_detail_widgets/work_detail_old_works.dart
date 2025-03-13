@@ -10,7 +10,7 @@ final class _WorkDetailOldWorks extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(LocaleKeys.work_oldWorks.tr()),
-        const SizedBox(height: AppSizes.xs),
+        AppSizes.xs.toWidth,
         FirestoreListView<Work>(
           shrinkWrap: true,
           query: oldWorksQuery,

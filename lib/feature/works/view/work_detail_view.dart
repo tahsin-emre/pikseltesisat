@@ -16,6 +16,7 @@ import 'package:pikseltesisat/product/services/work_service.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
+import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

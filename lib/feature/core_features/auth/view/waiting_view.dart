@@ -7,6 +7,7 @@ import 'package:pikseltesisat/feature/sub_features/common_widgets/base_app_bar.d
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
+import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class WaitingView extends StatefulWidget {
@@ -26,7 +27,7 @@ class _WaitingViewState extends State<WaitingView> {
           slivers: [
             Text(nameText).toSliver,
             Text(LocaleKeys.login_waitingForConfirmation.tr()).toSliver,
-            const SizedBox(height: AppSizes.s).toSliver,
+            AppSizes.s.toHeight.toSliver,
             AsyncButton(
               onTap: signOut,
               label: LocaleKeys.drawer_logout.tr(),

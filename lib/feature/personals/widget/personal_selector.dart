@@ -24,7 +24,7 @@ class _PersonalSelectorState extends State<PersonalSelector> {
       valueListenable: loadingNotifier,
       builder: (_, isLoading, __) {
         return Container(
-          padding: AppPaddings.allXS,
+          padding: AppPaddings.allXXS,
           child: Skeletonizer(
             enabled: isLoading,
             child: DropdownButtonFormField(

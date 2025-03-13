@@ -6,6 +6,7 @@ enum ServiceType {
   service(LocaleKeys.serviceType_service, Colors.teal),
   rework(LocaleKeys.serviceType_rework, Colors.brown),
   extra(LocaleKeys.serviceType_extra, Colors.orange),
+  other(LocaleKeys.base_otherValue, Colors.black),
   ;
 
   const ServiceType(this.localeKey, this.color);

@@ -8,6 +8,7 @@ import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
 import 'package:pikseltesisat/product/services/personal_service.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
+import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 final class WorkTile extends StatefulWidget {
@@ -118,9 +119,9 @@ final class _Subtitle extends StatelessWidget {
                 color: work.serviceType?.color ?? Colors.black,
               ),
             ),
-            const SizedBox(width: AppSizes.xs),
+            AppSizes.xs.toWidth,
             Text('${work.serviceType?.localeKey.tr()}'),
-            const SizedBox(width: AppSizes.s),
+            AppSizes.s.toWidth,
             Container(
               width: AppSizes.s,
               height: AppSizes.s,
@@ -129,7 +130,7 @@ final class _Subtitle extends StatelessWidget {
                 color: work.workType?.color ?? Colors.black,
               ),
             ),
-            const SizedBox(width: AppSizes.xs),
+            AppSizes.xs.toWidth,
             Text('${work.workType?.localeKey.tr()}'),
           ],
         ),

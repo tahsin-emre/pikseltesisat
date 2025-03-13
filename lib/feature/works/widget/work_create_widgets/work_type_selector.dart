@@ -3,26 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
-import 'package:pikseltesisat/product/utils/enums/service_type.dart';
+import 'package:pikseltesisat/product/utils/enums/work_type.dart';
+import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
 
-final class ServiceTypeSelector extends StatelessWidget {
-  const ServiceTypeSelector(this.onChanged, {super.key});
-  final ValueChanged<ServiceType?> onChanged;
+final class WorkTypeSelector extends StatelessWidget {
+  const WorkTypeSelector({
+    required this.onChanged,
+    required this.validator,
+    super.key,
+  });
+  final ValueChanged<WorkType?> onChanged;
+  final FormFieldValidator<WorkType> validator;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: AppPaddings.allXS,
+      padding: AppPaddings.allXXS,
       child: DropdownButtonFormField(
+        validator: validator,
         isExpanded: true,
         onChanged: onChanged,
         decoration: InputDecoration(
-          labelText: LocaleKeys.serviceType_serviceType.tr(),
+          labelText: LocaleKeys.workType_workType.tr(),
           border: const OutlineInputBorder(),
         ),
-        items: ServiceType.values
+        items: WorkType.values
             .sublist(1)
             .map(
-              (e) => DropdownMenuItem<ServiceType>(
+              (e) => DropdownMenuItem<WorkType>(
                 value: e,
                 child: _TypeRow(e),
               ),
@@ -34,8 +41,8 @@ final class ServiceTypeSelector extends StatelessWidget {
 }
 
 final class _TypeRow extends StatelessWidget {
-  const _TypeRow(this.serviceType);
-  final ServiceType serviceType;
+  const _TypeRow(this.workType);
+  final WorkType workType;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -45,11 +52,11 @@ final class _TypeRow extends StatelessWidget {
           height: 20,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: serviceType.color,
+            color: workType.color,
           ),
         ),
-        const SizedBox(width: AppSizes.xs),
-        Text(serviceType.localeKey.tr()),
+        AppSizes.xs.toWidth,
+        Text(workType.localeKey.tr()),
       ],
     );
   }

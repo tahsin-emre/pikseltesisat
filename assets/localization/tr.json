@@ -20,7 +20,15 @@
     "validators": {
         "required": "Bu alan zorunludur",
         "email": "Geçerli bir e-posta adresi giriniz",
-        "password": "Şifre en az 6 karakter olmalıdır"
+        "password": "Şifre en az 6 karakter olmalıdır",
+        "fieldRequired": "Bu alan zorunludur",
+        "descriptionRequired": "İş detayı zorunludur",
+        "dateRequired": "İş tarihi zorunludur",
+        "personalRequired": "Personel seçimi zorunludur",
+        "workTypeRequired": "İş türü seçimi zorunludur",
+        "serviceTypeRequired": "Servis türü seçimi zorunludur",
+        "priceRequired": "Ücret bilgisi zorunludur",
+        "doubleNumeric": "Geçerli bir sayı giriniz"
     },
     "base": {
         "save": "Kaydet",
@@ -36,7 +44,8 @@
         "yes": "Evet",
         "no": "Hayır",
         "welcome": "Hoşgeldin {}",
-        "confirm": "Onayla"
+        "confirm": "Onayla",
+        "otherValue": "Diğer"
     },
     "customer": {
         "name": "Ad",
@@ -88,7 +97,8 @@
         "priceOffer": "Teklif Ver",
         "workCompleted": "İş Tamamlandı",
         "priceOffered": "Teklif Verildi",
-        "addLog": "Kayıt Ekle"
+        "addLog": "Kayıt Ekle",
+        "writeZeroCondition": "Eğer servis ücreti alınmayacaksa 0 yazınız"
     },
     "workType": {
         "workType": "İş Türü",

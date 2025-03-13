@@ -9,6 +9,7 @@ import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
+import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class PersonalDetailView extends StatefulWidget {
@@ -31,7 +32,7 @@ class _PersonalDetailViewState extends State<PersonalDetailView>
           Text(personal.name ?? ''),
           const Divider(),
           TitleText(LocaleKeys.work_workList.tr()),
-          const SizedBox(height: AppSizes.s),
+          AppSizes.s.toHeight,
           FirestoreListView<Work>(
             shrinkWrap: true,
             query: query,

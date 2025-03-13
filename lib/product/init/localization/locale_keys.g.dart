@@ -20,6 +20,14 @@ abstract class  LocaleKeys {
   static const validators_required = 'validators.required';
   static const validators_email = 'validators.email';
   static const validators_password = 'validators.password';
+  static const validators_fieldRequired = 'validators.fieldRequired';
+  static const validators_descriptionRequired = 'validators.descriptionRequired';
+  static const validators_dateRequired = 'validators.dateRequired';
+  static const validators_personalRequired = 'validators.personalRequired';
+  static const validators_workTypeRequired = 'validators.workTypeRequired';
+  static const validators_serviceTypeRequired = 'validators.serviceTypeRequired';
+  static const validators_priceRequired = 'validators.priceRequired';
+  static const validators_doubleNumeric = 'validators.doubleNumeric';
   static const validators = 'validators';
   static const base_save = 'base.save';
   static const base_cancel = 'base.cancel';
@@ -35,6 +43,7 @@ abstract class  LocaleKeys {
   static const base_no = 'base.no';
   static const base_welcome = 'base.welcome';
   static const base_confirm = 'base.confirm';
+  static const base_otherValue = 'base.otherValue';
   static const base = 'base';
   static const customer_name = 'customer.name';
   static const customer_surname = 'customer.surname';
@@ -84,6 +93,7 @@ abstract class  LocaleKeys {
   static const work_workCompleted = 'work.workCompleted';
   static const work_priceOffered = 'work.priceOffered';
   static const work_addLog = 'work.addLog';
+  static const work_writeZeroCondition = 'work.writeZeroCondition';
   static const work = 'work';
   static const workType_workType = 'workType.workType';
   static const workType_waterLeakage = 'workType.waterLeakage';

@@ -23,7 +23,7 @@ final class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: AppPaddings.allXS,
+      padding: AppPaddings.allXXS,
       child: TextFormField(
         onFieldSubmitted: onFieldSubmitted,
         controller: controller,

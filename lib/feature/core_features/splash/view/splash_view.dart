@@ -25,9 +25,7 @@ class _SplashViewState extends State<SplashView> with SplashMixin {
       create: (context) => SplashCubit()..initialize(),
       child: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
-          if (state.isInitialized) {
-            findCurrentUser();
-          }
+          if (state.isInitialized) findCurrentUser();
         },
         child: Scaffold(
           body: Center(

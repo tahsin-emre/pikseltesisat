@@ -81,7 +81,14 @@
         "count": "Adet",
         "totalPrice": "Toplam Ücret",
         "workCreated": "İş oluşturuldu",
-        "oldWorks": "Geçmiş İşler"
+        "oldWorks": "Geçmiş İşler",
+        "workLogs": "İş Kayıtları",
+        "noWorksYet": "Henüz İş Yok",
+        "completeWork": "İşi Tamamla",
+        "priceOffer": "Teklif Ver",
+        "workCompleted": "İş Tamamlandı",
+        "priceOffered": "Teklif Verildi",
+        "addLog": "Kayıt Ekle"
     },
     "workType": {
         "workType": "İş Türü",

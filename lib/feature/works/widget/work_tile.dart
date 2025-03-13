@@ -35,11 +35,12 @@ class _WorkTileState extends State<WorkTile> {
               onTap: widget.clickable
                   ? () => WorkDetailRoute(widget.work).push<void>(context)
                   : null,
-              title: Text(customer?.name ?? ''),
+              title: Text(
+                '${customer?.name} - $personalName',
+              ),
               subtitle: _Subtitle(
                 work: widget.work,
                 customer: customer,
-                personal: personal,
               ),
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -53,6 +54,10 @@ class _WorkTileState extends State<WorkTile> {
         );
       },
     );
+  }
+
+  String get personalName {
+    return personal?.name ?? LocaleKeys.personal_personalNotChoosen.tr();
   }
 
   String get workDate {
@@ -94,11 +99,9 @@ final class _Subtitle extends StatelessWidget {
   const _Subtitle({
     required this.work,
     required this.customer,
-    required this.personal,
   });
   final Work work;
   final Customer? customer;
-  final Personal? personal;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +134,7 @@ final class _Subtitle extends StatelessWidget {
           ],
         ),
         Text('${customer?.address} ${customer?.district?.name}'),
-        Text(personal?.name ?? LocaleKeys.personal_personalNotChoosen.tr()),
+        Text(work.description ?? ''),
       ],
     );
   }

@@ -24,6 +24,10 @@ mixin WorkDetailMixin on State<WorkDetailView> {
     _init();
   }
 
+  Future<void> completeWork() async {}
+
+  Future<void> priceOffer() async {}
+
   Future<void> _init() async {
     loadingNotifier.value = true;
     customerNotifier.value =

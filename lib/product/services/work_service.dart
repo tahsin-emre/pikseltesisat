@@ -14,4 +14,9 @@ final class WorkService extends BaseService {
   Future<void> addComment(String workId, WorkComment comment) async {
     await getCommentCollection(workId).add(comment);
   }
+
+  Future<List<WorkComment>> getComments(String workId) async {
+    final snapshot = await getCommentCollection(workId).get();
+    return snapshot.docs.map((e) => e.data()).toList();
+  }
 }

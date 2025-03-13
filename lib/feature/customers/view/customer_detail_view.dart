@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:pikseltesisat/feature/customers/mixin/customer_detail_mixin.dart';
 import 'package:pikseltesisat/feature/customers/widget/customer_detail_card.dart';
 import 'package:pikseltesisat/feature/sub_features/common_widgets/title_text.dart';
@@ -37,7 +38,13 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
           WorkNewTile(customerId: customer.id),
           FirestoreListView<Work>(
             query: query!,
-            emptyBuilder: (context) => const Text('Henüz İş Yok'),
+            emptyBuilder: (context) => Padding(
+              padding: AppPaddings.allS,
+              child: Text(
+                LocaleKeys.work_noWorksYet.tr(),
+                style: context.general.textTheme.bodyLarge,
+              ),
+            ),
             errorBuilder: (context, error, stackTrace) =>
                 SelectableText('Hata Oluştu $error'),
             itemBuilder: (_, e) => WorkTile(e.data()),

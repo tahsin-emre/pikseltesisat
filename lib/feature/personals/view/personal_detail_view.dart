@@ -33,6 +33,7 @@ class _PersonalDetailViewState extends State<PersonalDetailView>
           TitleText(LocaleKeys.work_workList.tr()),
           const SizedBox(height: AppSizes.s),
           FirestoreListView<Work>(
+            shrinkWrap: true,
             query: query,
             emptyBuilder: (context) => const Text('Henüz İş Yok'),
             errorBuilder: (context, error, stackTrace) =>

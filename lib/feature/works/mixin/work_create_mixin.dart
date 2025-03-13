@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
 import 'package:pikseltesisat/feature/works/view/work_create_view.dart';
+import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/methods/toast.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
@@ -17,8 +17,8 @@ import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 import 'package:pikseltesisat/product/utils/validators/form_validators.dart';
 
 mixin WorkCreateMixin on State<WorkCreateView> {
-  late final _authCubit = context.read<AuthCubit>();
-  final _workService = WorkService();
+  final _authCubit = locator<AuthCubit>();
+  final _workService = locator<WorkService>();
   final formKey = GlobalKey<FormState>();
   late final workCollection = _workService.workCollection;
 

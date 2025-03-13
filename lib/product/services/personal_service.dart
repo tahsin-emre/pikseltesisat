@@ -1,14 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:pikseltesisat/product/models/my_user/my_user.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 import 'package:pikseltesisat/product/utils/enums/user_type.dart';
 
-final class PersonalService extends BaseService {
-  factory PersonalService() => _instance;
-  PersonalService._();
-  static final _instance = PersonalService._();
+/// Service for personal operations
+class PersonalService extends BaseService {
+  /// Constructor with dependency injection
+  PersonalService({
+    required FirebaseFirestore firestore,
+    required FirebaseAuth firebaseAuth,
+    required FirebaseStorage firebaseStorage,
+  }) : super(
+          db: firestore,
+          auth: firebaseAuth,
+          storage: firebaseStorage,
+        );
 
+  /// Get waiting users collection
   late final Query<MyUser> waitingCollection = db
       .collection(FirestoreCollections.users.name)
       .withConverter(
@@ -20,6 +31,7 @@ final class PersonalService extends BaseService {
         isEqualTo: UserType.waiting.index,
       );
 
+  /// Confirm a waiting user as personal
   Future<String?> confirmPersonal(MyUser user) async {
     try {
       final newPersonal = Personal(id: user.id, name: user.name);
@@ -33,6 +45,7 @@ final class PersonalService extends BaseService {
     }
   }
 
+  /// Get personal by id
   Future<Personal?> getPersonal(String id) async {
     final response = await personalCollection.doc(id).get();
     return response.data();

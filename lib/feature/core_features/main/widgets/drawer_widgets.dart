@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
+import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
@@ -42,7 +42,7 @@ class _DrawerLogOutState extends State<DrawerLogOut> {
       title: Text(LocaleKeys.drawer_logout.tr()),
       leading: AppIcons.logout.toIcon,
       onTap: () async {
-        await context.read<AuthCubit>().logout();
+        await locator<AuthCubit>().logout();
         goToSplash();
       },
     );

@@ -346,7 +346,7 @@ extension $RegisterRouteExtension on RegisterRoute {
 }
 
 RouteBase get $splashRoute => GoRouteData.$route(
-      path: '/splash',
+      path: '/',
       parentNavigatorKey: SplashRoute.$parentNavigatorKey,
       factory: $SplashRouteExtension._fromState,
     );
@@ -355,7 +355,7 @@ extension $SplashRouteExtension on SplashRoute {
   static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
 
   String get location => GoRouteData.$location(
-        '/splash',
+        '/',
       );
 
   void go(BuildContext context) => context.go(location);

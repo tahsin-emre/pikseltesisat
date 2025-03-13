@@ -7,6 +7,7 @@ import 'package:kartal/kartal.dart';
 import 'package:pikseltesisat/feature/customers/widget/customer_detail_card.dart';
 import 'package:pikseltesisat/feature/works/mixin/work_detail_mixin.dart';
 import 'package:pikseltesisat/feature/works/widget/work_tile.dart';
+import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';

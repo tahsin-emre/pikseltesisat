@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/feature/search/view/search_list_view.dart';
+import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
@@ -8,7 +9,7 @@ import 'package:pikseltesisat/product/utils/extensions/string_ext.dart';
 
 mixin SearchListMixin on State<SearchListView> {
   final searchController = TextEditingController();
-  final _customerService = CustomerService();
+  final _customerService = locator<CustomerService>();
 
   Query<Customer>? query;
 

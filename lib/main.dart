@@ -1,14 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/app.dart';
-import 'package:pikseltesisat/firebase_options.dart';
 import 'package:pikseltesisat/product/init/localization/localization_manager.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Initialize localization
   await EasyLocalization.ensureInitialized();
 
+  // Run app with localization
   runApp(LocalizationManager.app(const App()));
 }

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/feature/works/alerts/work_comment_alert.dart';
 import 'package:pikseltesisat/feature/works/view/work_detail_view.dart';
+import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
@@ -13,7 +14,7 @@ import 'package:pikseltesisat/product/services/work_service.dart';
 
 mixin WorkDetailMixin on State<WorkDetailView> {
   final loadingNotifier = ValueNotifier<bool>(false);
-  final _workService = WorkService();
+  final _workService = locator<WorkService>();
   late final work = widget.work;
   final ValueNotifier<Customer?> customerNotifier = ValueNotifier(null);
   final ValueNotifier<Personal?> personalNotifier = ValueNotifier(null);
@@ -42,10 +43,10 @@ mixin WorkDetailMixin on State<WorkDetailView> {
   Future<void> _init() async {
     loadingNotifier.value = true;
     customerNotifier.value =
-        await CustomerService().getCustomer(work.customerId ?? '');
+        await locator<CustomerService>().getCustomer(work.customerId ?? '');
     if (work.personalId != null) {
       personalNotifier.value =
-          await PersonalService().getPersonal(work.personalId ?? '');
+          await locator<PersonalService>().getPersonal(work.personalId ?? '');
     }
     if (customerNotifier.value == null) {
       return;

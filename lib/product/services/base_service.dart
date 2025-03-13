@@ -7,39 +7,53 @@ import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/models/work/work_comment.dart';
 
+/// Base service class for all services
 abstract class BaseService {
-  final db = FirebaseFirestore.instance;
-  final auth = FirebaseAuth.instance;
-  final storage = FirebaseStorage.instance;
+  /// Constructor with dependency injection
+  BaseService({
+    required this.db,
+    required this.auth,
+    required this.storage,
+  });
 
-  final userCollection = FirebaseFirestore.instance
-      .collection(FirestoreCollections.users.name)
-      .withConverter(
-        fromFirestore: MyUser.fromFirestore,
-        toFirestore: MyUser.toFirestore,
-      );
+  /// Firestore database instance
+  final FirebaseFirestore db;
 
-  final personalCollection = FirebaseFirestore.instance
-      .collection(FirestoreCollections.personals.name)
-      .withConverter(
-        fromFirestore: Personal.fromFirestore,
-        toFirestore: Personal.toFirestore,
-      );
+  /// Firebase auth instance
+  final FirebaseAuth auth;
 
-  final customerCollection = FirebaseFirestore.instance
-      .collection(FirestoreCollections.customers.name)
-      .withConverter(
-        toFirestore: Customer.toFirestore,
-        fromFirestore: Customer.fromFirestore,
-      );
+  /// Firebase storage instance
+  final FirebaseStorage storage;
 
-  final workCollection = FirebaseFirestore.instance
-      .collection(FirestoreCollections.works.name)
-      .withConverter(
-        toFirestore: Work.toFirestore,
-        fromFirestore: Work.fromFirestore,
-      );
+  /// User collection reference
+  late final userCollection =
+      db.collection(FirestoreCollections.users.name).withConverter(
+            fromFirestore: MyUser.fromFirestore,
+            toFirestore: MyUser.toFirestore,
+          );
 
+  /// Personal collection reference
+  late final personalCollection =
+      db.collection(FirestoreCollections.personals.name).withConverter(
+            fromFirestore: Personal.fromFirestore,
+            toFirestore: Personal.toFirestore,
+          );
+
+  /// Customer collection reference
+  late final customerCollection =
+      db.collection(FirestoreCollections.customers.name).withConverter(
+            toFirestore: Customer.toFirestore,
+            fromFirestore: Customer.fromFirestore,
+          );
+
+  /// Work collection reference
+  late final workCollection =
+      db.collection(FirestoreCollections.works.name).withConverter(
+            toFirestore: Work.toFirestore,
+            fromFirestore: Work.fromFirestore,
+          );
+
+  /// Get comment collection reference for a work
   CollectionReference<WorkComment> getCommentCollection(String workId) {
     return workCollection
         .doc(workId)
@@ -51,22 +65,46 @@ abstract class BaseService {
   }
 }
 
+/// Firestore collection names
 enum FirestoreCollections {
+  /// Users collection
   users,
+
+  /// Customers collection
   customers,
+
+  /// Personals collection
   personals,
+
+  /// Works collection
   works,
+
+  /// Comments collection
   comments,
   ;
 }
 
+/// Firestore field names
 enum FirestoreFields {
+  /// Created at timestamp field
   createdAt,
+
+  /// Work date field
   workDate,
+
+  /// Personal ID field
   personalId,
+
+  /// Customer ID field
   customerId,
+
+  /// Work ID field
   workId,
+
+  /// User type field
   userType,
+
+  /// Search index field
   searchIndex,
   ;
 }

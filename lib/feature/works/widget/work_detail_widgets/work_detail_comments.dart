@@ -8,7 +8,7 @@ final class _WorkDetailComments extends StatefulWidget {
 }
 
 class _WorkDetailCommentsState extends State<_WorkDetailComments> {
-  final _workService = WorkService();
+  final _workService = locator<WorkService>();
   final comments = <WorkComment>[];
   @override
   Widget build(BuildContext context) {

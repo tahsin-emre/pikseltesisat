@@ -2,16 +2,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_state.dart';
 import 'package:pikseltesisat/product/services/auth_service.dart';
 
+/// Cubit for handling authentication state
 final class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(const AuthState());
+  /// Constructor with dependency injection
+  AuthCubit({
+    required AuthService authService,
+  })  : _authService = authService,
+        super(const AuthState());
 
-  final _authService = AuthService();
+  final AuthService _authService;
 
+  /// Find and set the current user
   Future<void> findCurrentUser() async {
     final user = await _authService.getUser();
     emit(state.copyWith(user: user));
   }
 
+  /// Login with email and password
   Future<String?> login({
     required String email,
     required String password,
@@ -23,6 +30,7 @@ final class AuthCubit extends Cubit<AuthState> {
     return null;
   }
 
+  /// Register with email, password and name
   Future<String?> register({
     required String email,
     required String password,
@@ -37,6 +45,7 @@ final class AuthCubit extends Cubit<AuthState> {
     return null;
   }
 
+  /// Logout current user
   Future<void> logout() async {
     await _authService.logout();
     emit(const AuthState());

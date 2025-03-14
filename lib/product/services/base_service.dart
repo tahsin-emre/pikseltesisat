@@ -91,8 +91,8 @@ enum FirestoreCollections {
   /// Comments collection
   comments,
 
-  /// Price offers collection
-  priceOffers,
+  /// Prices collection
+  prices,
 }
 
 /// Firestore field names

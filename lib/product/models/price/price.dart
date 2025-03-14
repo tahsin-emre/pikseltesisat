@@ -15,6 +15,7 @@ final class Price extends Equatable {
 
   Map<String, dynamic> toJson() => _$PriceToJson(this);
 
+  @JsonKey(defaultValue: '')
   final String id;
   final String? name;
   final num? recommendedPrice;

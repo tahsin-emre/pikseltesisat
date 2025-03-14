@@ -17,12 +17,15 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../../feature/core_features/auth/cubit/auth_cubit.dart' as _i715;
 import '../../../feature/core_features/splash/cubit/splash_cubit.dart' as _i227;
+import '../../../feature/price/cubit/price_cubit.dart' as _i698;
 import '../../services/auth_service.dart' as _i610;
 import '../../services/customer_service.dart' as _i105;
 import '../../services/personal_service.dart' as _i992;
+import '../../services/price_service.dart' as _i433;
 import '../../services/work_service.dart' as _i487;
 import 'modules/auth_module.dart' as _i4;
 import 'modules/firebase_module.dart' as _i398;
+import 'modules/price_module.dart' as _i310;
 import 'modules/service_module.dart' as _i681;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -39,6 +42,7 @@ extension GetItInjectableX on _i174.GetIt {
     final firebaseModule = _$FirebaseModule();
     final serviceModule = _$ServiceModule();
     final authModule = _$AuthModule();
+    final priceModule = _$PriceModule();
     gh.factory<_i227.SplashCubit>(() => _i227.SplashCubit());
     gh.singleton<_i974.FirebaseFirestore>(() => firebaseModule.firestore);
     gh.singleton<_i59.FirebaseAuth>(() => firebaseModule.auth);
@@ -65,8 +69,15 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i59.FirebaseAuth>(),
           gh<_i457.FirebaseStorage>(),
         ));
+    gh.singleton<_i433.PriceService>(() => priceModule.providePriceService(
+          gh<_i974.FirebaseFirestore>(),
+          gh<_i59.FirebaseAuth>(),
+          gh<_i457.FirebaseStorage>(),
+        ));
     gh.singleton<_i715.AuthCubit>(
         () => authModule.provideAuthCubit(gh<_i610.AuthService>()));
+    gh.singleton<_i698.PriceCubit>(
+        () => priceModule.providePriceCubit(gh<_i433.PriceService>()));
     return this;
   }
 }
@@ -76,3 +87,5 @@ class _$FirebaseModule extends _i398.FirebaseModule {}
 class _$ServiceModule extends _i681.ServiceModule {}
 
 class _$AuthModule extends _i4.AuthModule {}
+
+class _$PriceModule extends _i310.PriceModule {}

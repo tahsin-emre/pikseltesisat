@@ -7,7 +7,7 @@ part of 'price.dart';
 // **************************************************************************
 
 Price _$PriceFromJson(Map<String, dynamic> json) => Price(
-      id: json['id'] as String,
+      id: json['id'] as String? ?? '',
       name: json['name'] as String?,
       recommendedPrice: json['recommendedPrice'] as num?,
     );

@@ -73,6 +73,11 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
           parentNavigatorKey: WorkDetailRoute.$parentNavigatorKey,
           factory: $WorkDetailRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: '/main/price-list',
+          parentNavigatorKey: PriceListRoute.$parentNavigatorKey,
+          factory: $PriceListRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -297,6 +302,24 @@ extension $WorkDetailRouteExtension on WorkDetailRoute {
 
   void replace(BuildContext context) =>
       context.replace(location, extra: $extra);
+}
+
+extension $PriceListRouteExtension on PriceListRoute {
+  static PriceListRoute _fromState(GoRouterState state) =>
+      const PriceListRoute();
+
+  String get location => GoRouteData.$location(
+        '/main/price-list',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $loginRoute => GoRouteData.$route(

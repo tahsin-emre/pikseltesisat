@@ -9,6 +9,7 @@ abstract class  LocaleKeys {
   static const drawer_personals = 'drawer.personals';
   static const drawer_works = 'drawer.works';
   static const drawer_reports = 'drawer.reports';
+  static const drawer_prices = 'drawer.prices';
   static const drawer_logout = 'drawer.logout';
   static const drawer = 'drawer';
   static const login_login = 'login.login';
@@ -119,5 +120,17 @@ abstract class  LocaleKeys {
   static const workPriceOffer_description = 'workPriceOffer.description';
   static const workPriceOffer_price = 'workPriceOffer.price';
   static const workPriceOffer = 'workPriceOffer';
+  static const price_newPrice = 'price.newPrice';
+  static const price_editPrice = 'price.editPrice';
+  static const price_deletePrice = 'price.deletePrice';
+  static const price_priceDetail = 'price.priceDetail';
+  static const price_priceList = 'price.priceList';
+  static const price_priceAdded = 'price.priceAdded';
+  static const price_priceUpdated = 'price.priceUpdated';
+  static const price_priceDeleted = 'price.priceDeleted';
+  static const price_name = 'price.name';
+  static const price_recommendedPrice = 'price.recommendedPrice';
+  static const price_description = 'price.description';
+  static const price = 'price';
 
 }

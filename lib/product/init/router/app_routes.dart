@@ -12,6 +12,7 @@ import 'package:pikseltesisat/feature/dashboard/view/dashboard_view.dart';
 import 'package:pikseltesisat/feature/personals/view/personal_create_view.dart';
 import 'package:pikseltesisat/feature/personals/view/personal_detail_view.dart';
 import 'package:pikseltesisat/feature/personals/view/personal_list_view.dart';
+import 'package:pikseltesisat/feature/price/view/price_list_view.dart';
 import 'package:pikseltesisat/feature/search/view/search_list_view.dart';
 import 'package:pikseltesisat/feature/works/view/work_create_view.dart';
 import 'package:pikseltesisat/feature/works/view/work_detail_view.dart';
@@ -26,6 +27,7 @@ part 'routes/customer_routes.dart';
 part 'routes/main_routes.dart';
 part 'routes/personal_routes.dart';
 part 'routes/work_routes.dart';
+part 'routes/price_routes.dart';
 
 @TypedShellRoute<MainShellRoute>(
   routes: [
@@ -46,6 +48,9 @@ part 'routes/work_routes.dart';
     TypedGoRoute<WorkListRoute>(path: WorkListRoute.path),
     TypedGoRoute<WorkCreateRoute>(path: WorkCreateRoute.path),
     TypedGoRoute<WorkDetailRoute>(path: WorkDetailRoute.path),
+
+    //Price Routes
+    TypedGoRoute<PriceListRoute>(path: PriceListRoute.path),
   ],
 )
 final class MainShellRoute extends ShellRouteData {

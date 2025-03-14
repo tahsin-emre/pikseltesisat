@@ -6,6 +6,7 @@
         "personals": "Personeller",
         "works": "İşler",
         "reports": "Raporlar",
+        "prices": "Fiyatlar",
         "logout": "Çıkış"
     },
     "login": {
@@ -125,5 +126,18 @@
         "title": "Fiyat Teklifi",
         "description": "Teklif vermek istediğiniz ücreti giriniz",
         "price": "Ücret"
+    },
+    "price": {
+        "newPrice": "Yeni Fiyat Kalemi",
+        "editPrice": "Fiyat Kalemi Düzenle",
+        "deletePrice": "Fiyat Kalemi Sil",
+        "priceDetail": "Fiyat Kalemi Detayı",
+        "priceList": "Fiyat Kalemi Listesi",
+        "priceAdded": "Fiyat Kalemi Eklendi",
+        "priceUpdated": "Fiyat Kalemi Güncellendi",
+        "priceDeleted": "Fiyat Kalemi Silindi",
+        "name": "Ad",
+        "recommendedPrice": "Önerilen Fiyat",
+        "description": "Açıklama"
     }
 }

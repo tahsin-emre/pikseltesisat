@@ -44,6 +44,12 @@ final class MainDrawer extends StatelessWidget {
               icon: AppIcons.personals,
               onTap: () => const PersonalListRoute().go(context),
             ).toSliver,
+            //Prices
+            DrawerTile(
+              title: LocaleKeys.drawer_prices.tr(),
+              icon: AppIcons.prices,
+              onTap: () => const PriceListRoute().go(context),
+            ).toSliver,
             //Reports
             DrawerTile(
               title: LocaleKeys.drawer_reports.tr(),

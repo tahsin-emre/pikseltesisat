@@ -10,6 +10,7 @@ final class LocalizationManager {
       supportedLocales: supportedLocales,
       useOnlyLangCode: isOnlyLangCode,
       fallbackLocale: fallbackLocale,
+      startLocale: fallbackLocale,
       child: app,
     );
   }

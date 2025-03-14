@@ -3,9 +3,10 @@
     "drawer": {
         "home": "Ana Sayfa",
         "customers": "Müşteriler",
-        "plumbers": "Tesisatçılar",
+        "personals": "Personeller",
         "works": "İşler",
         "reports": "Raporlar",
+        "prices": "Fiyatlar",
         "logout": "Çıkış"
     },
     "login": {
@@ -20,7 +21,15 @@
     "validators": {
         "required": "Bu alan zorunludur",
         "email": "Geçerli bir e-posta adresi giriniz",
-        "password": "Şifre en az 6 karakter olmalıdır"
+        "password": "Şifre en az 6 karakter olmalıdır",
+        "fieldRequired": "Bu alan zorunludur",
+        "descriptionRequired": "İş detayı zorunludur",
+        "dateRequired": "İş tarihi zorunludur",
+        "personalRequired": "Personel seçimi zorunludur",
+        "workTypeRequired": "İş türü seçimi zorunludur",
+        "serviceTypeRequired": "Servis türü seçimi zorunludur",
+        "priceRequired": "Ücret bilgisi zorunludur",
+        "doubleNumeric": "Geçerli bir sayı giriniz"
     },
     "base": {
         "save": "Kaydet",
@@ -36,7 +45,11 @@
         "yes": "Evet",
         "no": "Hayır",
         "welcome": "Hoşgeldin {}",
-        "confirm": "Onayla"
+        "confirm": "Onayla",
+        "otherValue": "Diğer",
+        "description": "Açıklama",
+        "total": "Toplam",
+        "details": "Detaylar"
     },
     "customer": {
         "name": "Ad",
@@ -53,36 +66,80 @@
         "customerAdded": "Müşteri eklendi",
         "customerPick": "Müşteri Seç"
     },
-    "plumber": {
+    "personal": {
         "name": "Ad",
         "surname": "Soyad",
         "phone": "Telefon",
         "address": "Adres",
         "province": "İl",
         "district": "İlçe",
-        "newPlumber": "Yeni Tesisatçı",
-        "editPlumber": "Tesisatçı Düzenle",
-        "deletePlumber": "Tesisatçı Sil",
-        "plumberDetail": "Tesisatçı Detayı",
-        "plumberList": "Tesisatçı Listesi",
-        "pickPlumber": "Tesisatçı Seç",
-        "plumberAdded": "Tesisatçı eklendi",
-        "plumberNotChoosen": "Tesisatçı atanmadı"
+        "newPersonal": "Yeni Personel",
+        "editPersonal": "Personel Düzenle",
+        "deletePersonal": "Personel Sil",
+        "personalDetail": "Personel Detayı",
+        "personalList": "Personel Listesi",
+        "pickPersonal": "Personel Seç",
+        "personalAdded": "Personel eklendi",
+        "personalNotChoosen": "Personel atanmadı"
     },
     "work": {
         "newWork": "Yeni İş",
         "editWork": "İş Düzenle",
         "workList": "İş Listesi",
         "workDetail": "İş Detayı",
-        "workAdded": "İş eklendi",
+        "workAdded": "İş Eklendi",
         "workDate": "İş Tarihi",
-        "workKind": "İş Türü",
+        "price": "Ücret",
+        "servicePrice": "Servis Ücreti",
+        "count": "Adet",
+        "totalPrice": "Toplam Ücret",
+        "workCreated": "İş oluşturuldu",
+        "oldWorks": "Geçmiş İşler",
+        "workLogs": "İş Kayıtları",
+        "noWorksYet": "Henüz İş Yok",
+        "completeWork": "İşi Tamamla",
+        "priceOffer": "Teklif Ver",
+        "workCompleted": "İş Tamamlandı",
+        "priceOffered": "Teklif Verildi",
+        "addLog": "Kayıt Ekle",
+        "writeZeroCondition": "Eğer servis ücreti alınmayacaksa 0 yazınız"
+    },
+    "workType": {
+        "workType": "İş Türü",
         "waterLeakage": "Su Kaçağı",
         "unclogging": "Tıkanıklık Açma",
         "repair": "Onarım",
-        "washing": "Yıkama",
-        "additional": "Ek Ücret",
-        "backWork": "Geri Dönüş",
-        "service": "Servis"
+        "washing": "Yıkama"
+    },
+    "serviceType": {
+        "serviceType": "Servis Türü",
+        "service": "Servis",
+        "rework": "Geri Dönüş",
+        "extra": "Ek Ücret"
+    },
+    "workStatus": {
+        "pending": "Beklemede",
+        "completed": "Tamamlandı",
+        "cancelled": "İptal Edildi"
+    },
+    "workPriceOffer": {
+        "title": "Fiyat Teklifi",
+        "description": "Teklif vermek istediğiniz ücreti giriniz",
+        "price": "Ücret",
+        "priceOffered": "Teklif Verildi",
+        "count": "Adet"
+    },
+    "price": {
+        "newPrice": "Yeni Fiyat Kalemi",
+        "editPrice": "Fiyat Kalemi Düzenle",
+        "deletePrice": "Fiyat Kalemi Sil",
+        "priceDetail": "Fiyat Kalemi Detayı",
+        "priceList": "Fiyat Kalemi Listesi",
+        "priceAdded": "Fiyat Kalemi Eklendi",
+        "priceUpdated": "Fiyat Kalemi Güncellendi",
+        "priceDeleted": "Fiyat Kalemi Silindi",
+        "name": "Ad",
+        "recommendedPrice": "Önerilen Fiyat",
+        "description": "Açıklama"
     }
 }

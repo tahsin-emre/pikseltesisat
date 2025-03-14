@@ -3,10 +3,15 @@ import 'package:pikseltesisat/product/utils/constants/app_radius.dart';
 
 final class AppTheme {
   AppTheme._();
-
+  static final colorScheme = ColorScheme.fromSeed(seedColor: Colors.blue);
   static ThemeData get light => ThemeData.light().copyWith(
-        listTileTheme: const ListTileThemeData(
-          leadingAndTrailingTextStyle: TextStyle(color: Colors.black),
+        colorScheme: colorScheme,
+        scaffoldBackgroundColor: colorScheme.onSecondary,
+        appBarTheme: AppBarTheme(
+          backgroundColor: colorScheme.onSecondary,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.black),
+          titleTextStyle: const TextStyle(color: Colors.black),
         ),
         cardTheme: const CardThemeData(
           shape: RoundedRectangleBorder(
@@ -19,14 +24,6 @@ final class AppTheme {
             borderRadius: AppRadius.allS,
           ),
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            shape: const RoundedRectangleBorder(borderRadius: AppRadius.allS),
-          ),
-        ),
-      );
-
-  static ThemeData get dark => ThemeData.dark().copyWith(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             shape: const RoundedRectangleBorder(borderRadius: AppRadius.allS),

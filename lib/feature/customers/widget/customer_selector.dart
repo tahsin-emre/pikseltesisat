@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
@@ -15,7 +16,7 @@ final class CustomerSelector extends StatefulWidget {
 
 class _CustomerSelectorState extends State<CustomerSelector> {
   final loadingNotifier = ValueNotifier<bool>(false);
-  final _customerService = CustomerService();
+  final _customerService = locator<CustomerService>();
   final List<Customer?> _customers = [];
   @override
   Widget build(BuildContext context) {
@@ -50,10 +51,10 @@ class _CustomerSelectorState extends State<CustomerSelector> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(fetchPlumbers);
+    Future.microtask(fetchPersonals);
   }
 
-  Future<void> fetchPlumbers() async {
+  Future<void> fetchPersonals() async {
     loadingNotifier.value = true;
     final response = await _customerService.customerCollection.get();
     for (final item in response.docs) {

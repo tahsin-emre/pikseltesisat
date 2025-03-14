@@ -25,7 +25,7 @@ class _MainViewState extends State<MainView> {
       openRatio: context.width > 1200 ? .1 : .5,
       drawer: const MainDrawer(),
       child: Scaffold(
-        appBar: MainAppBar(onTap: toggleDrawer, context: context),
+        appBar: MainAppBar(onTap: toggleDrawer),
         body: Row(
           children: [
             if (context.width > 1200)

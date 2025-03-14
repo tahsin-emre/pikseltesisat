@@ -1,82 +1,90 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pikseltesisat/product/utils/enums/work_kind.dart';
-import 'package:pikseltesisat/product/utils/extensions/int_ext.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
+import 'package:pikseltesisat/product/models/work/work_cart_item.dart';
+import 'package:pikseltesisat/product/utils/enums/service_type.dart';
+import 'package:pikseltesisat/product/utils/enums/work_status.dart';
+import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 
+part 'work.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 final class Work extends Equatable {
   const Work({
-    this.id = '',
+    required this.id,
     this.description,
     this.customerId,
-    this.plumberId,
+    this.personalId,
     this.createdAt,
     this.workDate,
-    this.workKind,
+    this.workStatus,
+    this.workType,
+    this.serviceType,
+    this.workCartItems,
   });
 
-  factory Work.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? _,
-  ) {
-    final map = snapshot.data()!;
-    return Work(
-      id: snapshot.id,
-      description: map['description'] as String?,
-      customerId: map['customerId'] as String?,
-      plumberId: map['plumberId'] as String?,
-      createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
-      workDate: (map['workDate'] as Timestamp?)?.toDate(),
-      workKind: (map['workKind'] as int?)?.toWorkKind,
-    );
-  }
+  factory Work.fromJson(Map<String, dynamic> json) => _$WorkFromJson(json);
 
-  static Map<String, dynamic> toFirestore(Work work, SetOptions? _) {
-    return {
-      'description': work.description,
-      'customerId': work.customerId,
-      'plumberId': work.plumberId,
-      'createdAt': work.createdAt,
-      'workDate': work.workDate,
-      'workKind': work.workKind?.index,
-    };
-  }
+  Map<String, dynamic> toJson() => _$WorkToJson(this);
 
   Work copyWith({
     String? id,
     String? description,
     String? customerId,
-    String? plumberId,
+    String? personalId,
     DateTime? createdAt,
     DateTime? workDate,
-    WorkKind? workKind,
+    WorkStatus? workStatus,
+    WorkType? workType,
+    ServiceType? serviceType,
+    List<WorkCartItem>? workCartItems,
   }) {
     return Work(
       id: id ?? this.id,
       description: description ?? this.description,
       customerId: customerId ?? this.customerId,
-      plumberId: plumberId ?? this.plumberId,
+      personalId: personalId ?? this.personalId,
       createdAt: createdAt ?? this.createdAt,
       workDate: workDate ?? this.workDate,
-      workKind: workKind ?? this.workKind,
+      workStatus: workStatus ?? this.workStatus,
+      workType: workType ?? this.workType,
+      serviceType: serviceType ?? this.serviceType,
+      workCartItems: workCartItems ?? this.workCartItems,
     );
   }
 
+  @JsonKey(defaultValue: '')
   final String id;
   final String? description;
   final String? customerId;
-  final String? plumberId;
+  final String? personalId;
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
   final DateTime? createdAt;
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
   final DateTime? workDate;
-  final WorkKind? workKind;
+  final WorkStatus? workStatus;
+  final WorkType? workType;
+  final ServiceType? serviceType;
+  final List<WorkCartItem>? workCartItems;
 
   @override
   List<Object?> get props => [
         id,
         description,
         customerId,
-        plumberId,
+        personalId,
         createdAt,
         workDate,
-        workKind,
+        workStatus,
+        workType,
+        serviceType,
+        workCartItems,
       ];
 }

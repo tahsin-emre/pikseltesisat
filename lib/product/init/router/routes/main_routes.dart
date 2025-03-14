@@ -3,7 +3,7 @@ part of '../app_routes.dart';
 @TypedGoRoute<LoginRoute>(path: LoginRoute.path)
 final class LoginRoute extends GoRouteData {
   const LoginRoute();
-  static const String path = '/login';
+  static const path = '/login';
   static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
@@ -14,7 +14,7 @@ final class LoginRoute extends GoRouteData {
 @TypedGoRoute<RegisterRoute>(path: RegisterRoute.path)
 final class RegisterRoute extends GoRouteData {
   const RegisterRoute();
-  static const String path = '/register';
+  static const path = '/register';
   static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
@@ -25,11 +25,11 @@ final class RegisterRoute extends GoRouteData {
 @TypedGoRoute<SplashRoute>(path: SplashRoute.path)
 final class SplashRoute extends GoRouteData {
   const SplashRoute();
-  static const String path = '/splash';
+  static const path = '/';
   static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
   @override
-  AppPage buildPage(BuildContext context, GoRouterState state) {
-    return AppPage(child: const SplashView());
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SplashView();
   }
 }
 
@@ -56,7 +56,7 @@ final class SearchRoute extends GoRouteData {
 @TypedGoRoute<WaitingRoute>(path: WaitingRoute.path)
 final class WaitingRoute extends GoRouteData {
   const WaitingRoute();
-  static const String path = '/waiting';
+  static const path = '/waiting';
   static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {

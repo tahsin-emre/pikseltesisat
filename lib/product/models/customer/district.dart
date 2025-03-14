@@ -1,5 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'district.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 final class District extends Equatable {
   const District({
     required this.id,
@@ -7,8 +11,16 @@ final class District extends Equatable {
     required this.name,
   });
 
+  factory District.fromJson(Map<String, dynamic> json) =>
+      _$DistrictFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DistrictToJson(this);
+
+  @JsonKey(defaultValue: 0)
   final int id;
+  @JsonKey(defaultValue: 0)
   final int provinceId;
+  @JsonKey(defaultValue: '')
   final String name;
 
   @override

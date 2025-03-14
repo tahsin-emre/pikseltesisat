@@ -1,54 +1,39 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:pikseltesisat/product/models/customer/district.dart';
-import 'package:pikseltesisat/product/utils/extensions/int_ext.dart';
+import 'package:pikseltesisat/product/models/customer/province.dart';
+import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
 
+part 'customer.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 final class Customer extends Equatable {
   const Customer({
-    this.id = '',
+    required this.id,
     this.name,
     this.phone,
     this.address,
     this.province,
     this.district,
     this.searchIndex,
+    this.createdAt,
   });
 
-  factory Customer.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? _,
-  ) {
-    final map = snapshot.data()!;
-    return Customer(
-      id: snapshot.id,
-      name: map['name'] as String?,
-      phone: map['phone'] as String?,
-      address: map['address'] as String?,
-      province: map['province'] as int?,
-      district: (map['district'] as int?)?.toDisctrict,
-      searchIndex: map['searchIndex'] as List<dynamic>?,
-    );
-  }
+  factory Customer.fromJson(Map<String, dynamic> json) =>
+      _$CustomerFromJson(json);
 
-  static Map<String, dynamic> toFirestore(Customer customer, SetOptions? _) {
-    return {
-      'name': customer.name,
-      'phone': customer.phone,
-      'address': customer.address,
-      'province': customer.province,
-      'district': customer.district?.id,
-      'searchIndex': customer.searchIndex,
-    };
-  }
+  Map<String, dynamic> toJson() => _$CustomerToJson(this);
 
   Customer copyWith({
     String? id,
     String? name,
     String? phone,
     String? address,
-    int? province,
+    Province? province,
     District? district,
-    List<dynamic>? searchIndex,
+    List<String>? searchIndex,
+    DateTime? createdAt,
   }) {
     return Customer(
       id: id ?? this.id,
@@ -58,16 +43,31 @@ final class Customer extends Equatable {
       province: province ?? this.province,
       district: district ?? this.district,
       searchIndex: searchIndex ?? this.searchIndex,
+      createdAt: createdAt ?? this.createdAt,
     );
   }
 
+  @JsonKey(defaultValue: '')
   final String id;
   final String? name;
   final String? phone;
   final String? address;
-  final int? province;
+  final List<String>? searchIndex;
+  @JsonKey(
+    fromJson: FirebaseModelHelper.provinceFromInt,
+    toJson: FirebaseModelHelper.provinceToInt,
+  )
+  final Province? province;
+  @JsonKey(
+    fromJson: FirebaseModelHelper.districtFromInt,
+    toJson: FirebaseModelHelper.districtToInt,
+  )
   final District? district;
-  final List<dynamic>? searchIndex;
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
+  final DateTime? createdAt;
 
   @override
   List<Object?> get props => [
@@ -78,5 +78,6 @@ final class Customer extends Equatable {
         province,
         district,
         searchIndex,
+        createdAt,
       ];
 }

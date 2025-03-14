@@ -1,36 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
 import 'package:pikseltesisat/product/utils/enums/user_type.dart';
-import 'package:pikseltesisat/product/utils/extensions/int_ext.dart';
 
+part 'my_user.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 final class MyUser extends Equatable {
   const MyUser({
-    this.id = '',
+    required this.id,
     this.name,
     this.createdAt,
     this.userType = UserType.none,
   });
 
-  factory MyUser.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? _,
-  ) {
-    final map = snapshot.data()!;
-    return MyUser(
-      id: snapshot.id,
-      name: map['name'] as String?,
-      createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
-      userType: (map['userType'] as int?)?.toUserType ?? UserType.none,
-    );
-  }
+  factory MyUser.fromJson(Map<String, dynamic> json) => _$MyUserFromJson(json);
 
-  static Map<String, dynamic> toFirestore(MyUser user, SetOptions? _) {
-    return {
-      'name': user.name,
-      'createdAt': user.createdAt,
-      'userType': user.userType.index,
-    };
-  }
+  Map<String, dynamic> toJson() => _$MyUserToJson(this);
 
   MyUser copyWith({
     String? id,
@@ -46,9 +33,15 @@ final class MyUser extends Equatable {
     );
   }
 
+  @JsonKey(defaultValue: '')
   final String id;
+  @JsonKey(defaultValue: UserType.none)
   final UserType userType;
   final String? name;
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
   final DateTime? createdAt;
 
   @override

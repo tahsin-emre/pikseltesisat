@@ -1,13 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
-import 'package:pikseltesisat/product/models/plumber/plumber.dart';
+import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
-import 'package:pikseltesisat/product/services/plumber_service.dart';
+import 'package:pikseltesisat/product/services/personal_service.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
+import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 final class WorkTile extends StatefulWidget {
@@ -21,7 +23,7 @@ final class WorkTile extends StatefulWidget {
 class _WorkTileState extends State<WorkTile> {
   final loadingNotifier = ValueNotifier<bool>(false);
   Customer? customer;
-  Plumber? plumber;
+  Personal? personal;
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +37,18 @@ class _WorkTileState extends State<WorkTile> {
               onTap: widget.clickable
                   ? () => WorkDetailRoute(widget.work).push<void>(context)
                   : null,
-              title: Text(customer?.name ?? ''),
+              title: Text(
+                '${customer?.name} - $personalName',
+              ),
               subtitle: _Subtitle(
                 work: widget.work,
                 customer: customer,
-                plumber: plumber,
               ),
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
+                  Text(price),
                   Text(workDate),
                   Text(workHour),
                 ],
@@ -53,6 +58,10 @@ class _WorkTileState extends State<WorkTile> {
         );
       },
     );
+  }
+
+  String get personalName {
+    return personal?.name ?? LocaleKeys.personal_personalNotChoosen.tr();
   }
 
   String get workDate {
@@ -66,24 +75,34 @@ class _WorkTileState extends State<WorkTile> {
     // return DateFormat('dd MMMM y EEEE, HH:mm').format(widget.work.workDate!);
   }
 
+  String get price {
+    if (widget.work.workCartItems?.isEmpty ?? true) return '0 ₺';
+    final items = widget.work.workCartItems!;
+    num total = 0;
+    for (final item in items) {
+      total += (item.price ?? 0) * (item.count ?? 0);
+    }
+    return '$total ₺';
+  }
+
   @override
   void initState() {
     super.initState();
-    getCustomerAndPlumber();
+    getCustomerAndPersonal();
   }
 
-  Future<void> getCustomerAndPlumber() async {
+  Future<void> getCustomerAndPersonal() async {
     if (widget.work.customerId == null) return;
     loadingNotifier.value = true;
 
-    final customerResponse =
-        await CustomerService().getCustomer(widget.work.customerId ?? '');
+    final customerResponse = await locator<CustomerService>()
+        .getCustomer(widget.work.customerId ?? '');
     customer = customerResponse;
 
-    if (widget.work.plumberId != null) {
-      final plumberResponse =
-          await PlumberService().getPlumber(widget.work.plumberId ?? '');
-      plumber = plumberResponse;
+    if (widget.work.personalId != null) {
+      final personalResponse = await locator<PersonalService>()
+          .getPersonal(widget.work.personalId ?? '');
+      personal = personalResponse;
     }
 
     loadingNotifier.value = false;
@@ -94,11 +113,9 @@ final class _Subtitle extends StatelessWidget {
   const _Subtitle({
     required this.work,
     required this.customer,
-    required this.plumber,
   });
   final Work work;
   final Customer? customer;
-  final Plumber? plumber;
 
   @override
   Widget build(BuildContext context) {
@@ -112,15 +129,26 @@ final class _Subtitle extends StatelessWidget {
               height: AppSizes.s,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: work.workKind?.color,
+                color: work.serviceType?.color ?? Colors.black,
               ),
             ),
-            const SizedBox(width: AppSizes.xs),
-            Text('${work.workKind?.localeKey.tr()}'),
+            AppSizes.xs.toWidth,
+            Text('${work.serviceType?.localeKey.tr()}'),
+            AppSizes.s.toWidth,
+            Container(
+              width: AppSizes.s,
+              height: AppSizes.s,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: work.workType?.color ?? Colors.black,
+              ),
+            ),
+            AppSizes.xs.toWidth,
+            Text('${work.workType?.localeKey.tr()}'),
           ],
         ),
         Text('${customer?.address} ${customer?.district?.name}'),
-        Text(plumber?.name ?? LocaleKeys.plumber_plumberNotChoosen.tr()),
+        Text(work.description ?? ''),
       ],
     );
   }

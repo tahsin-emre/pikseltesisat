@@ -31,6 +31,7 @@ class _WorkListViewState extends State<WorkListView> with WorkListMixin {
             // ),
             if (workQuery != null)
               FirestoreListView(
+                shrinkWrap: true,
                 query: workQuery!,
                 itemBuilder: (_, e) => WorkTile(e.data()),
               ).expanded,

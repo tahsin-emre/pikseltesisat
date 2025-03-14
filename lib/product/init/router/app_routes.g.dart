@@ -44,19 +44,19 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
           factory: $CustomerDetailRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/main/plumber-list',
-          parentNavigatorKey: PlumberListRoute.$parentNavigatorKey,
-          factory: $PlumberListRouteExtension._fromState,
+          path: '/main/personal-list',
+          parentNavigatorKey: PersonalListRoute.$parentNavigatorKey,
+          factory: $PersonalListRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/main/plumber-create',
-          parentNavigatorKey: PlumberCreateRoute.$parentNavigatorKey,
-          factory: $PlumberCreateRouteExtension._fromState,
+          path: '/main/personal-create',
+          parentNavigatorKey: PersonalCreateRoute.$parentNavigatorKey,
+          factory: $PersonalCreateRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/main/plumber-detail',
-          parentNavigatorKey: PlumberDetailRoute.$parentNavigatorKey,
-          factory: $PlumberDetailRouteExtension._fromState,
+          path: '/main/personal-detail',
+          parentNavigatorKey: PersonalDetailRoute.$parentNavigatorKey,
+          factory: $PersonalDetailRouteExtension._fromState,
         ),
         GoRouteData.$route(
           path: '/main/work-list',
@@ -72,6 +72,11 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
           path: '/main/work-detail',
           parentNavigatorKey: WorkDetailRoute.$parentNavigatorKey,
           factory: $WorkDetailRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/main/price-list',
+          parentNavigatorKey: PriceListRoute.$parentNavigatorKey,
+          factory: $PriceListRouteExtension._fromState,
         ),
       ],
     );
@@ -178,12 +183,12 @@ extension $CustomerDetailRouteExtension on CustomerDetailRoute {
       context.replace(location, extra: $extra);
 }
 
-extension $PlumberListRouteExtension on PlumberListRoute {
-  static PlumberListRoute _fromState(GoRouterState state) =>
-      const PlumberListRoute();
+extension $PersonalListRouteExtension on PersonalListRoute {
+  static PersonalListRoute _fromState(GoRouterState state) =>
+      const PersonalListRoute();
 
   String get location => GoRouteData.$location(
-        '/main/plumber-list',
+        '/main/personal-list',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -196,14 +201,14 @@ extension $PlumberListRouteExtension on PlumberListRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $PlumberCreateRouteExtension on PlumberCreateRoute {
-  static PlumberCreateRoute _fromState(GoRouterState state) =>
-      PlumberCreateRoute(
-        state.extra as Plumber?,
+extension $PersonalCreateRouteExtension on PersonalCreateRoute {
+  static PersonalCreateRoute _fromState(GoRouterState state) =>
+      PersonalCreateRoute(
+        state.extra as Personal?,
       );
 
   String get location => GoRouteData.$location(
-        '/main/plumber-create',
+        '/main/personal-create',
       );
 
   void go(BuildContext context) => context.go(location, extra: $extra);
@@ -218,14 +223,14 @@ extension $PlumberCreateRouteExtension on PlumberCreateRoute {
       context.replace(location, extra: $extra);
 }
 
-extension $PlumberDetailRouteExtension on PlumberDetailRoute {
-  static PlumberDetailRoute _fromState(GoRouterState state) =>
-      PlumberDetailRoute(
-        state.extra as Plumber,
+extension $PersonalDetailRouteExtension on PersonalDetailRoute {
+  static PersonalDetailRoute _fromState(GoRouterState state) =>
+      PersonalDetailRoute(
+        state.extra as Personal,
       );
 
   String get location => GoRouteData.$location(
-        '/main/plumber-detail',
+        '/main/personal-detail',
       );
 
   void go(BuildContext context) => context.go(location, extra: $extra);
@@ -299,6 +304,24 @@ extension $WorkDetailRouteExtension on WorkDetailRoute {
       context.replace(location, extra: $extra);
 }
 
+extension $PriceListRouteExtension on PriceListRoute {
+  static PriceListRoute _fromState(GoRouterState state) =>
+      const PriceListRoute();
+
+  String get location => GoRouteData.$location(
+        '/main/price-list',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 RouteBase get $loginRoute => GoRouteData.$route(
       path: '/login',
       parentNavigatorKey: LoginRoute.$parentNavigatorKey,
@@ -346,7 +369,7 @@ extension $RegisterRouteExtension on RegisterRoute {
 }
 
 RouteBase get $splashRoute => GoRouteData.$route(
-      path: '/splash',
+      path: '/',
       parentNavigatorKey: SplashRoute.$parentNavigatorKey,
       factory: $SplashRouteExtension._fromState,
     );
@@ -355,7 +378,7 @@ extension $SplashRouteExtension on SplashRoute {
   static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
 
   String get location => GoRouteData.$location(
-        '/splash',
+        '/',
       );
 
   void go(BuildContext context) => context.go(location);

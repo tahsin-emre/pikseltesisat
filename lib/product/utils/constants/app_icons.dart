@@ -9,7 +9,8 @@ final class AppIcons {
   static const logout = Icons.power_settings_new_rounded;
   static const language = Icons.language_rounded;
   static const customers = Icons.people_alt_rounded;
-  static const plumbers = Icons.plumbing_rounded;
+  static const personals = Icons.plumbing_rounded;
+  static const prices = Icons.attach_money_rounded;
   static const email = Icons.email_rounded;
   static const password = Icons.lock_rounded;
   static const phone = Icons.phone_rounded;
@@ -34,6 +35,9 @@ final class AppIcons {
   static const call = Icons.call_rounded;
   static const location = Icons.location_on_rounded;
   static const calendar = Icons.calendar_month;
+  static const done = Icons.done_rounded;
+  static const priceOffer = Icons.price_check_rounded;
+  static const comment = Icons.comment_rounded;
 }
 
 extension AppIconsExtension on IconData {

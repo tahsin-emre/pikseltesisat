@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'personal.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 final class Personal extends Equatable {
   const Personal({
     required this.id,

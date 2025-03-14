@@ -34,7 +34,7 @@ Map<String, dynamic> _$WorkToJson(Work instance) => <String, dynamic>{
       'workStatus': _$WorkStatusEnumMap[instance.workStatus],
       'workType': _$WorkTypeEnumMap[instance.workType],
       'serviceType': _$ServiceTypeEnumMap[instance.serviceType],
-      'workCartItems': instance.workCartItems,
+      'workCartItems': instance.workCartItems?.map((e) => e.toJson()).toList(),
     };
 
 const _$WorkStatusEnumMap = {

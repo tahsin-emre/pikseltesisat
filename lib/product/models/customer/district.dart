@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'district.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 final class District extends Equatable {
   const District({
     required this.id,

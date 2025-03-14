@@ -4,7 +4,7 @@ import 'package:pikseltesisat/product/models/customer/district.dart';
 
 part 'province.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 final class Province extends Equatable {
   const Province({
     required this.id,

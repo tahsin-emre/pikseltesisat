@@ -66,6 +66,7 @@ class _WorkDetailViewState extends State<WorkDetailView> with WorkDetailMixin {
                       work: widget.work,
                       oldWorksQuery: oldWorksQuery!,
                     ).toSliver,
+                  AppSizes.l.toHeight.toSliver,
                 ],
               ),
             ),

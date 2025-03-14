@@ -18,5 +18,5 @@ Province _$ProvinceFromJson(Map<String, dynamic> json) => Province(
 Map<String, dynamic> _$ProvinceToJson(Province instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'districts': instance.districts,
+      'districts': instance.districts.map((e) => e.toJson()).toList(),
     };

@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'work_cart_item.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 final class WorkCartItem extends Equatable {
   const WorkCartItem({
     this.title,

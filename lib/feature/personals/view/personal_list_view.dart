@@ -28,6 +28,7 @@ class _PersonalListViewState extends State<PersonalListView>
           onTap: () => const PersonalCreateRoute().push<void>(context),
         ),
         FirestoreListView(
+          shrinkWrap: true,
           query: personalQuery,
           itemBuilder: (_, e) => PersonalTile(personal: e.data()),
         ).expanded,

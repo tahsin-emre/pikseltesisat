@@ -28,6 +28,7 @@ class _CustomerListViewState extends State<CustomerListView>
           onTap: () => const CustomerCreateRoute().push<void>(context),
         ),
         FirestoreListView(
+          shrinkWrap: true,
           query: customerStream,
           pageSize: 5,
           itemBuilder: (_, e) => CustomerTile(customer: e.data()),

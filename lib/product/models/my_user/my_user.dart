@@ -6,7 +6,7 @@ import 'package:pikseltesisat/product/utils/enums/user_type.dart';
 
 part 'my_user.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 final class MyUser extends Equatable {
   const MyUser({
     required this.id,

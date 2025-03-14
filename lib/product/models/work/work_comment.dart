@@ -5,7 +5,7 @@ import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
 
 part 'work_comment.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 final class WorkComment extends Equatable {
   const WorkComment({
     required this.id,

@@ -33,6 +33,7 @@ class _SearchListViewState extends State<SearchListView> with SearchListMixin {
         ),
         if (query != null)
           FirestoreListView<Customer>(
+            shrinkWrap: true,
             query: query!,
             emptyBuilder: (context) =>
                 const Text('Herhangi bir sonuç bulunamadı.'),

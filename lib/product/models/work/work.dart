@@ -9,7 +9,7 @@ import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 
 part 'work.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 final class Work extends Equatable {
   const Work({
     required this.id,

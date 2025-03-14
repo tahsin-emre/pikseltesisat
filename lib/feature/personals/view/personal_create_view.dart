@@ -22,6 +22,7 @@ class _PersonalCreateViewState extends State<PersonalCreateView>
     return Column(
       children: [
         FirestoreListView<MyUser>(
+          shrinkWrap: true,
           query: personalService.waitingCollection,
           itemBuilder: (context, user) => _UserRow(
             user.data(),

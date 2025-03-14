@@ -7,7 +7,7 @@ import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
 
 part 'customer.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 final class Customer extends Equatable {
   const Customer({
     required this.id,

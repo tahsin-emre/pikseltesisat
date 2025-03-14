@@ -38,6 +38,7 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
           AppSizes.s.toHeight,
           WorkNewTile(customerId: customer.id),
           FirestoreListView<Work>(
+            shrinkWrap: true,
             query: query!,
             emptyBuilder: (context) => Padding(
               padding: AppPaddings.allS,

@@ -23,6 +23,7 @@ dependencies:
   kartal: ^4.1.0
   get_it: ^7.6.7
   injectable: ^2.3.2
+  json_annotation: ^4.9.0
   #ui
   firebase_ui_firestore: ^1.7.0
   flutter_spinkit: ^5.2.1
@@ -41,6 +42,7 @@ dev_dependencies:
   go_router_builder: ^2.7.1
   very_good_analysis: ^7.0.0
   injectable_generator: ^2.4.1
+  json_serializable: ^6.9.4
 
 flutter:
   uses-material-design: true

@@ -8,7 +8,7 @@ final class _PersonalCard extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: personalNotifier,
       builder: (_, personal, __) {
-        return Card(child: _PersonalInfo(personal ?? const Personal()));
+        return Card(child: _PersonalInfo(personal ?? const Personal(id: '')));
       },
     );
   }

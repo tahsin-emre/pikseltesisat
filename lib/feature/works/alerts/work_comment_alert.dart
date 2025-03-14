@@ -51,6 +51,7 @@ class _WorkLogAlertState extends State<WorkLogAlert> {
     final personal = locator<AuthCubit>().state.user;
     if (personal == null) return null;
     return WorkComment(
+      id: '',
       comment: _commentController.text,
       createdAt: DateTime.now(),
       personalName: personal.name,

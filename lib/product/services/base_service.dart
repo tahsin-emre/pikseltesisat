@@ -26,31 +26,38 @@ abstract class BaseService {
   final FirebaseStorage storage;
 
   /// User collection reference
-  late final userCollection =
-      db.collection(FirestoreCollections.users.name).withConverter(
-            fromFirestore: MyUser.fromFirestore,
-            toFirestore: MyUser.toFirestore,
-          );
+  late final userCollection = db
+      .collection(FirestoreCollections.users.name)
+      .withConverter(
+        fromFirestore: (snapshot, _) =>
+            MyUser.fromJson(snapshot.data() ?? {}).copyWith(id: snapshot.id),
+        toFirestore: (myUser, _) => myUser.toJson(),
+      );
 
   /// Personal collection reference
-  late final personalCollection =
-      db.collection(FirestoreCollections.personals.name).withConverter(
-            fromFirestore: Personal.fromFirestore,
-            toFirestore: Personal.toFirestore,
-          );
+  late final personalCollection = db
+      .collection(FirestoreCollections.personals.name)
+      .withConverter(
+        fromFirestore: (snapshot, _) =>
+            Personal.fromJson(snapshot.data() ?? {}).copyWith(id: snapshot.id),
+        toFirestore: (personal, _) => personal.toJson(),
+      );
 
   /// Customer collection reference
-  late final customerCollection =
-      db.collection(FirestoreCollections.customers.name).withConverter(
-            toFirestore: Customer.toFirestore,
-            fromFirestore: Customer.fromFirestore,
-          );
+  late final customerCollection = db
+      .collection(FirestoreCollections.customers.name)
+      .withConverter(
+        fromFirestore: (snapshot, _) =>
+            Customer.fromJson(snapshot.data() ?? {}).copyWith(id: snapshot.id),
+        toFirestore: (customer, _) => customer.toJson(),
+      );
 
   /// Work collection reference
   late final workCollection =
       db.collection(FirestoreCollections.works.name).withConverter(
-            toFirestore: Work.toFirestore,
-            fromFirestore: Work.fromFirestore,
+            fromFirestore: (snapshot, _) =>
+                Work.fromJson(snapshot.data() ?? {}).copyWith(id: snapshot.id),
+            toFirestore: (work, _) => work.toJson(),
           );
 
   /// Get comment collection reference for a work
@@ -59,8 +66,10 @@ abstract class BaseService {
         .doc(workId)
         .collection(FirestoreCollections.comments.name)
         .withConverter(
-          toFirestore: WorkComment.toFirestore,
-          fromFirestore: WorkComment.fromFirestore,
+          fromFirestore: (snapshot, _) =>
+              WorkComment.fromJson(snapshot.data() ?? {})
+                  .copyWith(id: snapshot.id),
+          toFirestore: (workComment, _) => workComment.toJson(),
         );
   }
 }

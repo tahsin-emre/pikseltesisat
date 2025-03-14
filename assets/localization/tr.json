@@ -115,5 +115,10 @@
         "service": "Servis",
         "rework": "Geri Dönüş",
         "extra": "Ek Ücret"
+    },
+    "workStatus": {
+        "pending": "Beklemede",
+        "completed": "Tamamlandı",
+        "cancelled": "İptal Edildi"
     }
 }

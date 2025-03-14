@@ -1,56 +1,31 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
 import 'package:pikseltesisat/product/models/work/work_cart_item.dart';
 import 'package:pikseltesisat/product/utils/enums/service_type.dart';
+import 'package:pikseltesisat/product/utils/enums/work_status.dart';
 import 'package:pikseltesisat/product/utils/enums/work_type.dart';
-import 'package:pikseltesisat/product/utils/extensions/int_ext.dart';
 
+part 'work.g.dart';
+
+@JsonSerializable()
 final class Work extends Equatable {
   const Work({
-    this.id = '',
+    required this.id,
     this.description,
     this.customerId,
     this.personalId,
     this.createdAt,
     this.workDate,
+    this.workStatus,
     this.workType,
     this.serviceType,
     this.workCartItems,
   });
 
-  factory Work.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? _,
-  ) {
-    final map = snapshot.data()!;
-    return Work(
-      id: snapshot.id,
-      description: map['description'] as String?,
-      customerId: map['customerId'] as String?,
-      personalId: map['personalId'] as String?,
-      createdAt: (map['createdAt'] as Timestamp?)?.toDate(),
-      workDate: (map['workDate'] as Timestamp?)?.toDate(),
-      workType: (map['workType'] as int?)?.toWorkType,
-      serviceType: (map['serviceType'] as int?)?.toServiceType,
-      workCartItems: List<WorkCartItem>.of(
-        (map['workCartItems'] as List<dynamic>? ?? [])
-            .map((e) => WorkCartItem.fromMap(e as Map<String, dynamic>)),
-      ),
-    );
-  }
+  factory Work.fromJson(Map<String, dynamic> json) => _$WorkFromJson(json);
 
-  static Map<String, dynamic> toFirestore(Work work, SetOptions? _) {
-    return {
-      'description': work.description,
-      'customerId': work.customerId,
-      'personalId': work.personalId,
-      'createdAt': work.createdAt,
-      'workDate': work.workDate,
-      'workType': work.workType?.index,
-      'serviceType': work.serviceType?.index,
-      'workCartItems': work.workCartItems?.map((e) => e.toMap()).toList(),
-    };
-  }
+  Map<String, dynamic> toJson() => _$WorkToJson(this);
 
   Work copyWith({
     String? id,
@@ -59,6 +34,7 @@ final class Work extends Equatable {
     String? personalId,
     DateTime? createdAt,
     DateTime? workDate,
+    WorkStatus? workStatus,
     WorkType? workType,
     ServiceType? serviceType,
     List<WorkCartItem>? workCartItems,
@@ -70,18 +46,23 @@ final class Work extends Equatable {
       personalId: personalId ?? this.personalId,
       createdAt: createdAt ?? this.createdAt,
       workDate: workDate ?? this.workDate,
+      workStatus: workStatus ?? this.workStatus,
       workType: workType ?? this.workType,
       serviceType: serviceType ?? this.serviceType,
       workCartItems: workCartItems ?? this.workCartItems,
     );
   }
 
+  @JsonKey(defaultValue: '')
   final String id;
   final String? description;
   final String? customerId;
   final String? personalId;
+  @JsonKey(fromJson: FirebaseModelHelper.timestampToDateTime)
   final DateTime? createdAt;
+  @JsonKey(fromJson: FirebaseModelHelper.timestampToDateTime)
   final DateTime? workDate;
+  final WorkStatus? workStatus;
   final WorkType? workType;
   final ServiceType? serviceType;
   final List<WorkCartItem>? workCartItems;
@@ -94,6 +75,7 @@ final class Work extends Equatable {
         personalId,
         createdAt,
         workDate,
+        workStatus,
         workType,
         serviceType,
         workCartItems,

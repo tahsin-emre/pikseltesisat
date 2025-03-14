@@ -8,7 +8,9 @@ final class _CustomerCard extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: customerNotifier,
       builder: (_, customer, __) {
-        return Card(child: CustomerDetailCard(customer ?? const Customer()));
+        return Card(
+          child: CustomerDetailCard(customer ?? const Customer(id: '')),
+        );
       },
     );
   }

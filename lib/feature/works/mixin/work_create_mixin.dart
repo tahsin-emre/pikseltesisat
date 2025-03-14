@@ -43,6 +43,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
     if (!validateNonFormFields()) return;
 
     final work = Work(
+      id: '',
       description: descriptonController.text,
       customerId: customerId,
       personalId: personalId,
@@ -64,6 +65,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
       final commentCollection = _workService.getCommentCollection(response.id);
       await commentCollection.add(
         WorkComment(
+          id: '',
           createdAt: DateTime.now(),
           personalName: _authCubit.state.user?.name ?? 'Admin',
           comment: LocaleKeys.work_workCreated.tr(),

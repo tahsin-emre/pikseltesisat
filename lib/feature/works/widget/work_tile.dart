@@ -46,7 +46,9 @@ class _WorkTileState extends State<WorkTile> {
               ),
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
+                  Text(price),
                   Text(workDate),
                   Text(workHour),
                 ],
@@ -71,6 +73,16 @@ class _WorkTileState extends State<WorkTile> {
     if (widget.work.workDate == null) return '';
     return DateFormat('HH:mm').format(widget.work.workDate!);
     // return DateFormat('dd MMMM y EEEE, HH:mm').format(widget.work.workDate!);
+  }
+
+  String get price {
+    if (widget.work.workCartItems?.isEmpty ?? true) return '0 ₺';
+    final items = widget.work.workCartItems!;
+    num total = 0;
+    for (final item in items) {
+      total += item.price ?? 0;
+    }
+    return '$total ₺';
   }
 
   @override

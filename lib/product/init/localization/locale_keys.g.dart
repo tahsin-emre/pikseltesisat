@@ -111,5 +111,9 @@ abstract class  LocaleKeys {
   static const serviceType_rework = 'serviceType.rework';
   static const serviceType_extra = 'serviceType.extra';
   static const serviceType = 'serviceType';
+  static const workStatus_pending = 'workStatus.pending';
+  static const workStatus_completed = 'workStatus.completed';
+  static const workStatus_cancelled = 'workStatus.cancelled';
+  static const workStatus = 'workStatus';
 
 }

@@ -1,5 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'work_cart_item.g.dart';
+
+@JsonSerializable()
 final class WorkCartItem extends Equatable {
   const WorkCartItem({
     this.title,
@@ -7,22 +11,21 @@ final class WorkCartItem extends Equatable {
     this.count,
   });
 
-  factory WorkCartItem.fromMap(
-    Map<String, dynamic> map,
-  ) {
-    return WorkCartItem(
-      title: map['title'] as String?,
-      price: map['price'] as num?,
-      count: map['count'] as int?,
-    );
-  }
+  factory WorkCartItem.fromJson(Map<String, dynamic> json) =>
+      _$WorkCartItemFromJson(json);
 
-  Map<String, dynamic> toMap() {
-    return {
-      'title': title,
-      'price': price,
-      'count': count,
-    };
+  Map<String, dynamic> toJson() => _$WorkCartItemToJson(this);
+
+  WorkCartItem copyWith({
+    String? title,
+    num? price,
+    int? count,
+  }) {
+    return WorkCartItem(
+      title: title ?? this.title,
+      price: price ?? this.price,
+      count: count ?? this.count,
+    );
   }
 
   final String? title;

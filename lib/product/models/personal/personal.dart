@@ -1,28 +1,19 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'personal.g.dart';
+
+@JsonSerializable()
 final class Personal extends Equatable {
   const Personal({
-    this.id = '',
+    required this.id,
     this.name,
   });
 
-  factory Personal.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? _,
-  ) {
-    final map = snapshot.data()!;
-    return Personal(
-      id: snapshot.id,
-      name: map['name'] as String?,
-    );
-  }
+  factory Personal.fromJson(Map<String, dynamic> json) =>
+      _$PersonalFromJson(json);
 
-  static Map<String, dynamic> toFirestore(Personal personal, SetOptions? _) {
-    return {
-      'name': personal.name,
-    };
-  }
+  Map<String, dynamic> toJson() => _$PersonalToJson(this);
 
   Personal copyWith({
     String? id,
@@ -34,9 +25,13 @@ final class Personal extends Equatable {
     );
   }
 
+  @JsonKey(defaultValue: '')
   final String id;
   final String? name;
 
   @override
-  List<Object?> get props => [id, name];
+  List<Object?> get props => [
+        id,
+        name,
+      ];
 }

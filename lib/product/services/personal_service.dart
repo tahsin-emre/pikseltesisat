@@ -23,8 +23,9 @@ class PersonalService extends BaseService {
   late final Query<MyUser> waitingCollection = db
       .collection(FirestoreCollections.users.name)
       .withConverter(
-        fromFirestore: MyUser.fromFirestore,
-        toFirestore: MyUser.toFirestore,
+        fromFirestore: (snapshot, _) =>
+            MyUser.fromJson(snapshot.data() ?? {}).copyWith(id: snapshot.id),
+        toFirestore: (myUser, _) => myUser.toJson(),
       )
       .where(
         FirestoreFields.userType.name,

@@ -28,6 +28,7 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
   Future<void> createCustomer() async {
     if (!formKey.currentState!.validate()) return;
     final customer = Customer(
+      id: '',
       name: nameController.text,
       phone: phoneController.value.international,
       address: addressController.text,

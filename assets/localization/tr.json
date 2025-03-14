@@ -126,7 +126,8 @@
         "title": "Fiyat Teklifi",
         "description": "Teklif vermek istediğiniz ücreti giriniz",
         "price": "Ücret",
-        "priceOffered": "Teklif Verildi"
+        "priceOffered": "Teklif Verildi",
+        "count": "Adet"
     },
     "price": {
         "newPrice": "Yeni Fiyat Kalemi",

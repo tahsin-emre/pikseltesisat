@@ -17,19 +17,11 @@ mixin PriceOfferCreateMixin on State<PriceOfferCreateView> {
   }
 
   void _init() {
-    workCartNotifier.value = widget.workCart;
-  }
-
-  String get amount {
-    num total = 0;
-    for (final item in workCartNotifier.value) {
-      total += (item.price ?? 0) * (item.count ?? 0);
-    }
-    return total.toStringAsFixed(2);
+    workCartNotifier.value = List.of(widget.workCart);
   }
 
   void updateList(WorkCartItem item) {
-    final currentList = workCartNotifier.value;
+    final currentList = List.of(workCartNotifier.value);
     final exist = currentList.firstWhereOrNull((e) => e.id == item.id) != null;
     if (exist) {
       currentList.removeWhere((e) => e.id == item.id);
@@ -38,13 +30,22 @@ mixin PriceOfferCreateMixin on State<PriceOfferCreateView> {
     workCartNotifier.value = currentList;
   }
 
-  void removeItem(WorkCartItem item) {
-    final currentList = workCartNotifier.value
-      ..removeWhere((e) => e.id == item.id);
+  void removeItem(String itemId) {
+    final currentList = List.of(workCartNotifier.value)
+      ..removeWhere((e) => e.id == itemId);
     workCartNotifier.value = currentList;
   }
 
   void clearItems() => _init();
 
-  void createOffer() {}
+  void createOffer() {
+    final currentList = List.of(workCartNotifier.value);
+    final tempList = List.of(currentList)
+      ..removeWhere((e) => e.id == 'service');
+    if (tempList.isEmpty) {
+      Navigator.pop(context);
+      return;
+    }
+    Navigator.pop(context, currentList);
+  }
 }

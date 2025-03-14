@@ -8,6 +8,7 @@ import 'package:pikseltesisat/feature/works/view/work_detail_view.dart';
 import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/methods/toast.dart';
+import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
@@ -68,6 +69,11 @@ mixin WorkDetailMixin on State<WorkDetailView> {
         workCartItems: workCart,
       ),
     );
+    pop();
+  }
+
+  void pop() {
+    const WorkListRoute().go(context);
     toast(LocaleKeys.workPriceOffer_priceOffered.tr());
   }
 

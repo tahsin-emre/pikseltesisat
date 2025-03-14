@@ -80,7 +80,7 @@ class _WorkTileState extends State<WorkTile> {
     final items = widget.work.workCartItems!;
     num total = 0;
     for (final item in items) {
-      total += item.price ?? 0;
+      total += (item.price ?? 0) * (item.count ?? 0);
     }
     return '$total ₺';
   }

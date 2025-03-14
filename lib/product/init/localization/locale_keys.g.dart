@@ -120,6 +120,7 @@ abstract class  LocaleKeys {
   static const workPriceOffer_description = 'workPriceOffer.description';
   static const workPriceOffer_price = 'workPriceOffer.price';
   static const workPriceOffer_priceOffered = 'workPriceOffer.priceOffered';
+  static const workPriceOffer_count = 'workPriceOffer.count';
   static const workPriceOffer = 'workPriceOffer';
   static const price_newPrice = 'price.newPrice';
   static const price_editPrice = 'price.editPrice';

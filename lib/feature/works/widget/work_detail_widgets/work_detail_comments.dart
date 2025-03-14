@@ -1,15 +1,8 @@
 part of '../../view/work_detail_view.dart';
 
-final class _WorkDetailComments extends StatefulWidget {
-  const _WorkDetailComments({required this.workId});
-  final String workId;
-  @override
-  State<_WorkDetailComments> createState() => _WorkDetailCommentsState();
-}
-
-class _WorkDetailCommentsState extends State<_WorkDetailComments> {
-  final _workService = locator<WorkService>();
-  final comments = <WorkComment>[];
+final class _WorkDetailComments extends StatelessWidget {
+  const _WorkDetailComments({required this.commentsQuery});
+  final Query<WorkComment> commentsQuery;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,22 +12,17 @@ class _WorkDetailCommentsState extends State<_WorkDetailComments> {
           LocaleKeys.work_workLogs.tr(),
           style: context.general.textTheme.headlineSmall,
         ),
-        ...comments.map(_CommentItem.new),
+        AppSizes.xs.toHeight,
+        FirestoreListView<WorkComment>(
+          shrinkWrap: true,
+          query: commentsQuery,
+          emptyBuilder: (context) => const Text('İş Kaydı Yok'),
+          errorBuilder: (context, error, stackTrace) =>
+              SelectableText('Hata Oluştu $error'),
+          itemBuilder: (_, e) => _CommentItem(e.data()),
+        ),
       ],
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    Future.microtask(_fetchComments);
-  }
-
-  Future<void> _fetchComments() async {
-    final result = await _workService.getComments(widget.workId);
-    setState(() {
-      comments.addAll(result);
-    });
   }
 }
 

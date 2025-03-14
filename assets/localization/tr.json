@@ -46,7 +46,9 @@
         "welcome": "Hoşgeldin {}",
         "confirm": "Onayla",
         "otherValue": "Diğer",
-        "description": "Açıklama"
+        "description": "Açıklama",
+        "total": "Toplam",
+        "details": "Detaylar"
     },
     "customer": {
         "name": "Ad",

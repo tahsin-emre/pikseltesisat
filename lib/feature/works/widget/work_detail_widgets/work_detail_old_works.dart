@@ -1,7 +1,7 @@
 part of '../../view/work_detail_view.dart';
 
 final class _WorkDetailOldWorks extends StatelessWidget {
-  const _WorkDetailOldWorks(this.work, this.oldWorksQuery);
+  const _WorkDetailOldWorks({required this.work, required this.oldWorksQuery});
   final Query<Work> oldWorksQuery;
   final Work work;
   @override
@@ -10,7 +10,7 @@ final class _WorkDetailOldWorks extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(LocaleKeys.work_oldWorks.tr()),
-        AppSizes.xs.toWidth,
+        AppSizes.xs.toHeight,
         FirestoreListView<Work>(
           shrinkWrap: true,
           query: oldWorksQuery,

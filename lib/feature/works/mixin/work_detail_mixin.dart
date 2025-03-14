@@ -13,13 +13,14 @@ import 'package:pikseltesisat/product/services/personal_service.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
 
 mixin WorkDetailMixin on State<WorkDetailView> {
+  late final work = widget.work;
   final loadingNotifier = ValueNotifier<bool>(false);
   final _workService = locator<WorkService>();
-  late final work = widget.work;
   final ValueNotifier<Customer?> customerNotifier = ValueNotifier(null);
   final ValueNotifier<Personal?> personalNotifier = ValueNotifier(null);
 
   Query<Work>? oldWorksQuery;
+  Query<WorkComment>? commentsQuery;
 
   @override
   void initState() {
@@ -27,13 +28,20 @@ mixin WorkDetailMixin on State<WorkDetailView> {
     _init();
   }
 
+  Future<void> showDetails() async {
+    // await showDialog<void>(
+    //   context: context,
+    //   builder: (context) => const WorkDetailAlert(),
+    // );
+  }
+
   Future<void> addComment() async {
-    final result = await showDialog<WorkComment?>(
+    final comment = await showDialog<WorkComment?>(
       context: context,
       builder: (context) => const WorkLogAlert(),
     );
-    if (result == null) return;
-    // await _workService.addWorkComment(result);
+    if (comment == null) return;
+    await _workService.addComment(work.id, comment);
   }
 
   Future<void> completeWork() async {}
@@ -59,6 +67,10 @@ mixin WorkDetailMixin on State<WorkDetailView> {
         )
         .orderBy(
           FirestoreFields.workDate.name,
+          descending: true,
+        );
+    commentsQuery = _workService.getCommentCollection(work.id).orderBy(
+          FirestoreFields.createdAt.name,
           descending: true,
         );
     loadingNotifier.value = false;

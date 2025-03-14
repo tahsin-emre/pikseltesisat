@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
 import 'package:pikseltesisat/feature/sub_features/ui_kit/custom_text_field.dart';
+import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/work/work_comment.dart';
 import 'package:pikseltesisat/product/utils/constants/app_radius.dart';
@@ -13,7 +15,7 @@ final class WorkLogAlert extends StatefulWidget {
 }
 
 class _WorkLogAlertState extends State<WorkLogAlert> {
-  final _workLogController = TextEditingController();
+  final _commentController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -26,7 +28,7 @@ class _WorkLogAlertState extends State<WorkLogAlert> {
         children: [
           CustomTextField(
             label: LocaleKeys.base_description.tr(),
-            controller: _workLogController,
+            controller: _commentController,
             validator: FormValidators.required,
             multiLine: true,
           ),
@@ -45,11 +47,13 @@ class _WorkLogAlertState extends State<WorkLogAlert> {
     );
   }
 
-  WorkComment get workComment {
+  WorkComment? get workComment {
+    final personal = locator<AuthCubit>().state.user;
+    if (personal == null) return null;
     return WorkComment(
-      comment: _workLogController.text,
+      comment: _commentController.text,
       createdAt: DateTime.now(),
-      personalName: '',
+      personalName: personal.name,
     );
   }
 }

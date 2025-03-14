@@ -7,13 +7,11 @@ import 'package:kartal/kartal.dart';
 import 'package:pikseltesisat/feature/customers/widget/customer_detail_card.dart';
 import 'package:pikseltesisat/feature/works/mixin/work_detail_mixin.dart';
 import 'package:pikseltesisat/feature/works/widget/work_tile.dart';
-import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/models/work/work_comment.dart';
-import 'package:pikseltesisat/product/services/work_service.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
@@ -55,12 +53,19 @@ class _WorkDetailViewState extends State<WorkDetailView> with WorkDetailMixin {
                 slivers: [
                   _CustomerCard(customerNotifier).toSliver,
                   _PersonalCard(personalNotifier).toSliver,
-                  _WorkDetailSummary(work: widget.work).toSliver,
+                  _WorkDetailSummary(
+                    work: widget.work,
+                    onDetailsPressed: showDetails,
+                  ).toSliver,
                   const Divider().toSliver,
-                  _WorkDetailComments(workId: widget.work.id).toSliver,
+                  if (commentsQuery != null)
+                    _WorkDetailComments(commentsQuery: commentsQuery!).toSliver,
                   const Divider().toSliver,
                   if (oldWorksQuery != null)
-                    _WorkDetailOldWorks(work, oldWorksQuery!).toSliver,
+                    _WorkDetailOldWorks(
+                      work: widget.work,
+                      oldWorksQuery: oldWorksQuery!,
+                    ).toSliver,
                 ],
               ),
             ),

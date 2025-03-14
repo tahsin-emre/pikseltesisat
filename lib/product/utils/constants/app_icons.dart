@@ -38,6 +38,7 @@ final class AppIcons {
   static const done = Icons.done_rounded;
   static const priceOffer = Icons.price_check_rounded;
   static const comment = Icons.comment_rounded;
+  static const numbers = Icons.numbers_rounded;
 }
 
 extension AppIconsExtension on IconData {

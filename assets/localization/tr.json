@@ -125,7 +125,8 @@
     "workPriceOffer": {
         "title": "Fiyat Teklifi",
         "description": "Teklif vermek istediğiniz ücreti giriniz",
-        "price": "Ücret"
+        "price": "Ücret",
+        "priceOffered": "Teklif Verildi"
     },
     "price": {
         "newPrice": "Yeni Fiyat Kalemi",

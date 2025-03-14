@@ -1,17 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/feature/price/view/price_offer_create_view.dart';
 import 'package:pikseltesisat/feature/works/alerts/work_comment_alert.dart';
 import 'package:pikseltesisat/feature/works/alerts/work_price_details_alert.dart';
 import 'package:pikseltesisat/feature/works/view/work_detail_view.dart';
 import 'package:pikseltesisat/product/init/di/locator.dart';
+import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
+import 'package:pikseltesisat/product/init/methods/toast.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
 import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/models/work/work.dart';
+import 'package:pikseltesisat/product/models/work/work_cart_item.dart';
 import 'package:pikseltesisat/product/models/work/work_comment.dart';
 import 'package:pikseltesisat/product/services/base_service.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
 import 'package:pikseltesisat/product/services/personal_service.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
+import 'package:pikseltesisat/product/utils/enums/work_status.dart';
 
 mixin WorkDetailMixin on State<WorkDetailView> {
   late final work = widget.work;
@@ -49,7 +55,20 @@ mixin WorkDetailMixin on State<WorkDetailView> {
 
   Future<void> completeWork() async {}
 
-  Future<void> priceOffer() async {}
+  Future<void> priceOffer() async {
+    final workCart = await showDialog<List<WorkCartItem>?>(
+      context: context,
+      builder: (context) => const PriceOfferCreateView(),
+    );
+    if (workCart == null) return;
+    await _workService.updateWork(
+      work.id,
+      work.copyWith(
+        workCartItems: workCart,
+      ),
+    );
+    toast(LocaleKeys.workPriceOffer_priceOffered.tr());
+  }
 
   Future<void> _init() async {
     loadingNotifier.value = true;

@@ -117,6 +117,12 @@
         "rework": "Geri Dönüş",
         "extra": "Ek Ücret"
     },
+    "userType": {
+        "admin": "Yönetici",
+        "personal": "Personel",
+        "waiting": "Onay Bekliyor",
+        "none": "Kullanıcı"
+    },
     "workStatus": {
         "pending": "Beklemede",
         "completed": "Tamamlandı",

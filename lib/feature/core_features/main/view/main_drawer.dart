@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pikseltesisat/feature/core_features/main/widgets/drawer_profile.dart';
 import 'package:pikseltesisat/feature/core_features/main/widgets/drawer_widgets.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
-import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
 import 'package:pikseltesisat/product/utils/extensions/context_general_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
@@ -18,7 +18,7 @@ final class MainDrawer extends StatelessWidget {
       child: SafeArea(
         child: CustomScrollView(
           slivers: [
-            AppIcons.home.toCustomIcon(size: AppSizes.maxiM).toSliver,
+            const DrawerProfile().toSliver,
             const Divider().toSliver,
             //Dashboard
             DrawerTile(

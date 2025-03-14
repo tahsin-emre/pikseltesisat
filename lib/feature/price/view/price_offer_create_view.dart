@@ -7,10 +7,12 @@ import 'package:pikseltesisat/feature/price/mixin/price_offer_create_mixin.dart'
 import 'package:pikseltesisat/feature/sub_features/ui_kit/base_app_bar.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/models/price/price.dart';
+import 'package:pikseltesisat/product/models/work/work_cart_item.dart';
+import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class PriceOfferCreateView extends StatefulWidget {
-  const PriceOfferCreateView({super.key});
-
+  const PriceOfferCreateView({required this.workCart, super.key});
+  final List<WorkCartItem> workCart;
   @override
   State<PriceOfferCreateView> createState() => _PriceOfferCreateViewState();
 }
@@ -24,8 +26,8 @@ class _PriceOfferCreateViewState extends State<PriceOfferCreateView>
         title: LocaleKeys.workPriceOffer_title.tr(),
         actions: [
           ValueListenableBuilder(
-            valueListenable: amountNotifier,
-            builder: (_, amount, __) {
+            valueListenable: workCartNotifier,
+            builder: (_, workCartList, __) {
               return Text('$amount ₺');
             },
           ),
@@ -40,6 +42,7 @@ class _PriceOfferCreateViewState extends State<PriceOfferCreateView>
         builder: (_, state) {
           return CustomScrollView(
             slivers: [
+              _ServiceTile(widget.workCart.first).toSliver,
               SliverList.separated(
                 itemBuilder: (context, index) => _PriceTile(
                   price: state.prices![index],
@@ -51,6 +54,24 @@ class _PriceOfferCreateViewState extends State<PriceOfferCreateView>
           );
         },
       ),
+    );
+  }
+}
+
+final class _ServiceTile extends StatelessWidget {
+  const _ServiceTile(this.item);
+  final WorkCartItem item;
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      enabled: false,
+      leading: Checkbox(
+        value: true,
+        onChanged: (value) {},
+      ),
+      title: Text(item.title ?? ''),
+      trailing: Text('${item.price} ₺'),
+      subtitle: Text('${item.count}'),
     );
   }
 }

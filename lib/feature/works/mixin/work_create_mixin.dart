@@ -53,6 +53,7 @@ mixin WorkCreateMixin on State<WorkCreateView> {
       createdAt: DateTime.now(),
       workCartItems: [
         WorkCartItem(
+          id: 'service',
           price: double.parse(servicePriceController.text),
           count: 1,
           title: LocaleKeys.work_servicePrice.tr(),

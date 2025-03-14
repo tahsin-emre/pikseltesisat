@@ -17,7 +17,6 @@ import 'package:pikseltesisat/product/services/base_service.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
 import 'package:pikseltesisat/product/services/personal_service.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
-import 'package:pikseltesisat/product/utils/enums/work_status.dart';
 
 mixin WorkDetailMixin on State<WorkDetailView> {
   late final work = widget.work;
@@ -58,7 +57,9 @@ mixin WorkDetailMixin on State<WorkDetailView> {
   Future<void> priceOffer() async {
     final workCart = await showDialog<List<WorkCartItem>?>(
       context: context,
-      builder: (context) => const PriceOfferCreateView(),
+      builder: (context) => PriceOfferCreateView(
+        workCart: work.workCartItems ?? [],
+      ),
     );
     if (workCart == null) return;
     await _workService.updateWork(

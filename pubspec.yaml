@@ -53,4 +53,4 @@ flutter:
   assets:
     - assets/localization/
     - assets/images/
-    - .env
+    - assets/.env

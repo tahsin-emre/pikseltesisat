@@ -1,13 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pikseltesisat/feature/core_features/splash/cubit/splash_state.dart';
 import 'package:pikseltesisat/feature/price/cubit/price_cubit.dart';
 import 'package:pikseltesisat/firebase_options.dart';
 import 'package:pikseltesisat/product/init/di/locator.dart';
 
-/// Uygulama başlatıldı mı kontrolü
 bool _isAppInitialized = false;
 
 /// Splash screen cubit
@@ -21,6 +22,11 @@ class SplashCubit extends Cubit<SplashState> {
     try {
       final startTime = DateTime.now();
       if (!_isAppInitialized) {
+        // Load environment variables
+
+        // Initialize localization
+        await EasyLocalization.ensureInitialized();
+        await dotenv.load(fileName: 'assets/.env');
         await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
         );
@@ -31,8 +37,7 @@ class SplashCubit extends Cubit<SplashState> {
 
       final endTime = DateTime.now();
       final difference = endTime.difference(startTime).inMilliseconds;
-      final remainingTime = 2000 - difference;
-
+      final remainingTime = 1500 - difference;
       if (remainingTime > 0) {
         await Future<void>.delayed(Duration(milliseconds: remainingTime));
       }

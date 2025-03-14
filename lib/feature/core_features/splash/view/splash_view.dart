@@ -6,6 +6,7 @@ import 'package:pikseltesisat/feature/core_features/splash/cubit/splash_state.da
 import 'package:pikseltesisat/feature/core_features/splash/mixin/splash_mixin.dart';
 import 'package:pikseltesisat/feature/sub_features/ui_kit/loading.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
+import 'package:pikseltesisat/product/init/methods/toast.dart';
 import 'package:pikseltesisat/product/utils/constants/app_constants.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
@@ -25,6 +26,7 @@ class _SplashViewState extends State<SplashView> with SplashMixin {
       create: (context) => SplashCubit()..initialize(),
       child: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
+          if (state.error != null) toast(state.error ?? 'ERROR $state');
           if (state.isInitialized) findCurrentUser();
         },
         child: Scaffold(

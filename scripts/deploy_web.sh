@@ -1,1 +1,1 @@
-firebase deploy --only hosting 
+flutter build web --release && firebase deploy --only hosting 

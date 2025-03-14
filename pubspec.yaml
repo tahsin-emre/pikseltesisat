@@ -24,6 +24,7 @@ dependencies:
   get_it: ^7.6.7
   injectable: ^2.3.2
   json_annotation: ^4.9.0
+  flutter_dotenv: ^5.1.0
   #ui
   firebase_ui_firestore: ^1.7.0
   flutter_spinkit: ^5.2.1
@@ -52,3 +53,4 @@ flutter:
   assets:
     - assets/localization/
     - assets/images/
+    - .env

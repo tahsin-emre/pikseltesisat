@@ -992,10 +992,11 @@ packages:
   skeletonizer:
     dependency: "direct main"
     description:
-      name: skeletonizer
-      sha256: "0dcacc51c144af4edaf37672072156f49e47036becbc394d7c51850c5c1e884b"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: main
+      resolved-ref: e9ee41af25901fa461316f62ab6b7b3bfa4a49f6
+      url: "https://github.com/tahsin-emre/skeletonizer.git"
+    source: git
     version: "1.4.3"
   sky_engine:
     dependency: transitive

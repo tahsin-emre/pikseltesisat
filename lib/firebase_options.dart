@@ -72,4 +72,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'piksel-tesisat.firebasestorage.app',
     iosBundleId: 'com.tahsinemre.pikseltesisat',
   );
+
 }

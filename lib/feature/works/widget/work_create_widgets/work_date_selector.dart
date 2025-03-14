@@ -34,7 +34,9 @@ class _WorkDateSelectorState extends State<WorkDateSelector> {
   }
 
   String get text {
-    final result = DateFormat('dd MMMM y EEEE, HH:mm').format(selectedDate);
+    final result =
+        DateFormat('dd MMMM y EEEE, HH:mm', context.locale.languageCode)
+            .format(selectedDate);
     return result;
   }
 

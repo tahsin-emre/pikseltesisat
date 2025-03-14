@@ -20,6 +20,7 @@ final class DrawerProfile extends StatelessWidget {
       builder: (context, state) {
         final user = state.user;
         if (user == null) return const SizedBox.shrink();
+
         return Container(
           padding: AppPaddings.allM,
           decoration: BoxDecoration(
@@ -64,39 +65,46 @@ final class DrawerProfile extends StatelessWidget {
                 ],
               ),
               AppSizes.l.toHeight,
-              Container(
-                padding: AppPaddings.allXS,
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: .15),
-                  borderRadius: AppRadius.allS,
-                ),
-                child: Column(
-                  children: [
-                    // İstatistik Satırları
-                    const _StatRow(
-                      icon: AppIcons.works,
-                      title: 'Toplam İş',
-                      value: '24',
-                    ),
-                    AppSizes.xs.toHeight,
-                    const _StatRow(
-                      icon: AppIcons.customers,
-                      title: 'Müşteriler',
-                      value: '18',
-                    ),
-                    AppSizes.xs.toHeight,
-                    const _StatRow(
-                      icon: AppIcons.calendar,
-                      title: 'Bu Ay',
-                      value: '7 iş',
-                    ),
-                  ],
-                ),
-              ),
+              const _Statistics(),
             ],
           ),
         );
       },
+    );
+  }
+}
+
+final class _Statistics extends StatelessWidget {
+  const _Statistics();
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: AppPaddings.allXS,
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: .15),
+        borderRadius: AppRadius.allS,
+      ),
+      child: Column(
+        children: [
+          const _StatRow(
+            icon: AppIcons.works,
+            title: 'Toplam İş',
+            value: '24',
+          ),
+          AppSizes.xs.toHeight,
+          const _StatRow(
+            icon: AppIcons.customers,
+            title: 'Müşteriler',
+            value: '18',
+          ),
+          AppSizes.xs.toHeight,
+          const _StatRow(
+            icon: AppIcons.calendar,
+            title: 'Bu Ay',
+            value: '7 iş',
+          ),
+        ],
+      ),
     );
   }
 }

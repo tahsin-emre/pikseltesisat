@@ -14,20 +14,36 @@ final class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: Text(LocaleKeys.appName.tr()),
-      titleTextStyle: context.teska.textTheme.titleLarge,
-      notificationPredicate: (notification) => false,
-      leading: IconButton(
-        onPressed: onTap,
-        icon: AppIcons.menu.toIcon,
-      ),
-      actions: [
-        IconButton(
-          onPressed: () => const SearchRoute().push<void>(context),
-          icon: AppIcons.search.toIcon,
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            context.teska.colorScheme.primary,
+            context.teska.colorScheme.secondary,
+          ],
         ),
-      ],
+      ),
+      child: AppBar(
+        title: Text(
+          LocaleKeys.appName.tr(),
+          style: context.teska.textTheme.titleLarge?.copyWith(
+            color: Colors.white,
+          ),
+        ),
+        titleTextStyle: context.teska.textTheme.titleLarge,
+        notificationPredicate: (notification) => false,
+        leading: IconButton(
+          onPressed: onTap,
+          icon: AppIcons.menu.toCustomIcon(color: Colors.white),
+        ),
+        backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+            onPressed: () => const SearchRoute().push<void>(context),
+            icon: AppIcons.search.toCustomIcon(color: Colors.white),
+          ),
+        ],
+      ),
     );
   }
 

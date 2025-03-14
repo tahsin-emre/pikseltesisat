@@ -4,4 +4,6 @@ linter:
   rules:
     public_member_api_docs: false
 analyzer:
+  errors:
+    library_private_types_in_public_api: ignore
   exclude: [lib/**.g.dart, pubspec.yaml]

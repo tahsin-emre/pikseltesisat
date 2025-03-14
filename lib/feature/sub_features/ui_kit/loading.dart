@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:kartal/kartal.dart';
+import 'package:pikseltesisat/product/utils/extensions/context_general_ext.dart';
 
 final class Loading extends StatelessWidget {
   const Loading({super.key});
@@ -8,7 +8,7 @@ final class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SpinKitRipple(
-      color: context.general.colorScheme.primary,
+      color: context.teska.colorScheme.primary,
     );
   }
 }

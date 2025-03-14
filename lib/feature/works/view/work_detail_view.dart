@@ -3,7 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:kartal/kartal.dart';
 import 'package:pikseltesisat/feature/customers/widget/customer_detail_card.dart';
 import 'package:pikseltesisat/feature/works/mixin/work_detail_mixin.dart';
 import 'package:pikseltesisat/feature/works/widget/work_tile.dart';
@@ -16,6 +15,7 @@ import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
 import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
+import 'package:pikseltesisat/product/utils/extensions/context_general_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

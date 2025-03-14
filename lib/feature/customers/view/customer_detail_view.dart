@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
 import 'package:pikseltesisat/feature/customers/mixin/customer_detail_mixin.dart';
 import 'package:pikseltesisat/feature/customers/widget/customer_detail_card.dart';
 import 'package:pikseltesisat/feature/sub_features/ui_kit/title_text.dart';
@@ -13,6 +12,7 @@ import 'package:pikseltesisat/product/models/work/work.dart';
 import 'package:pikseltesisat/product/utils/constants/app_paddings.dart';
 import 'package:pikseltesisat/product/utils/constants/app_sizes.dart';
 import 'package:pikseltesisat/product/utils/extensions/app_sizes_ext.dart';
+import 'package:pikseltesisat/product/utils/extensions/context_general_ext.dart';
 import 'package:pikseltesisat/product/utils/extensions/widget_ext.dart';
 
 final class CustomerDetailView extends StatefulWidget {
@@ -44,7 +44,7 @@ class _CustomerDetailViewState extends State<CustomerDetailView>
               padding: AppPaddings.allS,
               child: Text(
                 LocaleKeys.work_noWorksYet.tr(),
-                style: context.general.textTheme.bodyLarge,
+                style: context.teska.textTheme.bodyLarge,
               ),
             ),
             errorBuilder: (context, error, stackTrace) =>

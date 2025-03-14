@@ -10,7 +10,7 @@ final class _WorkDetailComments extends StatelessWidget {
       children: [
         Text(
           LocaleKeys.work_workLogs.tr(),
-          style: context.general.textTheme.headlineSmall,
+          style: context.teska.textTheme.headlineSmall,
         ),
         AppSizes.xs.toHeight,
         FirestoreListView<WorkComment>(

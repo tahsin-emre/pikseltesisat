@@ -23,8 +23,8 @@ final class _WorkDetailSummary extends StatelessWidget {
                 onTap: onDetailsPressed,
                 child: Text(
                   LocaleKeys.base_details.tr(),
-                  style: context.general.textTheme.bodyMedium?.copyWith(
-                    color: context.general.colorScheme.primary,
+                  style: context.teska.textTheme.bodyMedium?.copyWith(
+                    color: context.teska.colorScheme.primary,
                     decoration: TextDecoration.underline,
                     fontStyle: FontStyle.italic,
                   ),

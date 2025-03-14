@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 import 'package:pikseltesisat/product/utils/constants/app_icons.dart';
+import 'package:pikseltesisat/product/utils/extensions/context_general_ext.dart';
 
 final class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({
@@ -16,7 +16,7 @@ final class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(LocaleKeys.appName.tr()),
-      titleTextStyle: context.general.textTheme.titleLarge,
+      titleTextStyle: context.teska.textTheme.titleLarge,
       notificationPredicate: (notification) => false,
       leading: IconButton(
         onPressed: onTap,

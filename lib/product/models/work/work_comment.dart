@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
@@ -34,7 +35,10 @@ final class WorkComment extends Equatable {
 
   @JsonKey(defaultValue: '')
   final String id;
-  @JsonKey(fromJson: FirebaseModelHelper.timestampToDateTime)
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
   final DateTime? createdAt;
   final String? comment;
   final String? personalName;

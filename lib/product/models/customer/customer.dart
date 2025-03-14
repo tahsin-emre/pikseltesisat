@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pikseltesisat/product/models/customer/district.dart';
+import 'package:pikseltesisat/product/models/customer/province.dart';
 import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
 
 part 'customer.g.dart';
@@ -29,7 +30,7 @@ final class Customer extends Equatable {
     String? name,
     String? phone,
     String? address,
-    int? province,
+    Province? province,
     District? district,
     List<String>? searchIndex,
     DateTime? createdAt,
@@ -51,10 +52,21 @@ final class Customer extends Equatable {
   final String? name;
   final String? phone;
   final String? address;
-  final int? province;
-  final District? district;
   final List<String>? searchIndex;
-  @JsonKey(fromJson: FirebaseModelHelper.timestampToDateTime)
+  @JsonKey(
+    fromJson: FirebaseModelHelper.provinceFromInt,
+    toJson: FirebaseModelHelper.provinceToInt,
+  )
+  final Province? province;
+  @JsonKey(
+    fromJson: FirebaseModelHelper.districtFromInt,
+    toJson: FirebaseModelHelper.districtToInt,
+  )
+  final District? district;
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
   final DateTime? createdAt;
 
   @override

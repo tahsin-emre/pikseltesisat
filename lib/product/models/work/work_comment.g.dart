@@ -9,7 +9,7 @@ part of 'work_comment.dart';
 WorkComment _$WorkCommentFromJson(Map<String, dynamic> json) => WorkComment(
       id: json['id'] as String? ?? '',
       createdAt: FirebaseModelHelper.timestampToDateTime(
-          json['createdAt'] as Timestamp),
+          json['createdAt'] as Timestamp?),
       comment: json['comment'] as String?,
       personalName: json['personalName'] as String?,
     );
@@ -17,7 +17,7 @@ WorkComment _$WorkCommentFromJson(Map<String, dynamic> json) => WorkComment(
 Map<String, dynamic> _$WorkCommentToJson(WorkComment instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'createdAt': instance.createdAt?.toIso8601String(),
+      'createdAt': FirebaseModelHelper.dateTimeToTimestamp(instance.createdAt),
       'comment': instance.comment,
       'personalName': instance.personalName,
     };

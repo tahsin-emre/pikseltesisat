@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
@@ -58,9 +59,15 @@ final class Work extends Equatable {
   final String? description;
   final String? customerId;
   final String? personalId;
-  @JsonKey(fromJson: FirebaseModelHelper.timestampToDateTime)
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
   final DateTime? createdAt;
-  @JsonKey(fromJson: FirebaseModelHelper.timestampToDateTime)
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
   final DateTime? workDate;
   final WorkStatus? workStatus;
   final WorkType? workType;

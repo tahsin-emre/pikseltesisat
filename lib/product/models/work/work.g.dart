@@ -12,9 +12,9 @@ Work _$WorkFromJson(Map<String, dynamic> json) => Work(
       customerId: json['customerId'] as String?,
       personalId: json['personalId'] as String?,
       createdAt: FirebaseModelHelper.timestampToDateTime(
-          json['createdAt'] as Timestamp),
+          json['createdAt'] as Timestamp?),
       workDate: FirebaseModelHelper.timestampToDateTime(
-          json['workDate'] as Timestamp),
+          json['workDate'] as Timestamp?),
       workStatus: $enumDecodeNullable(_$WorkStatusEnumMap, json['workStatus']),
       workType: $enumDecodeNullable(_$WorkTypeEnumMap, json['workType']),
       serviceType:
@@ -29,8 +29,8 @@ Map<String, dynamic> _$WorkToJson(Work instance) => <String, dynamic>{
       'description': instance.description,
       'customerId': instance.customerId,
       'personalId': instance.personalId,
-      'createdAt': instance.createdAt?.toIso8601String(),
-      'workDate': instance.workDate?.toIso8601String(),
+      'createdAt': FirebaseModelHelper.dateTimeToTimestamp(instance.createdAt),
+      'workDate': FirebaseModelHelper.dateTimeToTimestamp(instance.workDate),
       'workStatus': _$WorkStatusEnumMap[instance.workStatus],
       'workType': _$WorkTypeEnumMap[instance.workType],
       'serviceType': _$ServiceTypeEnumMap[instance.serviceType],
@@ -38,20 +38,20 @@ Map<String, dynamic> _$WorkToJson(Work instance) => <String, dynamic>{
     };
 
 const _$WorkStatusEnumMap = {
-  WorkStatus.none: 'none',
-  WorkStatus.pending: 'pending',
-  WorkStatus.completed: 'completed',
-  WorkStatus.cancelled: 'cancelled',
-  WorkStatus.other: 'other',
+  WorkStatus.none: 0,
+  WorkStatus.pending: 1,
+  WorkStatus.completed: 2,
+  WorkStatus.cancelled: 3,
+  WorkStatus.other: 4,
 };
 
 const _$WorkTypeEnumMap = {
-  WorkType.none: 'none',
-  WorkType.waterLeakage: 'waterLeakage',
-  WorkType.unclogging: 'unclogging',
-  WorkType.repair: 'repair',
-  WorkType.washing: 'washing',
-  WorkType.other: 'other',
+  WorkType.none: 0,
+  WorkType.waterLeakage: 1,
+  WorkType.unclogging: 2,
+  WorkType.repair: 3,
+  WorkType.washing: 4,
+  WorkType.other: 5,
 };
 
 const _$ServiceTypeEnumMap = {

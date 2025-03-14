@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pikseltesisat/product/models/firebase_model_helper.dart';
@@ -37,7 +38,10 @@ final class MyUser extends Equatable {
   @JsonKey(defaultValue: UserType.none)
   final UserType userType;
   final String? name;
-  @JsonKey(fromJson: FirebaseModelHelper.timestampToDateTime)
+  @JsonKey(
+    fromJson: FirebaseModelHelper.timestampToDateTime,
+    toJson: FirebaseModelHelper.dateTimeToTimestamp,
+  )
   final DateTime? createdAt;
 
   @override

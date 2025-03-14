@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:pikseltesisat/feature/customers/view/customer_create_view.dart';
+import 'package:pikseltesisat/product/init/data/data_province_district.dart';
 import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/init/localization/locale_keys.g.dart';
 import 'package:pikseltesisat/product/init/methods/toast.dart';
@@ -33,7 +34,7 @@ mixin CustomerCreateMixin on State<CustomerCreateView> {
       phone: phoneController.value.international,
       address: addressController.text,
       district: district,
-      province: 34,
+      province: DataProvinceDistrict.provinces.first,
       createdAt: DateTime.now(),
     );
     await _customerService.addCustomer(customer);

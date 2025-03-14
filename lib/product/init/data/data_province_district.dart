@@ -1,4 +1,5 @@
 import 'package:pikseltesisat/product/models/customer/district.dart';
+import 'package:pikseltesisat/product/models/customer/province.dart';
 
 final class DataProvinceDistrict {
   const DataProvinceDistrict._();
@@ -43,5 +44,9 @@ final class DataProvinceDistrict {
     District(id: 1852, provinceId: 34, name: 'ÜMRANİYE'),
     District(id: 1708, provinceId: 34, name: 'ÜSKÜDAR'),
     District(id: 1739, provinceId: 34, name: 'ZEYTİNBURNU'),
+  ];
+
+  static const provinces = [
+    Province(id: 34, name: 'İstanbul', districts: districts),
   ];
 }

@@ -10,7 +10,7 @@ MyUser _$MyUserFromJson(Map<String, dynamic> json) => MyUser(
       id: json['id'] as String? ?? '',
       name: json['name'] as String?,
       createdAt: FirebaseModelHelper.timestampToDateTime(
-          json['createdAt'] as Timestamp),
+          json['createdAt'] as Timestamp?),
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
           UserType.none,
     );
@@ -19,7 +19,7 @@ Map<String, dynamic> _$MyUserToJson(MyUser instance) => <String, dynamic>{
       'id': instance.id,
       'userType': _$UserTypeEnumMap[instance.userType]!,
       'name': instance.name,
-      'createdAt': instance.createdAt?.toIso8601String(),
+      'createdAt': FirebaseModelHelper.dateTimeToTimestamp(instance.createdAt),
     };
 
 const _$UserTypeEnumMap = {

@@ -120,5 +120,10 @@
         "pending": "Beklemede",
         "completed": "Tamamlandı",
         "cancelled": "İptal Edildi"
+    },
+    "workPriceOffer": {
+        "title": "Fiyat Teklifi",
+        "description": "Teklif vermek istediğiniz ücreti giriniz",
+        "price": "Ücret"
     }
 }

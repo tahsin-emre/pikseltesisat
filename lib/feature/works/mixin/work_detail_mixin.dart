@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/feature/works/alerts/work_comment_alert.dart';
+import 'package:pikseltesisat/feature/works/alerts/work_price_details_alert.dart';
 import 'package:pikseltesisat/feature/works/view/work_detail_view.dart';
 import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/models/customer/customer.dart';
@@ -29,10 +30,12 @@ mixin WorkDetailMixin on State<WorkDetailView> {
   }
 
   Future<void> showDetails() async {
-    // await showDialog<void>(
-    //   context: context,
-    //   builder: (context) => const WorkDetailAlert(),
-    // );
+    await showDialog<void>(
+      context: context,
+      builder: (context) => WorkPriceDetailsAlert(
+        workCartItems: work.workCartItems ?? [],
+      ),
+    );
   }
 
   Future<void> addComment() async {

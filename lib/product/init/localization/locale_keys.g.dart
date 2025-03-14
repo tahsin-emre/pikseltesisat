@@ -115,5 +115,9 @@ abstract class  LocaleKeys {
   static const workStatus_completed = 'workStatus.completed';
   static const workStatus_cancelled = 'workStatus.cancelled';
   static const workStatus = 'workStatus';
+  static const workPriceOffer_title = 'workPriceOffer.title';
+  static const workPriceOffer_description = 'workPriceOffer.description';
+  static const workPriceOffer_price = 'workPriceOffer.price';
+  static const workPriceOffer = 'workPriceOffer';
 
 }

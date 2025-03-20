@@ -249,6 +249,58 @@ flutter pub run build_runner build --delete-conflicting-outputs
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
+## 🛠️ Scripts
+
+The project uses the `rps` package for managing development scripts. All scripts are defined in `rps.yaml`:
+
+```yaml
+scripts:
+  deploy_web:
+    description: Deploy web version to Firebase
+    command: flutter build web --release && firebase deploy --only hosting
+    category: deployment
+
+  pub_reload:
+    description: Clean and reload pub dependencies
+    command: flutter clean && flutter pub get
+    category: development
+
+  build_runner:
+    description: Run build_runner to generate codes
+    command: flutter pub run build_runner build --delete-conflicting-outputs
+    category: development
+
+  lang:
+    description: Generate localization files
+    command: dart run easy_localization:generate -O lib/product/init/localization -f keys -o locale_keys.g.dart --source-dir assets/localization
+    category: development
+```
+
+### Using Scripts
+
+To use the scripts, first install the `rps` package:
+
+```bash
+flutter pub add rps
+```
+
+Then you can run scripts using:
+
+```bash
+# List all available scripts
+rps list
+
+# Run a specific script
+rps run deploy_web
+rps run pub_reload
+rps run build_runner
+rps run lang
+
+# List scripts by category
+rps list --category deployment
+rps list --category development
+```
+
 ## 📝 License
 
 This project is proprietary and confidential.

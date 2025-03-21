@@ -9,7 +9,7 @@ mixin LoginMixin on State<LoginView> {
   final _authCubit = locator<AuthCubit>();
   final formKey = GlobalKey<FormState>();
   final loadingNotifier = ValueNotifier<bool>(false);
-  final emailController = TextEditingController(text: 'telli@tahsinemre.com');
+  final emailController = TextEditingController(text: 'tahsinusta@gmail.com');
   final passwordController = TextEditingController(text: 'password');
 
   Future<void> login() async {

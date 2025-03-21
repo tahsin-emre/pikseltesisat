@@ -24,11 +24,6 @@ class _WorkListViewState extends State<WorkListView> with WorkListMixin {
               onDateChange: changeDate,
               focusedDate: date ?? DateTime.now(),
             ),
-            // NewElementTile(
-            //   icon: AppIcons.add.toIcon,
-            //   title: LocaleKeys.work_newWork.tr(),
-            //   onTap: () => const WorkCreateRoute().push<void>(context),
-            // ),
             if (workQuery != null)
               FirestoreListView(
                 shrinkWrap: true,

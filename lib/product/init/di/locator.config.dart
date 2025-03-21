@@ -41,8 +41,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final firebaseModule = _$FirebaseModule();
     final serviceModule = _$ServiceModule();
-    final authModule = _$AuthModule();
     final priceModule = _$PriceModule();
+    final authModule = _$AuthModule();
     gh.factory<_i227.SplashCubit>(() => _i227.SplashCubit());
     gh.singleton<_i974.FirebaseFirestore>(() => firebaseModule.firestore);
     gh.singleton<_i59.FirebaseAuth>(() => firebaseModule.auth);
@@ -64,12 +64,12 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i59.FirebaseAuth>(),
           gh<_i457.FirebaseStorage>(),
         ));
-    gh.singleton<_i610.AuthService>(() => authModule.provideAuthService(
+    gh.singleton<_i433.PriceService>(() => priceModule.providePriceService(
           gh<_i974.FirebaseFirestore>(),
           gh<_i59.FirebaseAuth>(),
           gh<_i457.FirebaseStorage>(),
         ));
-    gh.singleton<_i433.PriceService>(() => priceModule.providePriceService(
+    gh.singleton<_i610.AuthService>(() => authModule.provideAuthService(
           gh<_i974.FirebaseFirestore>(),
           gh<_i59.FirebaseAuth>(),
           gh<_i457.FirebaseStorage>(),
@@ -86,6 +86,6 @@ class _$FirebaseModule extends _i398.FirebaseModule {}
 
 class _$ServiceModule extends _i681.ServiceModule {}
 
-class _$AuthModule extends _i4.AuthModule {}
-
 class _$PriceModule extends _i310.PriceModule {}
+
+class _$AuthModule extends _i4.AuthModule {}

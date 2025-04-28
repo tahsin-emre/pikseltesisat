@@ -37,12 +37,12 @@ final class MainDrawer extends StatelessWidget {
                   icon: AppIcons.home,
                   onTap: () => const DashboardRoute().go(context),
                 ).toSliver,
-                //Works
-                DrawerTile(
-                  title: LocaleKeys.drawer_works.tr(),
-                  icon: AppIcons.works,
-                  onTap: () => const WorkListRoute().go(context),
-                ).toSliver,
+                // //Works
+                // DrawerTile(
+                //   title: LocaleKeys.drawer_works.tr(),
+                //   icon: AppIcons.works,
+                //   onTap: () => const WorkListRoute().go(context),
+                // ).toSliver,
                 //Customers
                 if (user.isAdmin)
                   DrawerTile(
@@ -58,19 +58,19 @@ final class MainDrawer extends StatelessWidget {
                     onTap: () => const PersonalListRoute().go(context),
                   ).toSliver,
                 //Prices
-                if (user.isAdmin)
-                  DrawerTile(
-                    title: LocaleKeys.drawer_prices.tr(),
-                    icon: AppIcons.prices,
-                    onTap: () => const PriceListRoute().go(context),
-                  ).toSliver,
-                //Reports
-                if (user.isAdmin)
-                  DrawerTile(
-                    title: LocaleKeys.drawer_reports.tr(),
-                    icon: AppIcons.report,
-                    onTap: () {},
-                  ).toSliver,
+                // if (user.isAdmin)
+                //   DrawerTile(
+                //     title: LocaleKeys.drawer_prices.tr(),
+                //     icon: AppIcons.prices,
+                //     onTap: () => const PriceListRoute().go(context),
+                //   ).toSliver,
+                // //Reports
+                // if (user.isAdmin)
+                //   DrawerTile(
+                //     title: LocaleKeys.drawer_reports.tr(),
+                //     icon: AppIcons.report,
+                //     onTap: () {},
+                //   ).toSliver,
 
                 const Divider().toSliver,
                 const DrawerLanguage().toSliver,

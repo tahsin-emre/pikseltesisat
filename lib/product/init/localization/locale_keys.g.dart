@@ -11,6 +11,9 @@ abstract class  LocaleKeys {
   static const drawer_reports = 'drawer.reports';
   static const drawer_prices = 'drawer.prices';
   static const drawer_logout = 'drawer.logout';
+  static const drawer_totalWorks = 'drawer.totalWorks';
+  static const drawer_customersCount = 'drawer.customersCount';
+  static const drawer_thisMonth = 'drawer.thisMonth';
   static const drawer = 'drawer';
   static const login_login = 'login.login';
   static const login_email = 'login.email';

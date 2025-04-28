@@ -7,7 +7,10 @@
         "works": "İşler",
         "reports": "Raporlar",
         "prices": "Fiyatlar",
-        "logout": "Çıkış"
+        "logout": "Çıkış",
+        "totalWorks": "Toplam İş",
+        "customersCount": "Müşteriler",
+        "thisMonth": "Bu Ay"
     },
     "login": {
         "login": "Giriş Yap",

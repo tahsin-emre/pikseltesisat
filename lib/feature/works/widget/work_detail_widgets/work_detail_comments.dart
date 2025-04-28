@@ -34,12 +34,13 @@ final class _CommentItem extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: Text(comment.comment ?? ''),
-      subtitle: Text('${comment.personalName} - $date'),
+      subtitle: Text('${comment.personalName} - ${date(context)}'),
     );
   }
 
-  String get date {
+  String date(BuildContext context) {
     if (comment.createdAt == null) return '';
-    return DateFormat('dd MMMM HH:mm').format(comment.createdAt!);
+    return DateFormat('dd MMMM HH:mm', context.locale.languageCode)
+        .format(comment.createdAt!);
   }
 }

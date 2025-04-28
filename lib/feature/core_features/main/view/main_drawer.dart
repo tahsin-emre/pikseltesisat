@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
 import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_state.dart';
+import 'package:pikseltesisat/feature/core_features/main/widgets/drawer_language.dart';
 import 'package:pikseltesisat/feature/core_features/main/widgets/drawer_profile.dart';
 import 'package:pikseltesisat/feature/core_features/main/widgets/drawer_widgets.dart';
 import 'package:pikseltesisat/product/init/di/locator.dart';
@@ -70,7 +71,9 @@ final class MainDrawer extends StatelessWidget {
                     icon: AppIcons.report,
                     onTap: () {},
                   ).toSliver,
+
                 const Divider().toSliver,
+                const DrawerLanguage().toSliver,
                 const DrawerLogOut().toSliver,
               ],
             ),

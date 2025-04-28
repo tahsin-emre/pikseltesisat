@@ -66,13 +66,14 @@ class _WorkTileState extends State<WorkTile> {
 
   String get workDate {
     if (widget.work.workDate == null) return '';
-    return DateFormat('dd MMMM').format(widget.work.workDate!);
+    return DateFormat('dd MMMM', context.locale.languageCode)
+        .format(widget.work.workDate!);
   }
 
   String get workHour {
     if (widget.work.workDate == null) return '';
-    return DateFormat('HH:mm').format(widget.work.workDate!);
-    // return DateFormat('dd MMMM y EEEE, HH:mm').format(widget.work.workDate!);
+    return DateFormat('HH:mm', context.locale.languageCode)
+        .format(widget.work.workDate!);
   }
 
   String get price {

@@ -1,0 +1,151 @@
+{
+    "appName": "Piksel Plumbing",
+    "drawer": {
+        "home": "Home",
+        "customers": "Customers",
+        "personals": "Personals",
+        "works": "Works",
+        "reports": "Reports",
+        "prices": "Prices",
+        "logout": "Logout"
+    },
+    "login": {
+        "login": "Login",
+        "email": "Email",
+        "password": "Password",
+        "forgotPassword": "Forgot Password",
+        "register": "Register",
+        "nameSurname": "Name Surname",
+        "waitingForConfirmation": "Your account is waiting for confirmation"
+    },
+    "validators": {
+        "required": "This field is required",
+        "email": "Enter a valid email address",
+        "password": "Password must be at least 6 characters long",
+        "fieldRequired": "This field is required",
+        "descriptionRequired": "Work detail is required",
+        "dateRequired": "Work date is required",
+        "personalRequired": "Personal selection is required",
+        "workTypeRequired": "Work type selection is required",
+        "serviceTypeRequired": "Service type selection is required",
+        "priceRequired": "Price information is required",
+        "doubleNumeric": "Enter a valid number"
+    },
+    "base": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "add": "Add",
+        "search": "Search",
+        "noData": "No data found",
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "pickLater": "Pick later",
+        "yes": "Yes",
+        "no": "No",
+        "welcome": "Welcome {}",
+        "confirm": "Confirm",
+        "otherValue": "Other",
+        "description": "Description",
+        "total": "Total",
+        "details": "Details"
+    },
+    "customer": {
+        "name": "Name",
+        "surname": "Surname",
+        "phone": "Phone",
+        "address": "Address",
+        "province": "Province",
+        "district": "District",
+        "newCustomer": "New Customer",
+        "editCustomer": "Edit Customer",
+        "deleteCustomer": "Delete Customer",
+        "customerDetail": "Customer Detail",
+        "customerList": "Customer List",
+        "customerAdded": "Customer added",
+        "customerPick": "Customer Pick"
+    },
+    "personal": {
+        "name": "Name",
+        "surname": "Surname",
+        "phone": "Phone",
+        "address": "Address",
+        "province": "Province",
+        "district": "District",
+        "newPersonal": "New Personal",
+        "editPersonal": "Edit Personal",
+        "deletePersonal": "Delete Personal",
+        "personalDetail": "Personal Detail",
+        "personalList": "Personal List",
+        "pickPersonal": "Personal Pick",
+        "personalAdded": "Personal added",
+        "personalNotChoosen": "Personal not chosen"
+    },
+    "work": {
+        "newWork": "New Work",
+        "editWork": "Edit Work",
+        "workList": "Work List",
+        "workDetail": "Work Detail",
+        "workAdded": "Work added",
+        "workDate": "Work Date",
+        "price": "Price",
+        "servicePrice": "Service Price",
+        "count": "Count",
+        "totalPrice": "Total Price",
+        "workCreated": "Work created",
+        "oldWorks": "Old Works",
+        "workLogs": "Work Logs",
+        "noWorksYet": "No Works Yet",
+        "completeWork": "Complete Work",
+        "priceOffer": "Price Offer",
+        "workCompleted": "Work Completed",
+        "priceOffered": "Price Offered",
+        "addLog": "Add Log",
+        "writeZeroCondition": "If the service price is not paid, write 0"
+    },
+    "workType": {
+        "workType": "Work Type",
+        "waterLeakage": "Water Leakage",
+        "unclogging": "Unclogging",
+        "repair": "Repair",
+        "washing": "Washing"
+    },
+    "serviceType": {
+        "serviceType": "Service Type",
+        "service": "Service",
+        "rework": "Rework",
+        "extra": "Extra"
+    },
+    "userType": {
+        "admin": "Admin",
+        "personal": "Personal",
+        "waiting": "Waiting",
+        "none": "User"
+    },
+    "workStatus": {
+        "pending": "Pending",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+    },
+    "workPriceOffer": {
+        "title": "Price Offer",
+        "description": "Enter the price you want to offer",
+        "price": "Price",
+        "priceOffered": "Price Offered",
+        "count": "Count"
+    },
+    "price": {
+        "newPrice": "New Price Item",
+        "editPrice": "Edit Price Item",
+        "deletePrice": "Delete Price Item",
+        "priceDetail": "Price Item Detail",
+        "priceList": "Price Item List",
+        "priceAdded": "Price Item Added",
+        "priceUpdated": "Price Item Updated",
+        "priceDeleted": "Price Item Deleted",
+        "name": "Name",
+        "recommendedPrice": "Recommended Price",
+        "description": "Description"
+    }
+}

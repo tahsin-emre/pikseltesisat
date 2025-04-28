@@ -16,7 +16,7 @@ final class LocalizationManager {
   }
 
   static const path = 'assets/localization';
-  static const fallbackLocale = Locale('tr');
-  static const supportedLocales = [Locale('tr')];
+  static const fallbackLocale = Locale('en');
+  static const supportedLocales = [Locale('tr'), Locale('en')];
   static const isOnlyLangCode = true;
 }

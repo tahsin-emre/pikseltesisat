@@ -4,7 +4,13 @@ A comprehensive Flutter application for managing plumbing and installation works
 
 ## 🏗️ Architecture Overview
 
-The project follows a feature-based architecture pattern with a clear separation of concerns. It's organized into two main directories:
+The project follows a feature-based architecture pattern with a clear separation of concerns. This architecture ensures:
+- Modular and scalable code structure
+- Easy maintenance and development
+- Feature independence
+- Testability
+
+It's organized into two main directories:
 
 ```
 lib/
@@ -34,8 +40,7 @@ feature_name/
 │   ├── state.dart
 │   └── cubit.dart
 ├── view/           # UI screens
-│   ├── view.dart
-│   └── view_model.dart
+│   └── view.dart
 ├── widget/         # UI components
 │   └── custom_widgets.dart
 └── mixin/          # Shared functionality
@@ -92,27 +97,33 @@ product/
 ```yaml
 dependencies:
   # State Management
-  flutter_bloc: ^8.1.6
+  flutter_bloc: ^8.1.6  # Provides state management using BLoC pattern
+                        # Enables centralized state management
+                        # Ensures clean separation between UI and business logic
   
   # Navigation
-  go_router: ^14.4.1
+  go_router: ^14.4.1   # Modern and type-safe routing solution
+                        # Deep linking support
+                        # Nested navigation structure
   
   # Dependency Injection
-  get_it: ^7.6.7
-  injectable: ^2.3.2
+  get_it: ^7.6.7       # Service locator pattern implementation
+  injectable: ^2.3.2    # Automatic DI code generation
+                        # Centralized dependency management
+                        # Mock injection for testability
   
   # Firebase
-  cloud_firestore: ^5.4.5
-  firebase_auth: ^5.3.2
-  firebase_storage: ^12.3.5
+  cloud_firestore: ^5.4.5  # Real-time database
+  firebase_auth: ^5.3.2    # User authentication
+  firebase_storage: ^12.3.5 # File storage
   
   # UI Components
-  flutter_spinkit: ^5.2.1
-  skeletonizer: ^1.0.0
-  flutter_advanced_drawer: ^1.3.7
+  flutter_spinkit: ^5.2.1  # Loading animations
+  skeletonizer: ^1.0.0     # Skeleton screen structure
+  flutter_advanced_drawer: ^1.3.7  # Advanced drawer menu
   
   # Localization
-  easy_localization: ^3.0.7
+  easy_localization: ^3.0.7  # Multi-language support
 ```
 
 ### Development Dependencies
@@ -128,149 +139,95 @@ dev_dependencies:
 ## 🔧 Key Components
 
 ### 1. Feature Structure
+Each feature module follows this structure:
+- **view/**: UI layer, screens and widgets
+- **widget/**: Reusable UI components
+- **mixin/**: Shared business logic
+- **alerts/**: Notification and alert management
 
-Each feature follows a consistent structure:
-
-```
-feature/
-├── view/           # UI screens
-├── widget/         # Feature-specific widgets
-├── mixin/          # Shared logic
-└── alerts/         # Notifications and alerts
-```
-
-Example of a feature implementation:
-
-```dart
-// lib/feature/works/view/work_list_view.dart
-final class WorkListView extends StatefulWidget {
-  const WorkListView({super.key});
-
-  @override
-  State<WorkListView> createState() => _WorkListViewState();
-}
-
-class _WorkListViewState extends State<WorkListView> with WorkListMixin {
-  @override
-  Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: dateNotifier,
-      builder: (_, date, __) {
-        return Column(
-          children: [
-            WorkListTimeSelector(
-              onDateChange: changeDate,
-              focusedDate: date ?? DateTime.now(),
-            ),
-            // ... other widgets
-          ],
-        );
-      },
-    );
-  }
-}
-```
-
-### 2. Dependency Injection
-
-The project uses `get_it` and `injectable` for dependency injection:
-
-```dart
-// lib/product/init/di/locator.dart
-final locator = GetIt.instance;
-
-@InjectableInit(
-  initializerName: 'init',
-  preferRelativeImports: true,
-  asExtension: true,
-  usesNullSafety: true,
-)
-Future<void> configureDependencies({String? environment}) async {
-  locator.init(environment: environment);
-}
-```
+### 2. Dependency Injection (DI)
+DI is used to manage application dependencies:
+- **Advantages**:
+  - Loose coupling
+  - Testability
+  - Code reusability
+  - Centralized configuration
+- **Use Cases**:
+  - Service injection
+  - Repository pattern
+  - ViewModel injection
 
 ### 3. Routing
-
-Navigation is handled using `go_router`:
-
-```dart
-// lib/product/init/router/app_router.dart
-final class AppRouter {
-  const AppRouter._();
-
-  static final rootNavigatorKey = GlobalKey<NavigatorState>();
-  static final mainShellKey = GlobalKey<NavigatorState>();
-
-  static GoRouter config = GoRouter(
-    navigatorKey: rootNavigatorKey,
-    initialLocation: SplashRoute.path,
-    routes: $appRoutes,
-  );
-}
-```
+Modern navigation management with Go Router:
+- **Features**:
+  - Type-safe routing
+  - Deep linking
+  - Nested navigation
+  - Route parameters
+- **Usage**:
+  - Path-based routing
+  - Named routes
+  - Route guards
 
 ### 4. Base Service Architecture
-
-Services extend from a base service class:
-
-```dart
-// lib/product/services/base_service.dart
-abstract class BaseService {
-  BaseService({
-    required this.db,
-    required this.auth,
-    required this.storage,
-  });
-
-  final FirebaseFirestore db;
-  final FirebaseAuth auth;
-  final FirebaseStorage storage;
-
-  // Common Firebase operations
-  late final userCollection = db.collection(FirestoreCollections.users.name);
-}
-```
+Base service structure:
+- **Purpose**:
+  - Prevent code duplication
+  - Standardize service behavior
+  - Centralize error handling
+- **Features**:
+  - Firebase integration
+  - Common CRUD operations
+  - Error management
 
 ## 🔐 Firebase Integration
-
-The application integrates with several Firebase services:
-
-- **Firestore**: For data storage and real-time updates
-- **Authentication**: For user management
-- **Storage**: For file storage
+Firebase services and their purposes:
+- **Firestore**:
+  - Real-time data synchronization
+  - Offline data support
+  - Secure data access
+- **Authentication**:
+  - User management
+  - Social media login
+  - Secure session management
+- **Storage**:
+  - File upload/download
+  - Media storage
+  - Secure file access
 
 ## 🌐 Localization
-
-The application supports multiple languages using `easy_localization`:
-
-```dart
-// lib/main.dart
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(LocalizationManager.app(const App()));
-}
-```
+Multi-language support:
+- **Features**:
+  - Dynamic language switching
+  - Fallback language support
+  - Format string support
+- **Usage**:
+  - String translations
+  - Date/time formats
+  - Currency formats
 
 ## 🎨 UI/UX
-
-The application follows Material Design principles and includes:
-
-- Custom themes
-- Loading skeletons
-- Advanced drawer navigation
-- Toast notifications
-- Custom form fields
+User interface components:
+- **Theme System**:
+  - Material Design
+  - Customizable colors
+  - Responsive design
+- **Components**:
+  - Loading skeletons
+  - Toast notifications
+  - Custom form fields
+  - Advanced drawer
 
 ## 🧪 Testing
-
-The project includes test directories for unit and widget testing:
-
-```
-test/
-├── unit/           # Unit tests
-└── widget/         # Widget tests
-```
+Testing strategy:
+- **Unit Tests**:
+  - Business logic tests
+  - Service tests
+  - Utility tests
+- **Widget Tests**:
+  - UI component tests
+  - Interaction tests
+  - State tests
 
 ## 🚀 Getting Started
 

@@ -9,7 +9,7 @@ class DrawerLanguage extends StatelessWidget {
     final isTurkish = context.locale == const Locale('tr');
     return SwitchListTile(
       title: const Text('Language'),
-      subtitle: Text(isTurkish ? 'Turkish' : 'İngilizce'),
+      subtitle: Text(isTurkish ? 'Türkçe' : 'English'),
       value: isTurkish,
       activeColor: Theme.of(context).primaryColor,
       inactiveTrackColor: Theme.of(context).colorScheme.surface,

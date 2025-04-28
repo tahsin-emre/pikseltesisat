@@ -16,7 +16,8 @@
         "forgotPassword": "Forgot Password",
         "register": "Register",
         "nameSurname": "Name Surname",
-        "waitingForConfirmation": "Your account is waiting for confirmation"
+        "waitingForConfirmation": "Your account is waiting for confirmation",
+        "welcome": "Welcome to Piksel Plumbing"
     },
     "validators": {
         "required": "This field is required",

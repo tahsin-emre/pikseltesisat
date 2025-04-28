@@ -16,7 +16,8 @@
         "forgotPassword": "Şifremi Unuttum",
         "register": "Kayıt Ol",
         "nameSurname": "Ad Soyad",
-        "waitingForConfirmation": "Hesabınız onay beklemektedir"
+        "waitingForConfirmation": "Hesabınız onay beklemektedir",
+        "welcome": "Piksel Tesisat'a Hoş Geldiniz"
     },
     "validators": {
         "required": "Bu alan zorunludur",

@@ -23,6 +23,68 @@ lib/
     └── utils/        # Utility functions and constants
 ```
 
+## 📁 Detailed Folder Structure
+
+### 1. Feature Modules (`lib/feature/`)
+Each feature module is organized as follows:
+
+```
+feature_name/
+├── cubit/          # State management
+│   ├── state.dart
+│   └── cubit.dart
+├── view/           # UI screens
+│   ├── view.dart
+│   └── view_model.dart
+├── widget/         # UI components
+│   └── custom_widgets.dart
+└── mixin/          # Shared functionality
+    └── feature_mixins.dart
+```
+
+#### 1.1 Feature Module Components
+- **cubit/**: Contains state management logic using BLoC pattern
+- **view/**: Contains UI screens and their view models
+- **widget/**: Contains reusable UI components specific to the feature
+- **mixin/**: Contains shared functionality and business logic
+
+### 2. Product Layer (`lib/product/`)
+The product layer contains shared components used across features:
+
+```
+product/
+├── models/         # Data models and entities
+├── services/       # Service implementations
+├── init/          # Application initialization
+└── utils/         # Helper functions and constants
+```
+
+#### 2.1 Product Layer Components
+- **models/**: Data models used throughout the application
+- **services/**: Service implementations (Firebase, API, etc.)
+- **init/**: Application initialization code (DI, routing, etc.)
+- **utils/**: Helper functions, constants, and utilities
+
+### 3. Best Practices and Guidelines
+
+#### 3.1 Feature Module Organization
+- Each feature should be self-contained
+- Minimize dependencies between features
+- Use product layer for shared functionality
+- Keep feature-specific code within the feature module
+
+#### 3.2 File Naming Conventions
+- Use snake_case for file names
+- Use descriptive and meaningful names
+- Group related files together
+- Follow consistent naming patterns
+
+#### 3.3 Code Organization
+- Single responsibility principle
+- Clear separation of concerns
+- Consistent file structure
+- Proper documentation
+
 ## 🛠️ Technical Stack
 
 ### Core Dependencies

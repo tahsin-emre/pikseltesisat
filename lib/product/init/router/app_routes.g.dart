@@ -21,6 +21,16 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
       factory: $MainShellRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
+          path: '/main/dashboard',
+          parentNavigatorKey: DashboardRoute.$parentNavigatorKey,
+          factory: _$DashboardRoute._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/main/search',
+          parentNavigatorKey: SearchRoute.$parentNavigatorKey,
+          factory: _$SearchRoute._fromState,
+        ),
+        GoRouteData.$route(
           path: '/main/customer-list',
           parentNavigatorKey: CustomerListRoute.$parentNavigatorKey,
           factory: _$CustomerListRoute._fromState,
@@ -76,6 +86,51 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
 extension $MainShellRouteExtension on MainShellRoute {
   static MainShellRoute _fromState(GoRouterState state) =>
       const MainShellRoute();
+}
+
+mixin _$DashboardRoute on GoRouteData {
+  static DashboardRoute _fromState(GoRouterState state) =>
+      const DashboardRoute();
+
+  @override
+  String get location => GoRouteData.$location(
+        '/main/dashboard',
+      );
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$SearchRoute on GoRouteData {
+  static SearchRoute _fromState(GoRouterState state) => const SearchRoute();
+
+  @override
+  String get location => GoRouteData.$location(
+        '/main/search',
+      );
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
 }
 
 mixin _$CustomerListRoute on GoRouteData {
@@ -431,56 +486,11 @@ RouteBase get $dashboardRoute => GoRouteData.$route(
       factory: _$DashboardRoute._fromState,
     );
 
-mixin _$DashboardRoute on GoRouteData {
-  static DashboardRoute _fromState(GoRouterState state) =>
-      const DashboardRoute();
-
-  @override
-  String get location => GoRouteData.$location(
-        '/main/dashboard',
-      );
-
-  @override
-  void go(BuildContext context) => context.go(location);
-
-  @override
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  @override
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  @override
-  void replace(BuildContext context) => context.replace(location);
-}
-
 RouteBase get $searchRoute => GoRouteData.$route(
       path: '/main/search',
       parentNavigatorKey: SearchRoute.$parentNavigatorKey,
       factory: _$SearchRoute._fromState,
     );
-
-mixin _$SearchRoute on GoRouteData {
-  static SearchRoute _fromState(GoRouterState state) => const SearchRoute();
-
-  @override
-  String get location => GoRouteData.$location(
-        '/main/search',
-      );
-
-  @override
-  void go(BuildContext context) => context.go(location);
-
-  @override
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  @override
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  @override
-  void replace(BuildContext context) => context.replace(location);
-}
 
 RouteBase get $waitingRoute => GoRouteData.$route(
       path: '/waiting',

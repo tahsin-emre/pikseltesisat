@@ -31,9 +31,9 @@ part 'routes/price_routes.dart';
 
 @TypedShellRoute<MainShellRoute>(
   routes: [
-    // //Core Routes
-    // TypedGoRoute<DashboardRoute>(path: DashboardRoute.path),
-    // TypedGoRoute<SearchRoute>(path: SearchRoute.path),
+    //Core Routes
+    TypedGoRoute<DashboardRoute>(path: DashboardRoute.path),
+    TypedGoRoute<SearchRoute>(path: SearchRoute.path),
     //Customer Routes
     TypedGoRoute<CustomerListRoute>(path: CustomerListRoute.path),
     TypedGoRoute<CustomerCreateRoute>(path: CustomerCreateRoute.path),

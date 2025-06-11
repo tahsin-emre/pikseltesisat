@@ -46,7 +46,11 @@ final class DataProvinceDistrict {
     District(id: 1739, provinceId: 34, name: 'ZEYTİNBURNU'),
   ];
 
-  static const provinces = [
-    Province(id: 34, name: 'İstanbul', districts: districts),
+  static final List<Province> provinces = [
+    Province(
+        id: 34,
+        name: 'İstanbul',
+        districts:
+            districts.where((element) => element.provinceId == 34).toList()),
   ];
 }

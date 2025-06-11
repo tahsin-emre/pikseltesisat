@@ -6,7 +6,7 @@ import 'package:pikseltesisat/product/init/methods/toast.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 
 mixin LoginMixin on State<LoginView> {
-  final _authCubit = locator<AuthCubit>();
+  final AuthCubit _authCubit = locator<AuthCubit>();
   final formKey = GlobalKey<FormState>();
   final loadingNotifier = ValueNotifier<bool>(false);
   final emailController = TextEditingController(text: 'tahsinusta@gmail.com');

@@ -6,7 +6,7 @@ import 'package:pikseltesisat/product/models/personal/personal.dart';
 import 'package:pikseltesisat/product/services/personal_service.dart';
 
 mixin PersonalListMixin on State<PersonalListView> {
-  final _personalService = locator<PersonalService>();
+  final PersonalService _personalService = locator<PersonalService>();
 
   Query<Personal> get personalQuery => _personalService.personalCollection;
 }

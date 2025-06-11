@@ -11,6 +11,8 @@ List<RouteBase> get $appRoutes => [
       $loginRoute,
       $registerRoute,
       $splashRoute,
+      $dashboardRoute,
+      $searchRoute,
       $waitingRoute,
     ];
 
@@ -19,64 +21,54 @@ RouteBase get $mainShellRoute => ShellRouteData.$route(
       factory: $MainShellRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: '/main/dashboard',
-          parentNavigatorKey: DashboardRoute.$parentNavigatorKey,
-          factory: $DashboardRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: '/main/search',
-          parentNavigatorKey: SearchRoute.$parentNavigatorKey,
-          factory: $SearchRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
           path: '/main/customer-list',
           parentNavigatorKey: CustomerListRoute.$parentNavigatorKey,
-          factory: $CustomerListRouteExtension._fromState,
+          factory: _$CustomerListRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/customer-create',
           parentNavigatorKey: CustomerCreateRoute.$parentNavigatorKey,
-          factory: $CustomerCreateRouteExtension._fromState,
+          factory: _$CustomerCreateRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/customer-details',
           parentNavigatorKey: CustomerDetailRoute.$parentNavigatorKey,
-          factory: $CustomerDetailRouteExtension._fromState,
+          factory: _$CustomerDetailRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/personal-list',
           parentNavigatorKey: PersonalListRoute.$parentNavigatorKey,
-          factory: $PersonalListRouteExtension._fromState,
+          factory: _$PersonalListRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/personal-create',
           parentNavigatorKey: PersonalCreateRoute.$parentNavigatorKey,
-          factory: $PersonalCreateRouteExtension._fromState,
+          factory: _$PersonalCreateRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/personal-detail',
           parentNavigatorKey: PersonalDetailRoute.$parentNavigatorKey,
-          factory: $PersonalDetailRouteExtension._fromState,
+          factory: _$PersonalDetailRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/work-list',
           parentNavigatorKey: WorkListRoute.$parentNavigatorKey,
-          factory: $WorkListRouteExtension._fromState,
+          factory: _$WorkListRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/work-create',
           parentNavigatorKey: WorkCreateRoute.$parentNavigatorKey,
-          factory: $WorkCreateRouteExtension._fromState,
+          factory: _$WorkCreateRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/work-detail',
           parentNavigatorKey: WorkDetailRoute.$parentNavigatorKey,
-          factory: $WorkDetailRouteExtension._fromState,
+          factory: _$WorkDetailRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/main/price-list',
           parentNavigatorKey: PriceListRoute.$parentNavigatorKey,
-          factory: $PriceListRouteExtension._fromState,
+          factory: _$PriceListRoute._fromState,
         ),
       ],
     );
@@ -86,330 +78,434 @@ extension $MainShellRouteExtension on MainShellRoute {
       const MainShellRoute();
 }
 
-extension $DashboardRouteExtension on DashboardRoute {
-  static DashboardRoute _fromState(GoRouterState state) =>
-      const DashboardRoute();
-
-  String get location => GoRouteData.$location(
-        '/main/dashboard',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $SearchRouteExtension on SearchRoute {
-  static SearchRoute _fromState(GoRouterState state) => const SearchRoute();
-
-  String get location => GoRouteData.$location(
-        '/main/search',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $CustomerListRouteExtension on CustomerListRoute {
+mixin _$CustomerListRoute on GoRouteData {
   static CustomerListRoute _fromState(GoRouterState state) =>
       const CustomerListRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/main/customer-list',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $CustomerCreateRouteExtension on CustomerCreateRoute {
+mixin _$CustomerCreateRoute on GoRouteData {
   static CustomerCreateRoute _fromState(GoRouterState state) =>
       CustomerCreateRoute(
         state.extra as Customer?,
       );
 
+  CustomerCreateRoute get _self => this as CustomerCreateRoute;
+
+  @override
   String get location => GoRouteData.$location(
         '/main/customer-create',
       );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
-extension $CustomerDetailRouteExtension on CustomerDetailRoute {
+mixin _$CustomerDetailRoute on GoRouteData {
   static CustomerDetailRoute _fromState(GoRouterState state) =>
       CustomerDetailRoute(
         state.extra as Customer,
       );
 
+  CustomerDetailRoute get _self => this as CustomerDetailRoute;
+
+  @override
   String get location => GoRouteData.$location(
         '/main/customer-details',
       );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
-extension $PersonalListRouteExtension on PersonalListRoute {
+mixin _$PersonalListRoute on GoRouteData {
   static PersonalListRoute _fromState(GoRouterState state) =>
       const PersonalListRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/main/personal-list',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $PersonalCreateRouteExtension on PersonalCreateRoute {
+mixin _$PersonalCreateRoute on GoRouteData {
   static PersonalCreateRoute _fromState(GoRouterState state) =>
       PersonalCreateRoute(
         state.extra as Personal?,
       );
 
+  PersonalCreateRoute get _self => this as PersonalCreateRoute;
+
+  @override
   String get location => GoRouteData.$location(
         '/main/personal-create',
       );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
-extension $PersonalDetailRouteExtension on PersonalDetailRoute {
+mixin _$PersonalDetailRoute on GoRouteData {
   static PersonalDetailRoute _fromState(GoRouterState state) =>
       PersonalDetailRoute(
         state.extra as Personal,
       );
 
+  PersonalDetailRoute get _self => this as PersonalDetailRoute;
+
+  @override
   String get location => GoRouteData.$location(
         '/main/personal-detail',
       );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
-extension $WorkListRouteExtension on WorkListRoute {
+mixin _$WorkListRoute on GoRouteData {
   static WorkListRoute _fromState(GoRouterState state) => const WorkListRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/main/work-list',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $WorkCreateRouteExtension on WorkCreateRoute {
+mixin _$WorkCreateRoute on GoRouteData {
   static WorkCreateRoute _fromState(GoRouterState state) => WorkCreateRoute(
         state.extra as Work?,
       );
 
+  WorkCreateRoute get _self => this as WorkCreateRoute;
+
+  @override
   String get location => GoRouteData.$location(
         '/main/work-create',
       );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
-extension $WorkDetailRouteExtension on WorkDetailRoute {
+mixin _$WorkDetailRoute on GoRouteData {
   static WorkDetailRoute _fromState(GoRouterState state) => WorkDetailRoute(
         state.extra as Work,
       );
 
+  WorkDetailRoute get _self => this as WorkDetailRoute;
+
+  @override
   String get location => GoRouteData.$location(
         '/main/work-detail',
       );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
-extension $PriceListRouteExtension on PriceListRoute {
+mixin _$PriceListRoute on GoRouteData {
   static PriceListRoute _fromState(GoRouterState state) =>
       const PriceListRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/main/price-list',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $loginRoute => GoRouteData.$route(
       path: '/login',
       parentNavigatorKey: LoginRoute.$parentNavigatorKey,
-      factory: $LoginRouteExtension._fromState,
+      factory: _$LoginRoute._fromState,
     );
 
-extension $LoginRouteExtension on LoginRoute {
+mixin _$LoginRoute on GoRouteData {
   static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/login',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $registerRoute => GoRouteData.$route(
       path: '/register',
       parentNavigatorKey: RegisterRoute.$parentNavigatorKey,
-      factory: $RegisterRouteExtension._fromState,
+      factory: _$RegisterRoute._fromState,
     );
 
-extension $RegisterRouteExtension on RegisterRoute {
+mixin _$RegisterRoute on GoRouteData {
   static RegisterRoute _fromState(GoRouterState state) => const RegisterRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/register',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $splashRoute => GoRouteData.$route(
       path: '/',
       parentNavigatorKey: SplashRoute.$parentNavigatorKey,
-      factory: $SplashRouteExtension._fromState,
+      factory: _$SplashRoute._fromState,
     );
 
-extension $SplashRouteExtension on SplashRoute {
+mixin _$SplashRoute on GoRouteData {
   static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $dashboardRoute => GoRouteData.$route(
+      path: '/main/dashboard',
+      parentNavigatorKey: DashboardRoute.$parentNavigatorKey,
+      factory: _$DashboardRoute._fromState,
+    );
+
+mixin _$DashboardRoute on GoRouteData {
+  static DashboardRoute _fromState(GoRouterState state) =>
+      const DashboardRoute();
+
+  @override
+  String get location => GoRouteData.$location(
+        '/main/dashboard',
+      );
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $searchRoute => GoRouteData.$route(
+      path: '/main/search',
+      parentNavigatorKey: SearchRoute.$parentNavigatorKey,
+      factory: _$SearchRoute._fromState,
+    );
+
+mixin _$SearchRoute on GoRouteData {
+  static SearchRoute _fromState(GoRouterState state) => const SearchRoute();
+
+  @override
+  String get location => GoRouteData.$location(
+        '/main/search',
+      );
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $waitingRoute => GoRouteData.$route(
       path: '/waiting',
       parentNavigatorKey: WaitingRoute.$parentNavigatorKey,
-      factory: $WaitingRouteExtension._fromState,
+      factory: _$WaitingRoute._fromState,
     );
 
-extension $WaitingRouteExtension on WaitingRoute {
+mixin _$WaitingRoute on GoRouteData {
   static WaitingRoute _fromState(GoRouterState state) => const WaitingRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/waiting',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }

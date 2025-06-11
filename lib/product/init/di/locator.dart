@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:pikseltesisat/product/init/di/locator.config.dart';
 
 /// Global service locator instance
-final locator = GetIt.instance;
+final GetIt locator = GetIt.instance;
 
 /// Configures the dependency injection container
 @InjectableInit(

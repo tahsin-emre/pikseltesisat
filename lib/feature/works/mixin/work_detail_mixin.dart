@@ -20,9 +20,9 @@ import 'package:pikseltesisat/product/services/personal_service.dart';
 import 'package:pikseltesisat/product/services/work_service.dart';
 
 mixin WorkDetailMixin on State<WorkDetailView> {
-  late final work = widget.work;
+  late final Work work = widget.work;
   final loadingNotifier = ValueNotifier<bool>(false);
-  final _workService = locator<WorkService>();
+  final WorkService _workService = locator<WorkService>();
   final ValueNotifier<Customer?> customerNotifier = ValueNotifier(null);
   final ValueNotifier<Personal?> personalNotifier = ValueNotifier(null);
 

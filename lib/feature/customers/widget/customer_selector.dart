@@ -16,7 +16,7 @@ final class CustomerSelector extends StatefulWidget {
 
 class _CustomerSelectorState extends State<CustomerSelector> {
   final loadingNotifier = ValueNotifier<bool>(false);
-  final _customerService = locator<CustomerService>();
+  final CustomerService _customerService = locator<CustomerService>();
   final List<Customer?> _customers = [];
   @override
   Widget build(BuildContext context) {

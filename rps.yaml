@@ -1,6 +1,6 @@
 scripts:
   deploy_web: flutter build web --release && firebase deploy --only hosting
   pub_reload: flutter clean && flutter pub get
-  build_runner: flutter pub run build_runner build --delete-conflicting-outputs
+  build_runner: dart run build_runner build --delete-conflicting-outputs
   lang: dart run easy_localization:generate -O lib/product/init/localization -f keys -o locale_keys.g.dart --source-dir assets/localization
 

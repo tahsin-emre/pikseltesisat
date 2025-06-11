@@ -9,9 +9,9 @@ import 'package:pikseltesisat/product/services/work_service.dart';
 import 'package:pikseltesisat/product/utils/extensions/my_user_ext.dart';
 
 mixin WorkListMixin on State<WorkListView> {
-  final _workService = locator<WorkService>();
-  final _authCubit = locator<AuthCubit>();
-  final dateNotifier = ValueNotifier<DateTime?>(null);
+  final WorkService _workService = locator<WorkService>();
+  final AuthCubit _authCubit = locator<AuthCubit>();
+  final ValueNotifier<DateTime?> dateNotifier = ValueNotifier(null);
 
   Query<Work>? workQuery;
 
@@ -25,14 +25,25 @@ mixin WorkListMixin on State<WorkListView> {
     if (dateNotifier.value == null) return;
     final startDate = dateNotifier.value;
     final endDate = startDate!.add(const Duration(days: 1));
-    workQuery = _workService.workCollection
-        .where(FirestoreFields.workDate.name, isGreaterThanOrEqualTo: startDate)
-        .where(FirestoreFields.workDate.name, isLessThan: endDate);
+    if (_authCubit.state.user?.isAdmin ?? false) {
+      workQuery = _workService.workCollection
+          .where(
+            FirestoreFields.workDate.name,
+            isGreaterThanOrEqualTo: startDate,
+          )
+          .where(FirestoreFields.workDate.name, isLessThan: endDate);
+    }
     if (_authCubit.state.user?.isPersonal ?? false) {
-      workQuery = workQuery?.where(
-        FirestoreFields.personalId.name,
-        isEqualTo: _authCubit.state.user?.id,
-      );
+      workQuery = _workService.workCollection
+          .where(
+            FirestoreFields.workDate.name,
+            isGreaterThanOrEqualTo: startDate,
+          )
+          .where(FirestoreFields.workDate.name, isLessThan: endDate)
+          .where(
+            FirestoreFields.personalId.name,
+            isEqualTo: _authCubit.state.user?.id,
+          );
     }
     setState(() {});
   }

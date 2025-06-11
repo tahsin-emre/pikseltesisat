@@ -6,7 +6,7 @@ import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/models/price/price.dart';
 
 mixin PriceListMixin on State<PriceListView> {
-  final priceCubit = locator<PriceCubit>();
+  final PriceCubit priceCubit = locator<PriceCubit>();
   Future<void> onTap() async {
     final newPrice = await showDialog<Price?>(
       context: context,

@@ -12,7 +12,7 @@ import 'package:pikseltesisat/product/models/customer/district.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
 
 mixin CustomerCreateMixin on State<CustomerCreateView> {
-  final _customerService = locator<CustomerService>();
+  final CustomerService _customerService = locator<CustomerService>();
   final formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final addressController = TextEditingController();

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pikseltesisat/feature/core_features/auth/cubit/auth_cubit.dart';
@@ -17,10 +18,11 @@ import 'package:pikseltesisat/product/utils/enums/work_type.dart';
 import 'package:pikseltesisat/product/utils/validators/form_validators.dart';
 
 mixin WorkCreateMixin on State<WorkCreateView> {
-  final _authCubit = locator<AuthCubit>();
-  final _workService = locator<WorkService>();
+  final AuthCubit _authCubit = locator<AuthCubit>();
+  final WorkService _workService = locator<WorkService>();
   final formKey = GlobalKey<FormState>();
-  late final workCollection = _workService.workCollection;
+  late final CollectionReference<Work> workCollection =
+      _workService.workCollection;
 
   final descriptonController = TextEditingController();
   final servicePriceController = TextEditingController();

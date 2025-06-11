@@ -8,7 +8,7 @@ import 'package:pikseltesisat/product/models/my_user/my_user.dart';
 import 'package:pikseltesisat/product/services/personal_service.dart';
 
 mixin PersonalCreateMixin on State<PersonalCreateView> {
-  final personalService = locator<PersonalService>();
+  final PersonalService personalService = locator<PersonalService>();
 
   Future<void> confirmPersonal(MyUser user) async {
     final result = await personalService.confirmPersonal(user);

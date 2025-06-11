@@ -7,7 +7,7 @@ import 'package:pikseltesisat/product/services/base_service.dart';
 import 'package:pikseltesisat/product/services/customer_service.dart';
 
 mixin CustomerListMixin on State<CustomerListView> {
-  final _customerService = locator<CustomerService>();
+  final CustomerService _customerService = locator<CustomerService>();
 
   Query<Customer> get customerStream => _customerService.customerCollection
       .orderBy(FirestoreFields.createdAt.name, descending: true)

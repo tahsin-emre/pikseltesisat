@@ -6,7 +6,7 @@ import 'package:pikseltesisat/product/init/di/locator.dart';
 import 'package:pikseltesisat/product/models/work/work_cart_item.dart';
 
 mixin PriceOfferCreateMixin on State<PriceOfferCreateView> {
-  final priceCubit = locator<PriceCubit>();
+  final PriceCubit priceCubit = locator<PriceCubit>();
 
   final workCartNotifier = ValueNotifier<List<WorkCartItem>>([]);
 

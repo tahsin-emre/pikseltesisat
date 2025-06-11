@@ -8,8 +8,8 @@ import 'package:pikseltesisat/product/services/customer_service.dart';
 import 'package:pikseltesisat/product/utils/extensions/string_ext.dart';
 
 mixin SearchListMixin on State<SearchListView> {
-  final searchController = TextEditingController();
-  final _customerService = locator<CustomerService>();
+  final TextEditingController searchController = TextEditingController();
+  final CustomerService _customerService = locator<CustomerService>();
 
   Query<Customer>? query;
 

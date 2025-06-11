@@ -10,7 +10,7 @@ final class AsyncButton extends StatefulWidget {
 }
 
 class _AsyncButtonState extends State<AsyncButton> {
-  final loadingNotifier = ValueNotifier(false);
+  final ValueNotifier<bool> loadingNotifier = ValueNotifier(false);
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(

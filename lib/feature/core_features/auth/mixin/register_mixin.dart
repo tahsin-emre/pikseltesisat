@@ -6,7 +6,7 @@ import 'package:pikseltesisat/product/init/methods/toast.dart';
 import 'package:pikseltesisat/product/init/router/app_routes.dart';
 
 mixin RegisterMixin on State<RegisterView> {
-  final _authCubit = locator<AuthCubit>();
+  final AuthCubit _authCubit = locator<AuthCubit>();
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final nameController = TextEditingController();

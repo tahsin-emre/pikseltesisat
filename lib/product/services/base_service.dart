@@ -26,7 +26,7 @@ abstract class BaseService {
   final FirebaseStorage storage;
 
   /// User collection reference
-  late final userCollection = db
+  late final CollectionReference<MyUser> userCollection = db
       .collection(FirestoreCollections.users.name)
       .withConverter(
         fromFirestore: (snapshot, _) =>
@@ -35,7 +35,7 @@ abstract class BaseService {
       );
 
   /// Personal collection reference
-  late final personalCollection = db
+  late final CollectionReference<Personal> personalCollection = db
       .collection(FirestoreCollections.personals.name)
       .withConverter(
         fromFirestore: (snapshot, _) =>
@@ -44,7 +44,7 @@ abstract class BaseService {
       );
 
   /// Customer collection reference
-  late final customerCollection = db
+  late final CollectionReference<Customer> customerCollection = db
       .collection(FirestoreCollections.customers.name)
       .withConverter(
         fromFirestore: (snapshot, _) =>
@@ -53,7 +53,7 @@ abstract class BaseService {
       );
 
   /// Work collection reference
-  late final workCollection =
+  late final CollectionReference<Work> workCollection =
       db.collection(FirestoreCollections.works.name).withConverter(
             fromFirestore: (snapshot, _) =>
                 Work.fromJson(snapshot.data() ?? {}).copyWith(id: snapshot.id),

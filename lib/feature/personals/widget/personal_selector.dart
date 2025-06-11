@@ -21,7 +21,7 @@ final class PersonalSelector extends StatefulWidget {
 
 class _PersonalSelectorState extends State<PersonalSelector> {
   final loadingNotifier = ValueNotifier<bool>(false);
-  final _personalService = locator<PersonalService>();
+  final PersonalService _personalService = locator<PersonalService>();
   final List<Personal?> _personals = [];
 
   @override

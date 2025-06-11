@@ -31,9 +31,9 @@ part 'routes/price_routes.dart';
 
 @TypedShellRoute<MainShellRoute>(
   routes: [
-    //Core Routes
-    TypedGoRoute<DashboardRoute>(path: DashboardRoute.path),
-    TypedGoRoute<SearchRoute>(path: SearchRoute.path),
+    // //Core Routes
+    // TypedGoRoute<DashboardRoute>(path: DashboardRoute.path),
+    // TypedGoRoute<SearchRoute>(path: SearchRoute.path),
     //Customer Routes
     TypedGoRoute<CustomerListRoute>(path: CustomerListRoute.path),
     TypedGoRoute<CustomerCreateRoute>(path: CustomerCreateRoute.path),
@@ -55,7 +55,7 @@ part 'routes/price_routes.dart';
 )
 final class MainShellRoute extends ShellRouteData {
   const MainShellRoute();
-  static final $navigatorKey = AppRouter.mainShellKey;
+  static final GlobalKey<NavigatorState> $navigatorKey = AppRouter.mainShellKey;
   @override
   Widget builder(BuildContext context, GoRouterState state, Widget navigator) {
     return MainView(navigator);

@@ -1,10 +1,11 @@
 part of '../app_routes.dart';
 
 @TypedGoRoute<LoginRoute>(path: LoginRoute.path)
-final class LoginRoute extends GoRouteData {
+final class LoginRoute extends GoRouteData with _$LoginRoute {
   const LoginRoute();
   static const path = '/login';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static final GlobalKey<NavigatorState> $parentNavigatorKey =
+      AppRouter.rootNavigatorKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const LoginView());
@@ -12,10 +13,11 @@ final class LoginRoute extends GoRouteData {
 }
 
 @TypedGoRoute<RegisterRoute>(path: RegisterRoute.path)
-final class RegisterRoute extends GoRouteData {
+final class RegisterRoute extends GoRouteData with _$RegisterRoute {
   const RegisterRoute();
   static const path = '/register';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static final GlobalKey<NavigatorState> $parentNavigatorKey =
+      AppRouter.rootNavigatorKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const RegisterView());
@@ -23,30 +25,35 @@ final class RegisterRoute extends GoRouteData {
 }
 
 @TypedGoRoute<SplashRoute>(path: SplashRoute.path)
-final class SplashRoute extends GoRouteData {
+final class SplashRoute extends GoRouteData with _$SplashRoute {
   const SplashRoute();
   static const path = '/';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static final GlobalKey<NavigatorState> $parentNavigatorKey =
+      AppRouter.rootNavigatorKey;
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const SplashView();
   }
 }
 
-final class DashboardRoute extends GoRouteData {
+@TypedGoRoute<DashboardRoute>(path: DashboardRoute.path)
+final class DashboardRoute extends GoRouteData with _$DashboardRoute {
   const DashboardRoute();
   static const String path = '/main/dashboard';
-  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  static final GlobalKey<NavigatorState> $parentNavigatorKey =
+      AppRouter.mainShellKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const DashboardView());
   }
 }
 
-final class SearchRoute extends GoRouteData {
+@TypedGoRoute<SearchRoute>(path: SearchRoute.path)
+final class SearchRoute extends GoRouteData with _$SearchRoute {
   const SearchRoute();
   static const String path = '/main/search';
-  static final $parentNavigatorKey = AppRouter.mainShellKey;
+  static final GlobalKey<NavigatorState> $parentNavigatorKey =
+      AppRouter.mainShellKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const SearchListView());
@@ -54,10 +61,11 @@ final class SearchRoute extends GoRouteData {
 }
 
 @TypedGoRoute<WaitingRoute>(path: WaitingRoute.path)
-final class WaitingRoute extends GoRouteData {
+final class WaitingRoute extends GoRouteData with _$WaitingRoute {
   const WaitingRoute();
   static const path = '/waiting';
-  static final $parentNavigatorKey = AppRouter.rootNavigatorKey;
+  static final GlobalKey<NavigatorState> $parentNavigatorKey =
+      AppRouter.rootNavigatorKey;
   @override
   AppPage buildPage(BuildContext context, GoRouterState state) {
     return AppPage(child: const WaitingView());

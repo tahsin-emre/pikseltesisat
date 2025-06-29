@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -26,7 +27,9 @@ class SplashCubit extends Cubit<SplashState> {
 
         // Initialize localization
         await EasyLocalization.ensureInitialized();
-        await dotenv.load(fileName: 'assets/.env');
+        if (!kIsWeb) {
+          await dotenv.load(fileName: 'assets/.env');
+        }
         await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
         );
